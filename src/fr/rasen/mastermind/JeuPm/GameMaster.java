@@ -6,6 +6,7 @@ public class GameMaster {
 
 	private Entite e;
 	private String combinaison = "";
+	private Scanner sc = new Scanner(System.in); 
 
 
 	/**
@@ -25,7 +26,7 @@ public class GameMaster {
 	 */
 	public String evalProp(String str) { //str doit bien être une série de chiffre et uniquement de chiffre 
 		String reponse = "";
-		if (e.equals("ordinateur")) { //évaluation de la proposition par l'ordinateur
+		if (e.toString().equals("ordinateur")) { //évaluation de la proposition par l'ordinateur
 			for (int i = 0; i < combinaison.length(); i++) {
 				int j = str.charAt(i);
 				int k = combinaison.charAt(i);
@@ -38,7 +39,6 @@ public class GameMaster {
 			}
 		} else { //évaluation de la proposition par l'humain
 			System.out.println("Veuillez entrer la série de + - et = correspondant à la proposition soumise");
-			Scanner sc = new Scanner(System.in); 
 			reponse = sc.nextLine(); // gestion d'erreur à faire
 		}
 		return reponse;
@@ -57,7 +57,6 @@ public class GameMaster {
 			}
 		} else {
 			System.out.println("Veuillez entrer une combinaison à " + nbChiffre ); //Combinaison donné par l'utilisateur Humain
-			Scanner sc = new Scanner(System.in);
 			combinaison = sc.nextLine(); //Gestion d'erreur à faire
 		}
 	}
