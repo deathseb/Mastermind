@@ -7,6 +7,10 @@ public class Plateau {
 	private int nbTours = 10;
 	private int nbChiffre = 4;
 
+	/**
+	 * Class gérant toute la partie permettant de faire fonctionner les différents modes de jeu
+	 * @param partie
+	 */
 	public Plateau(String partie) {
 		if (partie.equals("chall")) {
 			gm = new GameMaster(Entite.ORDI, nbChiffre);
@@ -19,6 +23,10 @@ public class Plateau {
 		}
 	}
 	
+	
+	/**
+	 * méthode correspondant au mode de jeu challengeur
+	 */
 	public void challenger() { //lance le mode challenger
 		System.out.println(gm.getCombinaison());
 	}
