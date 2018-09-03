@@ -36,7 +36,7 @@ public class Joueur {
 					prop = prop + "5";
 			} else {
 				for (int i =0; i < nbChiffre; i++) {
-					int r = derRep.charAt(i);
+					char r = derRep.charAt(i);
 					int p = derProp.charAt(i);
 					if(p == '5') { //On vient tester toutes les combinaisons possibles. Trouve la bonne reponse en 4 tours 
 						if (r =='=') {
@@ -106,4 +106,11 @@ public class Joueur {
 		derProp = prop;
 		return prop;
 	}
+
+
+	public void setDerRep(String derRep) {
+		this.derRep = derRep;
+	}
+	
+	
 }

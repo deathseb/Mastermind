@@ -7,7 +7,7 @@ public class MastermindMain {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Plateau p;
-		System.out.println("1 pour le mode challenger\n2 pour le mode duel");
+		System.out.println("1 pour le mode challenger\n2 pour le mode défenseur\n3 pour le mode duel");
 		Scanner sc = new Scanner(System.in);
 		int i = sc.nextInt();
 		switch (i) {
@@ -16,6 +16,9 @@ public class MastermindMain {
 			break;
 		case 2:
 			p = new Plateau("def");
+			break;
+		case 3:
+			p = new Plateau("duel");
 			break;
 		}
 	}
