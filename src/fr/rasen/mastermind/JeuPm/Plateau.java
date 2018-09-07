@@ -13,23 +13,28 @@ public class Plateau {
 	 * Class gérant toute la partie permettant de faire fonctionner les différents modes de jeu
 	 * @param partie
 	 */
-	public Plateau(String partie) {
-		for (int i=0; i<nbChiffre; i++)
+	public Plateau(String partie, Propriete p) {
+		for (int i=0; i<nbChiffre; i++) {
 			egalFinal = egalFinal + "=";
-		if (partie.equals("chall")) { //Partie en mode challenger
+		}
+		nbTours = p.getNbTours();
+		nbChiffre = p.getNbChiffre();
+		switch (partie) {
+		case "chall": //Mode challenger
 			gm = new GameMaster(Entite.ORDI, nbChiffre);
 			j = new Joueur(Entite.HUMAIN, nbChiffre);
 			while (nbTours != 0 && !victoire) {
 				String str = challenger(gm, j);
 				if(str.equals(egalFinal))
 					victoire = true;
+				nbTours--;
 			}
 			if ( victoire)
 				System.out.println("Bravo! Vous avez trouvez la combinaison");
 			else 
 				System.out.println("Dommage, vous n'avez pas réussi à trouver la combinaison qui était " + gm.getCombinaison());
-
-		} else if (partie.equals("def")) { //Partie en mode défenseur
+			
+		case "def":
 			gm = new GameMaster(Entite.HUMAIN, nbChiffre);
 			j = new Joueur(Entite.ORDI, nbChiffre);
 			while (nbTours != 0 && !victoire) {
@@ -41,27 +46,6 @@ public class Plateau {
 				System.out.println("Dommage, l'ordinateur à trouvé la combinaison");
 			else 
 				System.out.println("Bravo, vous avez gagné!");
-		} else { //Partie en mode duel
-			gm = new GameMaster(Entite.HUMAIN,nbChiffre);
-			j = new Joueur(Entite.ORDI, nbChiffre);
-			
-			GameMaster gmDef = new GameMaster(Entite.ORDI, nbChiffre);
-			Joueur jDef = new Joueur(Entite.HUMAIN, nbChiffre);
-			boolean victoireDef = false;
-			while(nbTours != 0 && !victoire && !victoireDef) {
-				String str = challenger(gm,j); //On commence par la partie challenger
-				if(str.equals(egalFinal))
-					victoire = true;
-				str = defenseur(gmDef, jDef); // On poursuit avec la partie défenseur
-				if(str.equals(egalFinal))
-					victoireDef = true;
-			}
-			if(victoire = true)
-				System.out.println("Bravo, vous avez trouvé avant l'ordinateur");
-			else if(victoireDef)
-				System.out.println("Dommage, l'ordinateur a trouvé avant vous");
-			else
-				System.out.println("Match nul, aucun n'a trouvé");
 		}
 	}
 

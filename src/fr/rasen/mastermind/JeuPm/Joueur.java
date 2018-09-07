@@ -38,7 +38,7 @@ public class Joueur {
 				for (int i =0; i < nbChiffre; i++) {
 					char r = derRep.charAt(i);
 					int p = derProp.charAt(i);
-					if(p == '5') { //On vient tester toutes les combinaisons possibles. Trouve la bonne reponse en 4 tours 
+					if(p == '5') { //On vient tester toutes les combinaisons possibles. Trouve la bonne reponse en 4 tours. Faire borne
 						if (r =='=') {
 							prop = prop + '5';
 						}else if (r == '+') {

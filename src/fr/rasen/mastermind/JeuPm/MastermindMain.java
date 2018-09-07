@@ -7,19 +7,29 @@ public class MastermindMain {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Plateau p;
-		System.out.println("1 pour le mode challenger\n2 pour le mode défenseur\n3 pour le mode duel");
 		Scanner sc = new Scanner(System.in);
-		int i = sc.nextInt();
-		switch (i) {
-		case 1: 
-			p = new Plateau("chall");
-			break;
-		case 2:
-			p = new Plateau("def");
-			break;
-		case 3:
-			p = new Plateau("duel");
-			break;
+		int i = 0;
+		Propriete prop = new Propriete();
+		boolean quitter = false;
+		while (!quitter) {
+			if(i == 0)
+			System.out.println("1 pour le mode challenger\n2 pour le mode défenseur\n3 pour le mode duel\n4 Quitter");
+			i = sc.nextInt();
+			if(i == 4) 
+				quitter = true;
+			switch (i) {
+			case 1: 
+				p = new Plateau("chall", prop);
+				i=0;
+				break;
+			case 2:
+				p = new Plateau("def",prop);
+				i=0;
+				break;
+			case 3:
+				break;
+			}
+			
 		}
 	}
 
