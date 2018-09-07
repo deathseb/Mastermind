@@ -12,8 +12,9 @@ public class Joueur {
 
 
 	/**
-	 * création du joueur, càd celui qui fera les proposition et cherchera la combinaison mystère
-	 * @param e
+	 * Création du joueur
+	 * @param e Défini le type de joueur 
+	 * @param nbChiffre Nombre de chiffre que doit contenir la combinaison
 	 */
 	public Joueur(Entite e, int nbChiffre) {
 		this.e = e;
@@ -23,7 +24,7 @@ public class Joueur {
 
 	/**
 	 * Méthode permettant de récupérer la chaine de caractère qui servira de proposition pour trouver la combinaison mystère
-	 * @return proposition entré par l'humain ou calculé par l'ordi selon qui est le joueur
+	 * @retur Proposition entré par l'humain ou calculé par l'ordi selon qui est le joueur
 	 */
 	public String envoieProp() {
 		String prop = "";

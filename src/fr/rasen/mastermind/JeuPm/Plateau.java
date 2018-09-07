@@ -4,40 +4,48 @@ public class Plateau {
 
 	private GameMaster gm;
 	private Joueur j;
-	private int nbTours = 10;
+	private int nbToursMax = 10;
 	private int nbChiffre = 4;
 	private String egalFinal = "";
 	private boolean victoire = false;
+	private int tourActuel = 0;
+	Tours t = new Tours();
 
 	/**
-	 * Class gérant toute la partie permettant de faire fonctionner les différents modes de jeu
-	 * @param partie
+	 * Création pour les modes de jeu challenger et défenseur
+	 * @param partie Défini le mode de jeu sélectionné par l'utilisateur
+	 * @param p Fichier propriété
 	 */
 	public Plateau(String partie, Propriete p) {
+		nbChiffre = p.getNbChiffre();
+		nbToursMax = p.getNbTours();
 		for (int i=0; i<nbChiffre; i++) {
 			egalFinal = egalFinal + "=";
 		}
-		nbTours = p.getNbTours();
-		nbChiffre = p.getNbChiffre();
+
+
 		switch (partie) {
 		case "chall": //Mode challenger
 			gm = new GameMaster(Entite.ORDI, nbChiffre);
 			j = new Joueur(Entite.HUMAIN, nbChiffre);
-			while (nbTours != 0 && !victoire) {
+			while (nbToursMax != 0 && !victoire) {
+				tourActuel++;
 				String str = challenger(gm, j);
 				if(str.equals(egalFinal))
 					victoire = true;
-				nbTours--;
+				nbToursMax--;
 			}
-			if ( victoire)
+			if (victoire)
 				System.out.println("Bravo! Vous avez trouvez la combinaison");
 			else 
 				System.out.println("Dommage, vous n'avez pas réussi à trouver la combinaison qui était " + gm.getCombinaison());
-			
-		case "def":
+
+
+		case "def": // Mode défenseur
 			gm = new GameMaster(Entite.HUMAIN, nbChiffre);
 			j = new Joueur(Entite.ORDI, nbChiffre);
-			while (nbTours != 0 && !victoire) {
+			while (nbToursMax != 0 && !victoire) {
+				tourActuel++;
 				String str = defenseur(gm, j);
 				if(str.equals(egalFinal))
 					victoire = true;
@@ -49,6 +57,35 @@ public class Plateau {
 		}
 	}
 
+	/**
+	 * Création pour le mode duel
+	 * @param partie Défini le rôle de cette objet dans le mode duel
+	 * @param p Fichier propriété
+	 * @param tour Tour actuel
+	 */
+	public Plateau (String partie, Propriete p, int tour) {
+		tourActuel = tour;
+		nbChiffre = p.getNbChiffre();
+		nbToursMax = p.getNbTours();
+		for (int i=0; i<nbChiffre; i++) {
+			egalFinal = egalFinal + "=";
+		}
+
+		switch (partie) {
+		case "chall": //Partie challenger du mode duel
+			gm = new GameMaster(Entite.ORDI, nbChiffre);
+			j = new Joueur(Entite.HUMAIN, nbChiffre);
+			String str = challenger(gm, j);
+			
+
+
+		case "def": // Partie défenseur du mode duel
+			gm = new GameMaster(Entite.HUMAIN, nbChiffre);
+			j = new Joueur(Entite.ORDI, nbChiffre);
+			str = defenseur(gm, j);
+		}
+	}
+
 
 	/**
 	 * Méthode déroulant la partie en mode challenger
@@ -57,9 +94,11 @@ public class Plateau {
 	 * @return le String permettant d'évaluer une victoire
 	 */
 	public String challenger(GameMaster gm, Joueur j) { //lance le mode challenger
-		String str = gm.evalProp(j.envoieProp());
-		System.out.println(str);
-		return str;
+		t.setProp(j.envoieProp());
+		t.setIndication(gm.evalProp(t.getProp()));
+		t.setTour(tourActuel);
+		System.out.println(t.toString());
+		return t.getIndication();
 	}
 
 	/**
@@ -69,11 +108,12 @@ public class Plateau {
 	 * @return le String permettant de savoir si il y a victoire
 	 */
 	public String defenseur(GameMaster gm, Joueur j) { // lance le mode défenseur
-		String prop = j.envoieProp();
-		System.out.println(prop);
-		String str = gm.evalProp(prop);
-		j.setDerRep(str);
-		return str;
+		t.setProp(j.envoieProp());
+		System.out.println(t.getProp());
+		t.setIndication(gm.evalProp(t.getProp()));
+		t.setTour(tourActuel);
+		System.out.println(t.toString());
+		return t.getIndication();
 	}
 
 }

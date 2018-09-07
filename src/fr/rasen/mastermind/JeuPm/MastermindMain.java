@@ -6,7 +6,7 @@ public class MastermindMain {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Plateau p;
+		Plateau p, p1;
 		Scanner sc = new Scanner(System.in);
 		int i = 0;
 		Propriete prop = new Propriete();
@@ -27,6 +27,14 @@ public class MastermindMain {
 				i=0;
 				break;
 			case 3:
+				int tour = 0;
+				boolean duel = true;
+				while(tour != prop.getNbTours()) {
+					tour++;
+					p = new Plateau("chall", prop, tour);
+					p1 = new Plateau("def", prop, tour);
+				}
+				
 				break;
 			}
 			
