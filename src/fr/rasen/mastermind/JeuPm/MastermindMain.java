@@ -28,11 +28,15 @@ public class MastermindMain {
 				break;
 			case 3:
 				int tour = 0;
+				p = new Plateau("chall", prop, tour);
+				p1 = new Plateau("def", prop, tour);
 				boolean duel = true;
 				while(tour != prop.getNbTours()) {
 					tour++;
-					p = new Plateau("chall", prop, tour);
-					p1 = new Plateau("def", prop, tour);
+					p.setTourActuel(tour);
+					p1.setTourActuel(tour);
+					p.challenger(p.getGm(), p.getJ());
+					p1.defenseur(p1.getGm(), p1.getJ());
 				}
 				
 				break;

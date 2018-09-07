@@ -28,23 +28,23 @@ public class Plateau {
 		case "chall": //Mode challenger
 			gm = new GameMaster(Entite.ORDI, nbChiffre);
 			j = new Joueur(Entite.HUMAIN, nbChiffre);
-			while (nbToursMax != 0 && !victoire) {
+			while (nbToursMax != tourActuel && !victoire) {
 				tourActuel++;
 				String str = challenger(gm, j);
 				if(str.equals(egalFinal))
 					victoire = true;
-				nbToursMax--;
 			}
 			if (victoire)
 				System.out.println("Bravo! Vous avez trouvez la combinaison");
 			else 
 				System.out.println("Dommage, vous n'avez pas réussi à trouver la combinaison qui était " + gm.getCombinaison());
+			break;
 
 
 		case "def": // Mode défenseur
 			gm = new GameMaster(Entite.HUMAIN, nbChiffre);
 			j = new Joueur(Entite.ORDI, nbChiffre);
-			while (nbToursMax != 0 && !victoire) {
+			while (nbToursMax != tourActuel && !victoire) {
 				tourActuel++;
 				String str = defenseur(gm, j);
 				if(str.equals(egalFinal))
@@ -54,6 +54,7 @@ public class Plateau {
 				System.out.println("Dommage, l'ordinateur à trouvé la combinaison");
 			else 
 				System.out.println("Bravo, vous avez gagné!");
+			break;
 		}
 	}
 
@@ -74,15 +75,13 @@ public class Plateau {
 		switch (partie) {
 		case "chall": //Partie challenger du mode duel
 			gm = new GameMaster(Entite.ORDI, nbChiffre);
-			j = new Joueur(Entite.HUMAIN, nbChiffre);
-			String str = challenger(gm, j);
-			
-
+			j = new Joueur(Entite.HUMAIN, nbChiffre);			
+			break;
 
 		case "def": // Partie défenseur du mode duel
 			gm = new GameMaster(Entite.HUMAIN, nbChiffre);
 			j = new Joueur(Entite.ORDI, nbChiffre);
-			str = defenseur(gm, j);
+			break;
 		}
 	}
 
@@ -113,8 +112,31 @@ public class Plateau {
 		t.setIndication(gm.evalProp(t.getProp()));
 		t.setTour(tourActuel);
 		System.out.println(t.toString());
+		j.setDerRep(t.getIndication());
 		return t.getIndication();
 	}
+
+	public GameMaster getGm() {
+		return gm;
+	}
+
+	public void setGm(GameMaster gm) {
+		this.gm = gm;
+	}
+
+	public Joueur getJ() {
+		return j;
+	}
+
+	public void setJ(Joueur j) {
+		this.j = j;
+	}
+
+	public void setTourActuel(int tourActuel) {
+		this.tourActuel = tourActuel;
+	}
+
+
 
 }
 
