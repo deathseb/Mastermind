@@ -2,21 +2,24 @@ package fr.rasen.mastermind.JeuPm;
 
 public class Plateau {
 
-	private GameMaster gm;
-	private Joueur j;
+	private GameMaster gmChall;
+	private Joueur jChall;
+	private GameMaster gmDef;
+	private Joueur jDef;
 	private int nbToursMax = 10;
 	private int nbChiffre = 4;
 	private String egalFinal = "";
 	private boolean victoire = false;
 	private int tourActuel = 0;
 	Tours t = new Tours();
+	Propriete p = new Propriete();
 
 	/**
 	 * Création pour les modes de jeu challenger et défenseur
 	 * @param partie Défini le mode de jeu sélectionné par l'utilisateur
 	 * @param p Fichier propriété
 	 */
-	public Plateau(String partie, Propriete p) {
+	public Plateau(String partie) {
 		nbChiffre = p.getNbChiffre();
 		nbToursMax = p.getNbTours();
 		for (int i=0; i<nbChiffre; i++) {
@@ -26,36 +29,40 @@ public class Plateau {
 
 		switch (partie) {
 		case "chall": //Mode challenger
-			gm = new GameMaster(Entite.ORDI, nbChiffre);
-			j = new Joueur(Entite.HUMAIN, nbChiffre);
-			while (nbToursMax != tourActuel && !victoire) {
+			gmChall = new GameMaster(Entite.ORDI, nbChiffre);
+			jChall = new Joueur(Entite.HUMAIN, nbChiffre);
+			/*while (nbToursMax != tourActuel && !victoire) {
 				tourActuel++;
-				String str = challenger(gm, j);
+				String str = challenger(gmChall, jChall);
 				if(str.equals(egalFinal))
 					victoire = true;
 			}
 			if (victoire)
 				System.out.println("Bravo! Vous avez trouvez la combinaison");
 			else 
-				System.out.println("Dommage, vous n'avez pas réussi à trouver la combinaison qui était " + gm.getCombinaison());
+				System.out.println("Dommage, vous n'avez pas réussi à trouver la combinaison qui était " + gmChall.getCombinaison());*/
 			break;
 
 
 		case "def": // Mode défenseur
-			gm = new GameMaster(Entite.HUMAIN, nbChiffre);
-			j = new Joueur(Entite.ORDI, nbChiffre);
-			while (nbToursMax != tourActuel && !victoire) {
+			gmDef = new GameMaster(Entite.HUMAIN, nbChiffre);
+			jDef = new Joueur(Entite.ORDI, nbChiffre);
+			/*while (nbToursMax != tourActuel && !victoire) {
 				tourActuel++;
-				String str = defenseur(gm, j);
+				String str = defenseur(gmDef, jDef);
 				if(str.equals(egalFinal))
 					victoire = true;
 			}
 			if ( victoire)
 				System.out.println("Dommage, l'ordinateur à trouvé la combinaison");
 			else 
-				System.out.println("Bravo, vous avez gagné!");
+				System.out.println("Bravo, vous avez gagné!");*/
 			break;
 		}
+	}
+
+	public int getNbToursMax() {
+		return nbToursMax;
 	}
 
 	/**
@@ -74,13 +81,13 @@ public class Plateau {
 
 		switch (partie) {
 		case "chall": //Partie challenger du mode duel
-			gm = new GameMaster(Entite.ORDI, nbChiffre);
-			j = new Joueur(Entite.HUMAIN, nbChiffre);			
+			gmChall = new GameMaster(Entite.ORDI, nbChiffre);
+			jChall = new Joueur(Entite.HUMAIN, nbChiffre);			
 			break;
 
 		case "def": // Partie défenseur du mode duel
-			gm = new GameMaster(Entite.HUMAIN, nbChiffre);
-			j = new Joueur(Entite.ORDI, nbChiffre);
+			gmDef = new GameMaster(Entite.HUMAIN, nbChiffre);
+			jDef = new Joueur(Entite.ORDI, nbChiffre);
 			break;
 		}
 	}
@@ -116,20 +123,36 @@ public class Plateau {
 		return t.getIndication();
 	}
 
-	public GameMaster getGm() {
-		return gm;
+	public GameMaster getGmChall() {
+		return gmChall;
 	}
 
-	public void setGm(GameMaster gm) {
-		this.gm = gm;
+	public void setGmChall(GameMaster gmChall) {
+		this.gmChall = gmChall;
 	}
 
-	public Joueur getJ() {
-		return j;
+	public Joueur getjChall() {
+		return jChall;
 	}
 
-	public void setJ(Joueur j) {
-		this.j = j;
+	public void setjChall(Joueur jChall) {
+		this.jChall = jChall;
+	}
+
+	public GameMaster getGmDef() {
+		return gmDef;
+	}
+
+	public void setGmDef(GameMaster gmDef) {
+		this.gmDef = gmDef;
+	}
+
+	public Joueur getjDef() {
+		return jDef;
+	}
+
+	public void setjDef(Joueur jDef) {
+		this.jDef = jDef;
 	}
 
 	public void setTourActuel(int tourActuel) {

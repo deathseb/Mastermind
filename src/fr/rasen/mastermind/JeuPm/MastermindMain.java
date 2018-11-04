@@ -19,24 +19,23 @@ public class MastermindMain {
 				quitter = true;
 			switch (i) {
 			case 1: 
-				p = new Plateau("chall", prop);
+				p = new Plateau("chall");
 				i=0;
 				break;
 			case 2:
-				p = new Plateau("def",prop);
+				p = new Plateau("def");
 				i=0;
 				break;
 			case 3:
 				int tour = 0;
 				p = new Plateau("chall", prop, tour);
 				p1 = new Plateau("def", prop, tour);
-				boolean duel = true;
 				while(tour != prop.getNbTours()) {
 					tour++;
 					p.setTourActuel(tour);
 					p1.setTourActuel(tour);
-					p.challenger(p.getGm(), p.getJ());
-					p1.defenseur(p1.getGm(), p1.getJ());
+					p.challenger(p.getGmChall(), p.getjChall());
+					p1.defenseur(p1.getGmDef(), p1.getjDef());
 				}
 				
 				break;
