@@ -26,6 +26,8 @@ public class Fenetre extends JFrame{
 	private JButton chall = new JButton("Jouer en mode Challenger");
 	private JButton def = new JButton("Jouer en mode Défenseur");
 	private JButton duel = new JButton("Jouer en mode Duel");
+	private JButton propriete = new JButton("Propriétés");
+	private JButton apropos = new JButton("A Propos");
 	private JPanel menu = new JPanel();
 	
 	private FenetreChal fc;
@@ -48,7 +50,7 @@ public class Fenetre extends JFrame{
 		panNord.setBackground(Color.white);
 		panNord.add(titre);
 		this.getContentPane().add(panNord, BorderLayout.NORTH);
-		menu.setLayout(new GridLayout(3,1));
+		menu.setLayout(new GridLayout(5,1));
 		menu.setBackground(Color.white);
 		
 		chall.addActionListener(new ActionListener() {
@@ -87,9 +89,17 @@ public class Fenetre extends JFrame{
 		JPanel panDuel = new JPanel();
 		panDuel.setBackground(Color.white);
 		panDuel.add(duel);
+		JPanel panPropriete = new JPanel();
+		panPropriete.setBackground(Color.white);
+		panPropriete.add(propriete);
+		JPanel panPropos = new JPanel();
+		panPropos.setBackground(Color.white);
+		panPropos.add(apropos);
 		menu.add(panChall);
 		menu.add(panDef);
 		menu.add(panDuel);
+		menu.add(panPropriete);
+		menu.add(panPropos);
 		this.getContentPane().add(menu, BorderLayout.CENTER);
 	}
 	

@@ -56,8 +56,8 @@ public class GameMaster {
 				combinaison = combinaison + String.valueOf(c);
 			}
 		} else {
-			System.out.println("Veuillez entrer une combinaison à " + nbChiffre +" chiffres" ); //Combinaison donné par l'utilisateur Humain
-			combinaison = sc.nextLine(); //Gestion d'erreur à faire
+			/*System.out.println("Veuillez entrer une combinaison à " + nbChiffre +" chiffres" ); //Combinaison donné par l'utilisateur Humain
+			combinaison = sc.nextLine(); //Gestion d'erreur à faire*/
 		}
 	}
 

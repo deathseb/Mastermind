@@ -6,7 +6,8 @@ public class Plateau {
 	private Joueur jChall;
 	private GameMaster gmDef;
 	private Joueur jDef;
-	private int nbToursMax = 10;
+
+	private int nbToursMax = 12;
 	private int nbChiffre = 4;
 	private String egalFinal = "";
 	private boolean victoire = false;
@@ -106,6 +107,11 @@ public class Plateau {
 		System.out.println(t.toString());
 		return t.getIndication();
 	}
+	
+	public String challenger(String text) {
+		return gmChall.evalProp(text);
+	}
+
 
 	/**
 	 * Méthode déroulant la partie en mode défenseur
@@ -122,6 +128,11 @@ public class Plateau {
 		j.setDerRep(t.getIndication());
 		return t.getIndication();
 	}
+	
+	public String defenseur() {
+		return jDef.envoieProp();
+	}
+	
 
 	public GameMaster getGmChall() {
 		return gmChall;
@@ -159,6 +170,55 @@ public class Plateau {
 		this.tourActuel = tourActuel;
 	}
 
+	public int getNbChiffre() {
+		return nbChiffre;
+	}
+
+	public String getEgalFinal() {
+		return egalFinal;
+	}
+
+	public void setEgalFinal(String egalFinal) {
+		this.egalFinal = egalFinal;
+	}
+
+	public boolean isVictoire() {
+		return victoire;
+	}
+
+	public void setVictoire(boolean victoire) {
+		this.victoire = victoire;
+	}
+
+	public Tours getT() {
+		return t;
+	}
+
+	public void setT(Tours t) {
+		this.t = t;
+	}
+
+	public Propriete getP() {
+		return p;
+	}
+
+	public void setP(Propriete p) {
+		this.p = p;
+	}
+
+	public int getTourActuel() {
+		return tourActuel;
+	}
+
+	public void setNbToursMax(int nbToursMax) {
+		this.nbToursMax = nbToursMax;
+	}
+
+	public void setNbChiffre(int nbChiffre) {
+		this.nbChiffre = nbChiffre;
+	}
+
+	
 
 
 }
