@@ -47,7 +47,7 @@ public class FenetreChal extends JPanel {
 	public FenetreChal() {
 		this.setLayout(new BorderLayout());
 		plateau = new Plateau("chall");
-		
+
 
 		gl = new GridLayout(plateau.getNbToursMax()+1,2);
 		Font ft = new Font("showcard gothic", Font.BOLD, 20);
@@ -66,26 +66,35 @@ public class FenetreChal extends JPanel {
 		panCenter.add(propo);
 		panCenter.add(indication);
 
-		GridLayout nordLayout = new GridLayout(4,1);
 		ft = new Font("showcard gothic", Font.BOLD, 50);
 		titre.setFont(ft);
 		panNord.setPreferredSize(new Dimension(600,200));
 		panNord.setBackground(Color.white);
-		panNord.setLayout(nordLayout);
 		ft = new Font("showcard gothic", Font.BOLD, 25);
 		mode.setText("Mode : Challenger");
 		mode.setFont(ft);
-		JLabel test = new JLabel(plateau.getGmChall().getCombinaison());
-		test.setFont(ft);
 		tours.setFont(ft);;
 		tours.setText("Nombre de tours restant : " + String.valueOf(plateau.getNbToursMax()));
 		tours.setHorizontalAlignment(JLabel.CENTER);
 		titre.setHorizontalAlignment(JLabel.CENTER);
 		mode.setHorizontalAlignment(JLabel.CENTER);
-		panNord.add(titre);
-		panNord.add(mode);
-		panNord.add(tours);
-		panNord.add(test);
+		if (plateau.getP().isModeDev()) {
+			GridLayout nordLayout = new GridLayout(4,1);
+			panNord.setLayout(nordLayout);
+			JLabel combi = new JLabel("Combinaison : " + plateau.getGmChall().getCombinaison());
+			combi.setFont(ft);
+			combi.setHorizontalAlignment(JLabel.CENTER);
+			panNord.add(titre);
+			panNord.add(mode);
+			panNord.add(tours);
+			panNord.add(combi);
+		} else {
+			GridLayout nordLayout = new GridLayout(3,1);
+			panNord.setLayout(nordLayout);
+			panNord.add(titre);
+			panNord.add(mode);
+			panNord.add(tours);
+		}
 
 		panEst.setPreferredSize(new Dimension(100,400));
 		panEst.setBackground(Color.white);
@@ -145,7 +154,7 @@ public class FenetreChal extends JPanel {
 		this.add(scroll, BorderLayout.CENTER);
 		this.revalidate();
 	}
-	
+
 	public void gagne() {
 		JDialog jd = new JDialog();
 		jd.setBackground(Color.white);
@@ -162,7 +171,7 @@ public class FenetreChal extends JPanel {
 		jd.add(jl);
 		jd.setVisible(true);
 	}
-	
+
 	public void perdu() {
 		JDialog jd = new JDialog();
 		jd.setTitle("Perdu !!");

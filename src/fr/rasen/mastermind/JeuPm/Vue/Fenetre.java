@@ -1,11 +1,7 @@
 package fr.rasen.mastermind.JeuPm.Vue;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,8 +9,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
 
 import fr.rasen.mastermind.JeuPm.Plateau;
 
@@ -32,6 +26,7 @@ public class Fenetre extends JFrame{
 	
 	private FenetreChal fc;
 	private FenetreDef fd;
+	private FenetreAccueil fa;
 	
 	private Container pan = this.getContentPane();
 	
@@ -44,63 +39,12 @@ public class Fenetre extends JFrame{
 	}
 	
 	public void initMenu() {
-		Font ft = new Font("bauhaus 93", Font.BOLD, 50);
-		titre.setFont(ft);
-		panNord.setPreferredSize(new Dimension(600,200));
-		panNord.setBackground(Color.white);
-		panNord.add(titre);
-		this.getContentPane().add(panNord, BorderLayout.NORTH);
-		menu.setLayout(new GridLayout(5,1));
-		menu.setBackground(Color.white);
-		
-		chall.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				pan.removeAll();
-				initChall();
-				pan.repaint();
-				pan.revalidate();
-			}
-			
-		});
-		def.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				pan.removeAll();
-				initDef();
-				pan.repaint();
-				pan.revalidate();
-			}
-			
-		});
-		duel.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				pan.removeAll();
-				initDuel();
-				pan.repaint();
-				pan.revalidate();
-			}
-			
-		});
-		JPanel panChall = new JPanel();
-		panChall.setBackground(Color.white);
-		panChall.add(chall);
-		JPanel panDef = new JPanel();
-		panDef.setBackground(Color.white);
-		panDef.add(def);
-		JPanel panDuel = new JPanel();
-		panDuel.setBackground(Color.white);
-		panDuel.add(duel);
-		JPanel panPropriete = new JPanel();
-		panPropriete.setBackground(Color.white);
-		panPropriete.add(propriete);
-		JPanel panPropos = new JPanel();
-		panPropos.setBackground(Color.white);
-		panPropos.add(apropos);
-		menu.add(panChall);
-		menu.add(panDef);
-		menu.add(panDuel);
-		menu.add(panPropriete);
-		menu.add(panPropos);
-		this.getContentPane().add(menu, BorderLayout.CENTER);
+		fa = new FenetreAccueil();
+		fa.getChall().addActionListener(new challListener());
+		fa.getDef().addActionListener(new defListener());
+		fa.getDuel().addActionListener(new duelListener());
+		fa.getPropriete().addActionListener(new proprieteListener());
+		this.getContentPane().add(fa, BorderLayout.CENTER);
 	}
 	
 	public void initChall() {
@@ -115,6 +59,42 @@ public class Fenetre extends JFrame{
 	}
 	
 	public void initDuel() {
+		
+	}
+	
+	class challListener implements ActionListener{
+		public void actionPerformed(ActionEvent arg0) {
+			pan.removeAll();
+			initChall();
+			pan.repaint();
+			pan.revalidate();
+		}
+	}
+	
+	class defListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			pan.removeAll();
+			initDef();
+			pan.repaint();
+			pan.revalidate();
+		}
+	}
+	
+	class duelListener implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			pan.removeAll();
+			initDuel();
+			pan.repaint();
+			pan.revalidate();
+		}
+	}
+	
+	class proprieteListener implements ActionListener{
+		public void actionPerformed(ActionEvent arg0) {
+			Plateau plateau = new Plateau();
+			FenetreProperties fp = new FenetreProperties(plateau);
+			fp.setVisible(true);
+		}
 		
 	}
 	

@@ -14,6 +14,11 @@ public class Plateau {
 	private int tourActuel = 0;
 	Tours t = new Tours();
 	Propriete p = new Propriete();
+	
+	
+	public Plateau() {
+		
+	}
 
 	/**
 	 * Création pour les modes de jeu challenger et défenseur

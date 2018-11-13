@@ -44,10 +44,9 @@ public class Propriete {
 			fis.close();
 			fos.close();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("Done!");
+		//System.out.println("Done!");
 	}
 
 	public int getNbTours() {
@@ -56,7 +55,6 @@ public class Propriete {
 
 	public void setNbTours(int nbTours) {
 		this.nbTours = nbTours;
-		this.sauvegarde();
 	}
 
 	public int getNbChiffre() {
@@ -65,7 +63,6 @@ public class Propriete {
 
 	public void setNbChiffre(int nbChiffre) {
 		this.nbChiffre = nbChiffre;
-		this.sauvegarde();
 	}
 
 	public boolean isModeDev() {
@@ -74,7 +71,6 @@ public class Propriete {
 
 	public void setModeDev(boolean modeDev) {
 		this.modeDev = modeDev;
-		this.sauvegarde();
 	}
 	
 	public String toString() {
