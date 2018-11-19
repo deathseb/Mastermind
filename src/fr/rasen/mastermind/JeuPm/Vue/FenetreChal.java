@@ -24,6 +24,8 @@ public class FenetreChal extends JPanel {
 	private GridLayout gl;
 	private JLabel propo = new JLabel("Proposition");
 	private JLabel indication = new JLabel("Indication");
+	private JPanel panProp = new JPanel();
+	private JPanel panIndic = new JPanel();
 	private ArrayList<JLabel> listProp = new ArrayList<JLabel>();
 	private ArrayList<JLabel> listIndic = new ArrayList<JLabel>();
 	private JPanel panCenter = new JPanel();
@@ -41,7 +43,6 @@ public class FenetreChal extends JPanel {
 	private JTextField proposition = new JTextField();
 	private JButton valider = new JButton("Valider");
 	private int compteurTours = 0;
-	private JScrollPane scroll;
 
 
 	public FenetreChal() {
@@ -51,20 +52,24 @@ public class FenetreChal extends JPanel {
 
 		gl = new GridLayout(plateau.getNbToursMax()+1,2);
 		Font ft = new Font("showcard gothic", Font.BOLD, 20);
-		propo.setPreferredSize(new Dimension(180, 360/(plateau.getNbToursMax()+1)));
+		//propo.setPreferredSize(new Dimension(180, 360/(plateau.getNbToursMax()+1)));
 		propo.setFont(ft);
-		propo.setBorder(BorderFactory.createLineBorder(Color.black));
-		indication.setBorder(BorderFactory.createLineBorder(Color.black));
+		//propo.setBorder(BorderFactory.createLineBorder(Color.black));
+		//indication.setBorder(BorderFactory.createLineBorder(Color.black));
 		propo.setHorizontalAlignment(JLabel.CENTER);
-		indication.setPreferredSize(new Dimension(180, 360/(plateau.getNbToursMax()+1)));
+		//ndication.setPreferredSize(new Dimension(180, 360/(plateau.getNbToursMax()+1)));
 		indication.setFont(ft);
 		indication.setHorizontalAlignment(JLabel.CENTER);
-		panCenter.setPreferredSize(new Dimension(360, 360));
+		panProp.setBorder(BorderFactory.createLineBorder(Color.black));
+		panProp.add(propo);
+		panIndic.setBorder(BorderFactory.createLineBorder(Color.black));
+		panIndic.add(indication);
+		//panCenter.setPreferredSize(new Dimension(360, 360));
 		panCenter.setBackground(Color.white);
 		panCenter.setBorder(BorderFactory.createLineBorder(Color.black));
 		panCenter.setLayout(gl);
-		panCenter.add(propo);
-		panCenter.add(indication);
+		panCenter.add(panProp);
+		panCenter.add(panIndic);
 
 		ft = new Font("showcard gothic", Font.BOLD, 50);
 		titre.setFont(ft);
@@ -108,13 +113,11 @@ public class FenetreChal extends JPanel {
 		valider.addActionListener(new playListener());
 		panSud.add(proposition);
 		panSud.add(valider);
-		scroll = new JScrollPane(panCenter);
-		//scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 
 		this.add(panNord, BorderLayout.NORTH);
 		this.add(panEst, BorderLayout.EAST);
 		initTableau(plateau.getNbToursMax());
-		this.add(scroll, BorderLayout.CENTER);
+		this.add(panCenter, BorderLayout.CENTER);
 		this.add(panOuest, BorderLayout.WEST);
 		this.add(panSud, BorderLayout.SOUTH);
 
@@ -134,25 +137,38 @@ public class FenetreChal extends JPanel {
 	}
 
 	public void majTableau() {
-		panCenter = new JPanel();
+		panCenter.removeAll();
+		//panCenter = new JPanel();
 		panCenter.setBackground(Color.white);
 		panCenter.setBorder(BorderFactory.createLineBorder(Color.black));
-		panCenter.setLayout(new GridLayout(listProp.size()+1, 2));
-		panCenter.add(propo);
-		panCenter.add(indication);
+		panCenter.setLayout(new GridLayout(plateau.getNbToursMax()+1, 2));
+		panCenter.add(panProp);
+		panCenter.add(panIndic);
 		for(int i = 0; i < listProp.size(); i++) {
 			panCenter.add(listProp.get(i));
 			panCenter.add(listIndic.get(i));
 		}
-		scroll = new JScrollPane(panCenter);
 		compteurTours ++;
+		for (int j = plateau.getNbToursMax(); j > compteurTours; j--) {
+			JLabel prop = new JLabel();
+			prop.setBorder(BorderFactory.createLineBorder(Color.black));
+			prop.setHorizontalAlignment(JLabel.CENTER);
+			JLabel indic = new JLabel();
+			indic.setBorder(BorderFactory.createLineBorder(Color.black));
+			indic.setHorizontalAlignment(JLabel.CENTER);
+			panCenter.add(prop);
+			panCenter.add(indic);
+		}
+		panCenter.revalidate();
+		//panCenter.repaint();
 		tours.removeAll();
 		tours.setText("Nombre de tours restant : " + String.valueOf(plateau.getNbToursMax()-compteurTours));
 		tours.setHorizontalAlignment(JLabel.CENTER);
 		tours.revalidate();
 		//scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		this.add(scroll, BorderLayout.CENTER);
-		this.revalidate();
+		this.add(panCenter, BorderLayout.CENTER);
+		//this.revalidate();
+		//this.repaint();
 	}
 
 	public void gagne() {

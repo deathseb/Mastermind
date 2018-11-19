@@ -34,6 +34,8 @@ public class FenetreProperties extends JDialog {
 
 	private JPanel panSud = new JPanel();
 	private JButton sauvegarder = new JButton("Sauvegarder");
+	
+	private JDialog jd = this;
 
 	
 	public FenetreProperties(Plateau p) {
@@ -45,7 +47,7 @@ public class FenetreProperties extends JDialog {
 		this.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
 		
 		panInfo.setLayout(gl);
-		donneeTours.setText(String.valueOf(p.getP().getNbChiffre()));
+		donneeTours.setText(String.valueOf(p.getP().getNbTours()));
 		donneeChiffre.setText(String.valueOf(p.getP().getNbChiffre()));
 		modeDev.setSelected(p.getP().isModeDev());
 		donneeTours.setPreferredSize(new Dimension(200, 25));
@@ -62,6 +64,7 @@ public class FenetreProperties extends JDialog {
 				p.getP().setNbChiffre(Integer.parseInt(donneeChiffre.getText()));
 				p.getP().setNbTours(Integer.parseInt(donneeTours.getText()));
 				p.getP().sauvegarde();
+				jd.setVisible(false);
 			}
 		});
 		
