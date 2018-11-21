@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class MastermindMain {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Plateau p, p1;
 		Scanner sc = new Scanner(System.in);
 		int i = 0;

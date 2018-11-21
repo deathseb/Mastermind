@@ -1,7 +1,6 @@
 package fr.rasen.mastermind.JeuPm.Vue;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -27,6 +26,7 @@ public class Fenetre extends JFrame{
 	private FenetreChal fc;
 	private FenetreDef fd;
 	private FenetreAccueil fa;
+	private FenetreDuel fDuel;
 	
 	private Container pan = this.getContentPane();
 	
@@ -59,7 +59,11 @@ public class Fenetre extends JFrame{
 	}
 	
 	public void initDuel() {
-		
+		fDuel = new FenetreDuel();
+		this.getContentPane().removeAll();
+		this.setSize(new Dimension(1200, 800));
+		this.getContentPane().add(fDuel, BorderLayout.CENTER);
+		this.revalidate();
 	}
 	
 	class challListener implements ActionListener{

@@ -205,6 +205,78 @@ public class FenetreChal extends JPanel {
 		jd.setVisible(true);
 	}
 
+	public JLabel getPropo() {
+		return propo;
+	}
+
+	public void setPropo(JLabel propo) {
+		this.propo = propo;
+	}
+
+	public JLabel getIndication() {
+		return indication;
+	}
+
+	public void setIndication(JLabel indication) {
+		this.indication = indication;
+	}
+
+	public ArrayList<JLabel> getListProp() {
+		return listProp;
+	}
+
+	public void setListProp(ArrayList<JLabel> listProp) {
+		this.listProp = listProp;
+	}
+
+	public ArrayList<JLabel> getListIndic() {
+		return listIndic;
+	}
+
+	public void setListIndic(ArrayList<JLabel> listIndic) {
+		this.listIndic = listIndic;
+	}
+
+	public JPanel getPanCenter() {
+		return panCenter;
+	}
+
+	public void setPanCenter(JPanel panCenter) {
+		this.panCenter = panCenter;
+	}
+
+	public Plateau getPlateau() {
+		return plateau;
+	}
+
+	public void setPlateau(Plateau plateau) {
+		this.plateau = plateau;
+	}
+
+	public JTextField getProposition() {
+		return proposition;
+	}
+
+	public void setProposition(JTextField proposition) {
+		this.proposition = proposition;
+	}
+
+	public int getCompteurTours() {
+		return compteurTours;
+	}
+
+	public void setCompteurTours(int compteurTours) {
+		this.compteurTours = compteurTours;
+	}
+
+	public JButton getValider() {
+		return valider;
+	}
+
+	public void setValider(JButton valider) {
+		this.valider = valider;
+	}
+
 	class playListener implements ActionListener{
 
 		public void actionPerformed(ActionEvent arg0) {

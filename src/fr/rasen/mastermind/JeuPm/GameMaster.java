@@ -26,7 +26,7 @@ public class GameMaster {
 	 */
 	public String evalProp(String str) { //str doit bien être une série de chiffre et uniquement de chiffre 
 		String reponse = "";
-		if (e.toString().equals("ordinateur")) { //évaluation de la proposition par l'ordinateur
+		//if (e.toString().equals("ordinateur")) { //évaluation de la proposition par l'ordinateur
 			for (int i = 0; i < combinaison.length(); i++) {
 				int j = str.charAt(i);
 				int k = combinaison.charAt(i);
@@ -37,10 +37,10 @@ public class GameMaster {
 				else
 					reponse = reponse + "-";
 			}
-		} else { //évaluation de la proposition par l'humain
+		/*}*/ /*else { //évaluation de la proposition par l'humain
 			System.out.println("Veuillez entrer la série de + - et = correspondant à la proposition soumise");
 			reponse = sc.nextLine(); // gestion d'erreur à faire
-		}
+		}*/
 		return reponse;
 
 	}

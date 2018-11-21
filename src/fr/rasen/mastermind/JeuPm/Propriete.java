@@ -18,7 +18,6 @@ public class Propriete {
 			prop.load(in);
 			in.close();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		nbTours = Integer.parseInt(prop.getProperty("nbTours"));
