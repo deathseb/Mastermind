@@ -1,16 +1,15 @@
 package fr.rasen.mastermind.JeuPm.Vue;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.GridLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+
+import static javax.imageio.ImageIO.*;
 
 public class FenetreAccueil extends JPanel {
 
@@ -24,30 +23,51 @@ public class FenetreAccueil extends JPanel {
 	private JButton apropos = new JButton("A Propos");
 	private JPanel menu = new JPanel();
 
+	private Image img = new ImageIcon("src/images/fond_plus_moins.png").getImage();
+
 	private JPanel pan = this;
 
 	public FenetreAccueil() {
 		this.setLayout(new BorderLayout());
-		Font ft = new Font("bauhaus 93", Font.BOLD, 50);
+		Font ft = new Font("showcard gothic", Font.BOLD, 50);
 		titre.setFont(ft);
 		panNord.setPreferredSize(new Dimension(600,200));
 		panNord.setBackground(Color.white);
 		panNord.add(titre);
 		this.add(panNord, BorderLayout.NORTH);
 		menu.setLayout(new GridLayout(5,1));
-		menu.setBackground(Color.white);
+		chall.setFont(new Font ("showcard gothic", Font.ITALIC, 20));
+		chall.setOpaque(false);
+		chall.setContentAreaFilled(false);
+		chall.setBorderPainted(false);
 		JPanel panChall = new JPanel();
 		panChall.setBackground(Color.white);
 		panChall.add(chall);
+		def.setFont(new Font ("showcard gothic", Font.ITALIC, 20));
+		def.setOpaque(false);
+		def.setContentAreaFilled(false);
+		def.setBorderPainted(false);
 		JPanel panDef = new JPanel();
 		panDef.setBackground(Color.white);
 		panDef.add(def);
+		duel.setFont(new Font ("showcard gothic", Font.ITALIC, 20));
+		duel.setOpaque(false);
+		duel.setContentAreaFilled(false);
+		duel.setBorderPainted(false);
 		JPanel panDuel = new JPanel();
 		panDuel.setBackground(Color.white);
 		panDuel.add(duel);
+		propriete.setFont(new Font ("showcard gothic", Font.ITALIC, 20));
+		propriete.setOpaque(false);
+		propriete.setContentAreaFilled(false);
+		propriete.setBorderPainted(false);
 		JPanel panPropriete = new JPanel();
 		panPropriete.setBackground(Color.white);
 		panPropriete.add(propriete);
+		apropos.setFont(new Font ("showcard gothic", Font.ITALIC, 20));
+		apropos.setOpaque(false);
+		apropos.setContentAreaFilled(false);
+		apropos.setBorderPainted(false);
 		JPanel panPropos = new JPanel();
 		panPropos.setBackground(Color.white);
 		panPropos.add(apropos);
@@ -58,6 +78,10 @@ public class FenetreAccueil extends JPanel {
 		menu.add(panPropos);
 		this.add(menu, BorderLayout.CENTER);
 
+	}
+
+	public void paintComponent(Graphics g){
+		 g.drawImage(img, 0, 0, null);
 	}
 
 	public JPanel getPanNord() {

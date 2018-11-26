@@ -61,7 +61,7 @@ public class Fenetre extends JFrame{
 	public void initDuel() {
 		fDuel = new FenetreDuel();
 		this.getContentPane().removeAll();
-		this.setSize(new Dimension(1200, 800));
+		this.setSize(new Dimension(1228, 800));
 		this.getContentPane().add(fDuel, BorderLayout.CENTER);
 		this.revalidate();
 	}
