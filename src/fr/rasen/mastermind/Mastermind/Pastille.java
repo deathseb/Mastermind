@@ -2,7 +2,7 @@ package fr.rasen.mastermind.Mastermind;
 
 import java.io.File;
 
-public enum pastille {
+public enum Pastille {
 
     BLANC(10, "src/images/Blanc.png"),
     BLEU(0, "src/images/Bleu.png"),
@@ -21,7 +21,7 @@ public enum pastille {
     private File f;
 
 
-    pastille(int v, String s) {
+    Pastille(int v, String s) {
         valeur = v;
         f = new File(s);
     }
