@@ -1,5 +1,8 @@
 package fr.rasen.mastermind.JeuPm.Vue;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,6 +13,7 @@ public class FenetreDuel extends JPanel {
 
     private FenetreChal fc;
     private FenetreDef fd;
+    private static final Logger logger = LogManager.getLogger();
 
     public FenetreDuel(){
         fc = new FenetreChal();
@@ -31,6 +35,7 @@ public class FenetreDuel extends JPanel {
         this.setLayout(new BorderLayout());
         this.add(fd, BorderLayout.EAST);
         this.add(fc, BorderLayout.WEST);
+        logger.trace("Affichage mode Duel réussi.");
     }
 
     public void transitionCD(){
@@ -117,7 +122,7 @@ public class FenetreDuel extends JPanel {
             try {
                 thread.sleep(1000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                logger.error("Erreur lors du thread de pause.");
             }
             fd.setBorder(BorderFactory.createLineBorder(Color.green, 3));
             fd.getProposition().setEnabled(true);
@@ -132,7 +137,7 @@ public class FenetreDuel extends JPanel {
             try {
                 thread.sleep(1000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                logger.error("Erreur lors du thread de pause.");
             }
             fc.setBorder(BorderFactory.createLineBorder(Color.green, 3));
             fc.getProposition().setEnabled(true);

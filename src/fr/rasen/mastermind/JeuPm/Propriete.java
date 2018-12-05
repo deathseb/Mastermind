@@ -1,11 +1,15 @@
 package fr.rasen.mastermind.JeuPm;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.Properties;
 
 public class Propriete {
+	private static final Logger logger = LogManager.getLogger();
+
 	private int nbTours;
 	private int nbChiffre;
 	private boolean modeDev;
@@ -18,7 +22,7 @@ public class Propriete {
 			prop.load(in);
 			in.close();
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("La lecture du fichier properties a échoué");
 		}
 		nbTours = Integer.parseInt(prop.getProperty("nbTours"));
 		nbChiffre = Integer.parseInt(prop.getProperty("nbChiffre"));
@@ -27,6 +31,7 @@ public class Propriete {
 			modeDev = true;
 		else
 			modeDev = false;
+		logger.trace("Properties chargées.");
 	}
 	
 	public void sauvegarde() {
@@ -43,9 +48,9 @@ public class Propriete {
 			fis.close();
 			fos.close();
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("La sauvegarde dans le fichier properties a échoué.");
 		}
-		//System.out.println("Done!");
+		logger.trace("Sauvegarde du fichier properties réussi.");
 	}
 
 	public int getNbTours() {

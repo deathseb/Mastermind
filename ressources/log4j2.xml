@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [Labo v1.0] %-5level %logger{36} - %msg%n"/>
+        </Console>
+        <File name="File" fileName="log/Mastermind.log" bufferedIO="true" advertise="true">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [Mastermind v1.0] %-5level %logger{36} - %msg%n"/>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level="all">
+            <AppenderRef ref="File"/>
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>

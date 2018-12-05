@@ -1,23 +1,14 @@
 package fr.rasen.mastermind.JeuPm.Vue;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.GridLayout;
+import fr.rasen.mastermind.JeuPm.Plateau;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
-
-import fr.rasen.mastermind.JeuPm.Plateau;
 
 public class FenetreChal extends JPanel {
 
@@ -43,6 +34,8 @@ public class FenetreChal extends JPanel {
 	private JTextField proposition = new JTextField();
 	private JButton valider = new JButton("Valider");
 	private int compteurTours = 0;
+
+	private static final Logger logger = LogManager.getLogger();
 
 
 	public FenetreChal() {
@@ -120,7 +113,7 @@ public class FenetreChal extends JPanel {
 		this.add(panCenter, BorderLayout.CENTER);
 		this.add(panOuest, BorderLayout.WEST);
 		this.add(panSud, BorderLayout.SOUTH);
-
+		logger.trace("Affichage mode challenger réussi");
 	}
 
 	public void initTableau (int nb) {
@@ -186,6 +179,7 @@ public class FenetreChal extends JPanel {
 		proposition.setEnabled(false);
 		jd.add(jl);
 		jd.setVisible(true);
+		logger.trace("Fin de partie en mode challenger : Victoire");
 	}
 
 	public void perdu() {
@@ -203,6 +197,7 @@ public class FenetreChal extends JPanel {
 		jl.setFont(ft);
 		jd.add(jl);
 		jd.setVisible(true);
+		logger.trace("Fin de partie en mode challenger : Défaite");
 	}
 
 	public JLabel getPropo() {

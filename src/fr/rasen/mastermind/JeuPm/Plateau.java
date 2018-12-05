@@ -12,8 +12,8 @@ public class Plateau {
 	private String egalFinal = "";
 	private boolean victoire = false;
 	private int tourActuel = 0;
-	Tours t = new Tours();
-	Propriete p = new Propriete();
+	private Tours t = new Tours();
+	private Propriete p = new Propriete();
 	
 	
 	public Plateau() {
@@ -23,7 +23,6 @@ public class Plateau {
 	/**
 	 * Création pour les modes de jeu challenger et défenseur
 	 * @param partie Défini le mode de jeu sélectionné par l'utilisateur
-	 * @param p Fichier propriété
 	 */
 	public Plateau(String partie) {
 		nbChiffre = p.getNbChiffre();

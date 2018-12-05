@@ -18,12 +18,12 @@ public enum Pastille {
     VIOLET(9, "src/images/Violet.png");
 
     private int valeur;
-    private File f;
+    private File fichier;
 
 
     Pastille(int v, String s) {
         valeur = v;
-        f = new File(s);
+        fichier = new File(s);
     }
 
     public int getValeur() {
@@ -34,11 +34,11 @@ public enum Pastille {
         this.valeur = valeur;
     }
 
-    public File getF() {
-        return f;
+    public File getFichier() {
+        return fichier;
     }
 
-    public void setF(File f) {
-        this.f = f;
+    public void setFichier(File f) {
+        this.fichier = f;
     }
 }

@@ -1,19 +1,16 @@
 package fr.rasen.mastermind.JeuPm.Vue;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.GridLayout;
+import fr.rasen.mastermind.JeuPm.Plateau;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.*;
-
-import fr.rasen.mastermind.JeuPm.Plateau;
-import jdk.nashorn.internal.scripts.JO;
 
 public class FenetreDef extends JPanel {
 
@@ -37,6 +34,7 @@ public class FenetreDef extends JPanel {
     private JTextField proposition = new JTextField();
     private JButton valider = new JButton("Valider");
     private int compteurTours = 0;
+    private static final Logger logger = LogManager.getLogger();
 
     public FenetreDef() {
         plateau = new Plateau("def");
@@ -60,6 +58,7 @@ public class FenetreDef extends JPanel {
                     JOptionPane jop = new JOptionPane();
                     jop.showMessageDialog(null, "Veuillez entrer une combinaison de " + plateau.getNbChiffre() + " chiffres", "Erreur", JOptionPane.ERROR_MESSAGE);
                     jtf.setText("");
+                    logger.warn("Erreur de création du code à trouver.");
                 }
 
             }
@@ -76,6 +75,7 @@ public class FenetreDef extends JPanel {
         valider.addActionListener(new
 
             playListener());
+        logger.trace("Initialisation de l'affichage du mode défenseur.");
         }
 
         public void initPan () {
@@ -140,7 +140,7 @@ public class FenetreDef extends JPanel {
             this.add(panSud, BorderLayout.SOUTH);
             this.getParent().repaint();
             this.getParent().revalidate();
-
+            logger.trace("Affichage du mode Défenseur réussi.");
         }
 
         public void initTableau ( int nb){
@@ -228,6 +228,7 @@ public class FenetreDef extends JPanel {
             proposition.setEnabled(false);
             jd.add(jl);
             jd.setVisible(true);
+            logger.trace("Fin de partie en mode Défenseur : Victoire du joueur");
         }
 
         public void perdu () {
@@ -245,6 +246,7 @@ public class FenetreDef extends JPanel {
             jl.setFont(ft);
             jd.add(jl);
             jd.setVisible(true);
+            logger.trace("Fin de partie du mode Défenseur : Victoire de l'ordinateur");
         }
 
         public JLabel getPropo () {
