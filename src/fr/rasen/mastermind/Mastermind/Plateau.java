@@ -13,6 +13,7 @@ public class Plateau {
     private int nbChiffre;
     private String egalFinal = "";
     private boolean victoire = false;
+    private boolean defaite = false;
     private int tourActuel = 0;
 
     public Plateau (String mode){
@@ -23,6 +24,15 @@ public class Plateau {
             case "chall":
                 gmChall = new GameMaster(Entite.ORDI, nbChiffre);
                 jChall = new Joueur(Entite.HUMAIN, nbChiffre);
+                victoire = false;
+                defaite = false;
+                for(int j = 0; j < nbChiffre; j++){
+                    egalFinal = egalFinal + "N";
+                }
+                while(!victoire && ! defaite){
+                    challenger();
+                    tourActuel = tourActuel +1;
+                }
                 break;
             case "def":
                 gmDef = new GameMaster(Entite.HUMAIN, nbChiffre);
@@ -31,7 +41,27 @@ public class Plateau {
         }
     }
 
-    public void challenger(){
+    public void gagne(){
+        System.out.println("Bravo, vous avez trouvé la combinaison !!");
+        victoire = true;
+    }
 
+    public void perdu(){
+        System.out.println("Dommage, vous n'avez pas trouvé la combinaison dans le nombre de tours. N'hésitez pas à réeassyer !!");
+        defaite = true;
+    }
+
+    public void challenger(){
+        if(p.isModeDev()){
+            System.out.println("Combinaison = " + gmChall.showCombi());
+        }
+        String str = gmChall.evalProp(jChall.envoieProp());
+        System.out.println(str);
+        if(str.equals(egalFinal)){
+            gagne();
+        }
+        if(tourActuel == nbToursMax){
+            perdu();
+        }
     }
 }

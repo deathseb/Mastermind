@@ -2,7 +2,7 @@ package fr.rasen.mastermind.JeuPm;
 
 import java.util.Scanner;
 
-public class MastermindMain {
+public class JeuPmMain {
 
 	public static void main(String[] args) {
 		Plateau p, p1;
