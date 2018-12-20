@@ -20,47 +20,6 @@ public enum Pastille {
     private String valeur;
     private File fichier;
 
-    public Pastille(String v) {
-        valeur = v;
-        switch (v) {
-            case "0":
-                fichier = new File("src/images/Bleu.png");
-
-            case "1":
-                fichier = new File("src/images/Bleu_Clair.png");
-
-            case "2":
-                fichier = new File("src/images/Gris.png");
-
-            case "3":
-                fichier = new File("src/images/Jaune.png");
-
-            case "4":
-                fichier = new File("src/images/Marron.png");
-
-            case "5":
-                fichier = new File("src/images/Orange.png");
-
-            case "6":
-                fichier = new File("src/images/Rose.png");
-
-            case "7":
-                fichier = new File("src/images/Rouge.png");
-
-            case "8":
-                fichier = new File("src/images/Vert.png");
-
-            case "9":
-                fichier = new File("src/images/Violet.png");
-
-            case "B":
-                fichier = new File("src/images/Blanc.png");
-
-            case "N":
-                fichier = new File("src/images/Noir.png");
-        }
-    }
-
     Pastille(String v, String s) {
         valeur = v;
         fichier = new File(s);
@@ -70,37 +29,37 @@ public enum Pastille {
         return valeur;
     }
 
-    public String nextPastille(String s) {
+    public Pastille nextPastille(String s) {
         switch (s) {
             case "0":
-                return "1";
+                return Pastille.BLEU_CLAIR;
 
             case "1":
-                return "2";
+                return Pastille.GRIS;
 
             case "2":
-                return "3";
+                return Pastille.JAUNE;
 
             case "3":
-                return "4";
+                return Pastille.MARRON;
 
             case "4":
-                return "5";
+                return Pastille.ORANGE;
 
             case "5":
-                return "6";
+                return Pastille.ROSE;
 
             case "6":
-                return "7";
+                return Pastille.ROUGE;
 
             case "7":
-                return "8";
+                return Pastille.VERT;
 
             case "8":
-                return "9";
+                return Pastille.VIOLET;
 
             default :
-                return "0";
+                return Pastille.BLEU;
         }
     }
 
