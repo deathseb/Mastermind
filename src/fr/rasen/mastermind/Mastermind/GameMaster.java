@@ -98,28 +98,45 @@ public class GameMaster {
 
     public String evalProp (String str){
         String rep = "";
+        eval = new String[nbChiffre];
         if(joueur.equals(Entite.ORDI)){
             for (int k =0; k < nbChiffre; k++){
                 eval[k] = "_";
             }
+
             for(int i = 0; i < nbChiffre; i++){
                 if(combi.get(i).getValeur().charAt(0) == (str.charAt(i))){
                     eval[i] = "N"; //cas boule noire
                 }
             }
-            for(int i=0; i < nbChiffre; i++){
-                for(int j = 0; j < nbChiffre; j++){
-                    if(combi.get(j).getValeur().charAt(0)== str.charAt(i) && eval[i] == "_"){
-                        eval[i] = "B"; //cas boule blanche
-                    }
+
+            for(int i=0; i < nbChiffre; i++){ // cas Boule Blanche
+               if(eval[i] == "_"){
+                   for(int j =i; j < nbChiffre; j++){
+                       if(str.charAt(i) == combi.get(j).getValeur().charAt(0) && eval[j] == "_"){ //si la couleur de la proposition est présente dans la solution
+                           eval[i]="B";
+                       }
+                   }
+               }
+            }
+
+            for (int i =0; i < nbChiffre; i++){ //utilise les trois boucles for pour donner une réponse désordonnée
+                if(eval[i]=="_"){
+                    rep = rep + eval[i];
                 }
             }
-            for (int i =0; i < nbChiffre; i++){
-                rep = rep + eval[i];
+            for(int i =0; i < nbChiffre; i++){
+                if(eval[i] == "B"){
+                    rep = rep + eval[i];
+                }
+            }
+            for(int i = 0; i < nbChiffre; i++){
+                if(eval[i]=="N"){
+                    rep = rep + eval[i];
+                }
             }
         } else{
             System.out.println("Veuillez donner la suite de N (couleur bonne et bien placé), B (couleur bonne mais mal placée) ou _ (si ce n'est pas bon) correspondant à la proposition.");
-            System.out.println("Si rien n'est bon, appuyez sur entré.");
             rep = scanner.nextLine();
         }
         return rep;
