@@ -37,6 +37,15 @@ public class Plateau {
             case "def":
                 gmDef = new GameMaster(Entite.HUMAIN, nbChiffre);
                 jDef = new Joueur(Entite.ORDI, nbChiffre);
+                victoire = false;
+                defaite = false;
+                for(int i =0; i<nbChiffre; i++){
+                    egalFinal = egalFinal + "N";
+                }
+                while(!victoire && !defaite){
+                    defenseur();
+                    tourActuel++;
+                }
                 break;
         }
     }
@@ -62,6 +71,21 @@ public class Plateau {
         }
         if(tourActuel == nbToursMax){
             perdu();
+        }
+    }
+
+    public void defenseur(){
+       // System.out.println("Combinaison = " + gmDef.showCombi());
+        String str = jDef.envoieProp();
+        System.out.println(str);
+        String rep = gmDef.evalProp(str);
+        jDef.setDerRep(rep);
+        jDef.setAllColor(rep);
+        if(rep.equals(egalFinal)){
+            perdu();
+        }
+        if(tourActuel == nbToursMax){
+            gagne();
         }
     }
 }

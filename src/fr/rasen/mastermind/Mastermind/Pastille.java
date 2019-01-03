@@ -29,40 +29,6 @@ public enum Pastille {
         return valeur;
     }
 
-    public Pastille nextPastille(String s) {
-        switch (s) {
-            case "0":
-                return Pastille.BLEU_CLAIR;
-
-            case "1":
-                return Pastille.GRIS;
-
-            case "2":
-                return Pastille.JAUNE;
-
-            case "3":
-                return Pastille.MARRON;
-
-            case "4":
-                return Pastille.ORANGE;
-
-            case "5":
-                return Pastille.ROSE;
-
-            case "6":
-                return Pastille.ROUGE;
-
-            case "7":
-                return Pastille.VERT;
-
-            case "8":
-                return Pastille.VIOLET;
-
-            default :
-                return Pastille.BLEU;
-        }
-    }
-
     public void setValeur(String valeur) {
         this.valeur = valeur;
     }

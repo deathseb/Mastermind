@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8b8a114e-353c-45b3-b6e9-2e758e00d813" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/GameMaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/GameMaster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Bille.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Bille.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Joueur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Joueur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Pastille.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Pastille.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Plateau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Plateau.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,19 +22,20 @@
     <session id="550089488">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="22" />
+          <entry key="project.closed" value="23" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.11" value="2" />
           <entry key="project.open.time.12" value="5" />
           <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.17" value="2" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.8" value="1" />
+          <entry key="project.open.time.8" value="2" />
           <entry key="project.open.time.9" value="6" />
-          <entry key="project.opened" value="23" />
+          <entry key="project.opened" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -62,7 +65,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="12126" />
+          <entry key="JAVA" value="14072" />
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="XML" value="23" />
         </counts>
@@ -74,17 +77,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Plateau.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+            <state relative-caret-position="1394">
+              <caret line="82" column="30" selection-start-line="82" selection-start-column="30" selection-end-line="82" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Joueur.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
+            <state relative-caret-position="218">
+              <caret line="64" column="46" selection-start-line="64" selection-start-column="46" selection-end-line="64" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -95,26 +98,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Bille.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-              <folding>
-                <element signature="e#988#989#0" expanded="true" />
-                <element signature="e#1019#1020#0" expanded="true" />
-                <element signature="e#1069#1070#0" expanded="true" />
-                <element signature="e#1109#1110#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="782">
+              <caret line="46" column="36" selection-start-line="46" selection-start-column="36" selection-end-line="46" selection-end-column="36" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/GameMaster.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="115" column="95" selection-start-line="115" selection-start-column="95" selection-end-line="115" selection-end-column="95" />
+            <state relative-caret-position="1768">
+              <caret line="148" selection-start-line="148" selection-end-line="148" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#creerCombi#0;class#GameMaster#0" />
+                <element signature="method#evalProp#0;class#GameMaster#0" />
               </folding>
             </state>
           </provider>
@@ -132,8 +129,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Pastille.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="459">
+              <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -184,11 +181,11 @@
         <option value="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Tours.java" />
         <option value="$PROJECT_DIR$/src/fr/rasen/mastermind/JeuPm/Plateau.java" />
         <option value="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/MastermindMain.java" />
-        <option value="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Plateau.java" />
-        <option value="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Bille.java" />
-        <option value="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Pastille.java" />
-        <option value="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Joueur.java" />
         <option value="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/GameMaster.java" />
+        <option value="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Pastille.java" />
+        <option value="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Bille.java" />
+        <option value="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Plateau.java" />
+        <option value="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Joueur.java" />
       </list>
     </option>
   </component>
@@ -211,6 +208,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -247,8 +246,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -333,8 +330,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12899786" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13113007" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -502,30 +500,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Plateau.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Joueur.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="1394">
+          <caret line="82" column="30" selection-start-line="82" selection-start-column="30" selection-end-line="82" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Bille.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="782">
+          <caret line="46" column="36" selection-start-line="46" selection-start-column="36" selection-end-line="46" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/GameMaster.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1768">
+          <caret line="148" selection-start-line="148" selection-end-line="148" />
           <folding>
-            <element signature="e#988#989#0" expanded="true" />
-            <element signature="e#1019#1020#0" expanded="true" />
-            <element signature="e#1069#1070#0" expanded="true" />
-            <element signature="e#1109#1110#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#evalProp#0;class#GameMaster#0" />
           </folding>
         </state>
       </provider>
@@ -539,8 +532,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Pastille.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        <state relative-caret-position="459">
+          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -557,13 +550,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/GameMaster.java">
+    <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Joueur.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="115" column="95" selection-start-line="115" selection-start-column="95" selection-end-line="115" selection-end-column="95" />
+        <state relative-caret-position="218">
+          <caret line="64" column="46" selection-start-line="64" selection-start-column="46" selection-end-line="64" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#creerCombi#0;class#GameMaster#0" />
           </folding>
         </state>
       </provider>
