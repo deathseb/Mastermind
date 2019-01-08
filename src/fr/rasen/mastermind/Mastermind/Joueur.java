@@ -49,9 +49,9 @@ public class Joueur {
                         prop = derProp.get(i).getValeur();
                         listProp.add(derProp.get(i));
                     } else { // on passe au la couleur suivante pour les restantes
-                        Bille b = new Bille(derProp.get(i).getValeur());
+                        Bille b = new Bille(derProp.get(i));
                         listProp.add(b.nextPastille());
-                        prop = listProp.get(i).getValeur();
+                        prop = prop + listProp.get(i).getValeur();
                     }
                 }
                 listAncienneRep.add(derRep);

@@ -26,6 +26,7 @@ public class Plateau {
                 jChall = new Joueur(Entite.HUMAIN, nbChiffre);
                 victoire = false;
                 defaite = false;
+                tourActuel =0;
                 for(int j = 0; j < nbChiffre; j++){
                     egalFinal = egalFinal + "N";
                 }
@@ -39,6 +40,7 @@ public class Plateau {
                 jDef = new Joueur(Entite.ORDI, nbChiffre);
                 victoire = false;
                 defaite = false;
+                tourActuel = 0;
                 for(int i =0; i<nbChiffre; i++){
                     egalFinal = egalFinal + "N";
                 }
@@ -47,6 +49,22 @@ public class Plateau {
                     tourActuel++;
                 }
                 break;
+            case "duel":
+                gmDef = new GameMaster(Entite.HUMAIN, nbChiffre);
+                jDef = new Joueur(Entite.ORDI, nbChiffre);
+                gmChall = new GameMaster(Entite.HUMAIN, nbChiffre);
+                jChall = new Joueur(Entite.ORDI, nbChiffre);
+                victoire = false;
+                defaite = false;
+                tourActuel =0;
+                for(int i = 0; i<nbChiffre; i++){
+                    egalFinal = egalFinal + "N";
+                }
+                for (int j =0; j < nbToursMax; j++){
+                    challenger();
+                    defenseur();
+                    tourActuel++;
+                }
         }
     }
 

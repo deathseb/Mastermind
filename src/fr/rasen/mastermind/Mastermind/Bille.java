@@ -3,6 +3,11 @@ package fr.rasen.mastermind.Mastermind;
 public class Bille {
     private Pastille pastille;
 
+    public Bille (Pastille p){
+        pastille = p;
+    }
+
+
     public Bille(String v){
         switch (v) {
             case "0":
