@@ -68,6 +68,12 @@ public class Plateau {
         }
     }
 
+
+
+    public Plateau(){
+        gmChall = new GameMaster(Entite.ORDI, nbChiffre);
+    }
+
     public void gagne(){
         System.out.println("Bravo, vous avez trouvé la combinaison !!");
         victoire = true;
@@ -105,5 +111,93 @@ public class Plateau {
         if(tourActuel == nbToursMax){
             gagne();
         }
+    }
+
+    public boolean isVictoire() {
+        return victoire;
+    }
+
+    public void setVictoire(boolean victoire) {
+        this.victoire = victoire;
+    }
+
+    public boolean isDefaite() {
+        return defaite;
+    }
+
+    public void setDefaite(boolean defaite) {
+        this.defaite = defaite;
+    }
+
+    public GameMaster getGmChall() {
+        return gmChall;
+    }
+
+    public void setGmChall(GameMaster gmChall) {
+        this.gmChall = gmChall;
+    }
+
+    public GameMaster getGmDef() {
+        return gmDef;
+    }
+
+    public void setGmDef(GameMaster gmDef) {
+        this.gmDef = gmDef;
+    }
+
+    public Joueur getjChall() {
+        return jChall;
+    }
+
+    public void setjChall(Joueur jChall) {
+        this.jChall = jChall;
+    }
+
+    public Joueur getjDef() {
+        return jDef;
+    }
+
+    public void setjDef(Joueur jDef) {
+        this.jDef = jDef;
+    }
+
+    public Propriete getP() {
+        return p;
+    }
+
+    public void setP(Propriete p) {
+        this.p = p;
+    }
+
+    public int getNbToursMax() {
+        return nbToursMax;
+    }
+
+    public void setNbToursMax(int nbToursMax) {
+        this.nbToursMax = nbToursMax;
+    }
+
+    public int getNbChiffre() {
+        return nbChiffre;
+    }
+
+    public void setNbChiffre(int nbChiffre) {
+        this.nbChiffre = nbChiffre;
+    }
+
+    public String getEgalFinal() {
+        return egalFinal;
+    }
+
+    public void setEgalFinal(String egalFinal) {
+        this.egalFinal = egalFinal;
+    }
+
+    public int getTourActuel() {
+        return tourActuel;
+    }
+
+    public void setTourActuel(int tourActuel) {
+        this.tourActuel = tourActuel;
     }
 }

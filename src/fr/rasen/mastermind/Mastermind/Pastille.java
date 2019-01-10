@@ -1,7 +1,5 @@
 package fr.rasen.mastermind.Mastermind;
 
-import java.io.File;
-
 public enum Pastille {
 
     BLANC("B", "src/images/Blanc.png"),
@@ -18,11 +16,11 @@ public enum Pastille {
     VIOLET("9", "src/images/Violet.png");
 
     private String valeur;
-    private File fichier;
+    private String fichier;
 
     Pastille(String v, String s) {
         valeur = v;
-        fichier = new File(s);
+        fichier = s;
     }
 
     public String getValeur() {
@@ -33,11 +31,11 @@ public enum Pastille {
         this.valeur = valeur;
     }
 
-    public File getFichier() {
+    public String getFichier() {
         return fichier;
     }
 
-    public void setFichier(File f) {
+    public void setFichier(String f) {
         this.fichier = f;
     }
 }

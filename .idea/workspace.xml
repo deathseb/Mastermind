@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8b8a114e-353c-45b3-b6e9-2e758e00d813" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Bille.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Bille.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Joueur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Joueur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Pastille.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Pastille.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Plateau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Plateau.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/vue/Challenger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/vue/Challenger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/vue/Fenetre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/vue/Fenetre.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,67 +18,62 @@
   <component name="CodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="550089488">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="26" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.10" value="2" />
-          <entry key="project.open.time.11" value="2" />
-          <entry key="project.open.time.12" value="5" />
-          <entry key="project.open.time.13" value="2" />
-          <entry key="project.open.time.14" value="1" />
-          <entry key="project.open.time.17" value="2" />
-          <entry key="project.open.time.19" value="1" />
-          <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.8" value="2" />
-          <entry key="project.open.time.9" value="7" />
-          <entry key="project.opened" value="27" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="class" value="1" />
-          <entry key="java" value="72" />
-          <entry key="png" value="1" />
-          <entry key="properties" value="2" />
-          <entry key="xml" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="CLASS" value="1" />
-          <entry key="Image" value="1" />
-          <entry key="JAVA" value="80" />
-          <entry key="Properties" value="2" />
-          <entry key="XML" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="dummy" value="6" />
-          <entry key="java" value="9885" />
-          <entry key="xml" value="23" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="14485" />
-          <entry key="PLAIN_TEXT" value="7" />
-          <entry key="XML" value="23" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Plateau.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+            <state relative-caret-position="306">
+              <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
+              <folding>
+                <element signature="method#Plateau#0;class#Plateau#0" />
+                <element signature="e#2368#2369#0" expanded="true" />
+                <element signature="e#2398#2399#0" expanded="true" />
+                <element signature="e#3524#3525#0" expanded="true" />
+                <element signature="e#3555#3556#0" expanded="true" />
+                <element signature="e#3604#3605#0" expanded="true" />
+                <element signature="e#3644#3645#0" expanded="true" />
+                <element signature="e#3678#3679#0" expanded="true" />
+                <element signature="e#3708#3709#0" expanded="true" />
+                <element signature="e#3755#3756#0" expanded="true" />
+                <element signature="e#3793#3794#0" expanded="true" />
+                <element signature="e#3831#3832#0" expanded="true" />
+                <element signature="e#3861#3862#0" expanded="true" />
+                <element signature="e#3911#3912#0" expanded="true" />
+                <element signature="e#3949#3950#0" expanded="true" />
+                <element signature="e#3985#3986#0" expanded="true" />
+                <element signature="e#4013#4014#0" expanded="true" />
+                <element signature="e#4059#4060#0" expanded="true" />
+                <element signature="e#4093#4094#0" expanded="true" />
+                <element signature="e#4126#4127#0" expanded="true" />
+                <element signature="e#4155#4156#0" expanded="true" />
+                <element signature="e#4199#4200#0" expanded="true" />
+                <element signature="e#4235#4236#0" expanded="true" />
+                <element signature="e#4266#4267#0" expanded="true" />
+                <element signature="e#4293#4294#0" expanded="true" />
+                <element signature="e#4333#4334#0" expanded="true" />
+                <element signature="e#4365#4366#0" expanded="true" />
+                <element signature="e#4396#4397#0" expanded="true" />
+                <element signature="e#4420#4421#0" expanded="true" />
+                <element signature="e#4457#4458#0" expanded="true" />
+                <element signature="e#4483#4484#0" expanded="true" />
+                <element signature="e#4517#4518#0" expanded="true" />
+                <element signature="e#4550#4551#0" expanded="true" />
+                <element signature="e#4599#4600#0" expanded="true" />
+                <element signature="e#4643#4644#0" expanded="true" />
+                <element signature="e#4676#4677#0" expanded="true" />
+                <element signature="e#4708#4709#0" expanded="true" />
+                <element signature="e#4755#4756#0" expanded="true" />
+                <element signature="e#4797#4798#0" expanded="true" />
+                <element signature="e#4833#4834#0" expanded="true" />
+                <element signature="e#4865#4866#0" expanded="true" />
+                <element signature="e#4915#4916#0" expanded="true" />
+                <element signature="e#4957#4958#0" expanded="true" />
+                <element signature="e#4991#4992#0" expanded="true" />
+                <element signature="e#5024#5025#0" expanded="true" />
+                <element signature="e#5073#5074#0" expanded="true" />
+                <element signature="e#5117#5118#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -85,26 +81,48 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/vue/Fenetre.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/vue/Acceuil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="35" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
+            <state relative-caret-position="221">
+              <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/vue/Acceuil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="43" lean-forward="true" selection-start-column="43" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/vue/Challenger.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+            <state relative-caret-position="365">
+              <caret line="45" column="23" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/GameMaster.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="705">
+              <caret line="148" selection-start-line="148" selection-end-line="148" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#evalProp#0;class#GameMaster#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Pastille.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -128,18 +146,9 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/JeuPm/Vue/Fenetre.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Joueur.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
+            <state relative-caret-position="867">
               <caret line="53" column="38" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -193,15 +202,15 @@
         <option value="$PROJECT_DIR$/src/fr/rasen/mastermind/JeuPm/Plateau.java" />
         <option value="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/MastermindMain.java" />
         <option value="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/GameMaster.java" />
-        <option value="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Pastille.java" />
         <option value="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Bille.java" />
         <option value="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Joueur.java" />
-        <option value="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Plateau.java" />
-        <option value="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/vue/Fenetre.java" />
         <option value="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/vue/Duel.java" />
         <option value="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/vue/Defenseur.java" />
-        <option value="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/vue/Challenger.java" />
         <option value="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/vue/Acceuil.java" />
+        <option value="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Pastille.java" />
+        <option value="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/vue/Fenetre.java" />
+        <option value="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Plateau.java" />
+        <option value="$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/vue/Challenger.java" />
       </list>
     </option>
   </component>
@@ -224,6 +233,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -254,34 +265,16 @@
               <item name="Mastermind" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="mastermind" type="462c0819:PsiDirectoryNode" />
-              <item name="JeuPm" type="462c0819:PsiDirectoryNode" />
-              <item name="Vue" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Mastermind" type="b2602c69:ProjectViewProjectNode" />
               <item name="Mastermind" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mastermind" type="462c0819:PsiDirectoryNode" />
-              <item name="Mastermind" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Mastermind" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Mastermind" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mastermind" type="462c0819:PsiDirectoryNode" />
-              <item name="Mastermind" type="462c0819:PsiDirectoryNode" />
-              <item name="vue" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546957231549" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546979474042" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -300,7 +293,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.MastermindMain">
+  <component name="RunManager" selected="Application.Fenetre (1)">
+    <configuration name="Fenetre (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="fr.rasen.mastermind.Mastermind.vue.Fenetre" />
+      <module name="Mastermind" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="fr.rasen.mastermind.Mastermind.vue.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Fenetre" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="fr.rasen.mastermind.JeuPm.Vue.Fenetre" />
       <module name="Mastermind" />
@@ -328,11 +334,13 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.Fenetre (1)" />
       <item itemvalue="Application.Fenetre" />
       <item itemvalue="Application.MastermindMain" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Fenetre (1)" />
         <item itemvalue="Application.MastermindMain" />
         <item itemvalue="Application.Fenetre" />
       </list>
@@ -363,7 +371,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13326226" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13432837" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -372,7 +380,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3286334" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32827735" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39804772" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -381,6 +389,7 @@
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.329718" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.329718" />
+      <window_info anchor="right" id="Maven" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -390,9 +399,6 @@
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Maven Projects" order="7" weight="0.32995737" />
     </layout>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/bin/fr/rasen/mastermind/JeuPm/Vue/FenetreChal.class">
@@ -522,39 +528,10 @@
     <entry file="file://$PROJECT_DIR$/src/infoPM.properties">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Bille.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#123#124#0" expanded="true" />
-            <element signature="e#151#152#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/GameMaster.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1768">
-          <caret line="148" selection-start-line="148" selection-end-line="148" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#evalProp#0;class#GameMaster#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/MastermindMain.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Pastille.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -571,9 +548,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/vue/Defenseur.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Joueur.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
+        <state relative-caret-position="867">
           <caret line="53" column="38" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -581,10 +565,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Plateau.java">
+    <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Bille.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+        <state relative-caret-position="119">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#123#124#0" expanded="true" />
+            <element signature="e#151#152#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Pastille.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/vue/Acceuil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="43" lean-forward="true" selection-start-column="43" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -595,13 +597,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/vue/Fenetre.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/vue/Duel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -609,24 +604,84 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/vue/Defenseur.java">
+    <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/vue/Fenetre.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
+        <state relative-caret-position="221">
+          <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/GameMaster.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="148" selection-start-line="148" selection-end-line="148" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#evalProp#0;class#GameMaster#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/Plateau.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
+          <folding>
+            <element signature="method#Plateau#0;class#Plateau#0" />
+            <element signature="e#2368#2369#0" expanded="true" />
+            <element signature="e#2398#2399#0" expanded="true" />
+            <element signature="e#3524#3525#0" expanded="true" />
+            <element signature="e#3555#3556#0" expanded="true" />
+            <element signature="e#3604#3605#0" expanded="true" />
+            <element signature="e#3644#3645#0" expanded="true" />
+            <element signature="e#3678#3679#0" expanded="true" />
+            <element signature="e#3708#3709#0" expanded="true" />
+            <element signature="e#3755#3756#0" expanded="true" />
+            <element signature="e#3793#3794#0" expanded="true" />
+            <element signature="e#3831#3832#0" expanded="true" />
+            <element signature="e#3861#3862#0" expanded="true" />
+            <element signature="e#3911#3912#0" expanded="true" />
+            <element signature="e#3949#3950#0" expanded="true" />
+            <element signature="e#3985#3986#0" expanded="true" />
+            <element signature="e#4013#4014#0" expanded="true" />
+            <element signature="e#4059#4060#0" expanded="true" />
+            <element signature="e#4093#4094#0" expanded="true" />
+            <element signature="e#4126#4127#0" expanded="true" />
+            <element signature="e#4155#4156#0" expanded="true" />
+            <element signature="e#4199#4200#0" expanded="true" />
+            <element signature="e#4235#4236#0" expanded="true" />
+            <element signature="e#4266#4267#0" expanded="true" />
+            <element signature="e#4293#4294#0" expanded="true" />
+            <element signature="e#4333#4334#0" expanded="true" />
+            <element signature="e#4365#4366#0" expanded="true" />
+            <element signature="e#4396#4397#0" expanded="true" />
+            <element signature="e#4420#4421#0" expanded="true" />
+            <element signature="e#4457#4458#0" expanded="true" />
+            <element signature="e#4483#4484#0" expanded="true" />
+            <element signature="e#4517#4518#0" expanded="true" />
+            <element signature="e#4550#4551#0" expanded="true" />
+            <element signature="e#4599#4600#0" expanded="true" />
+            <element signature="e#4643#4644#0" expanded="true" />
+            <element signature="e#4676#4677#0" expanded="true" />
+            <element signature="e#4708#4709#0" expanded="true" />
+            <element signature="e#4755#4756#0" expanded="true" />
+            <element signature="e#4797#4798#0" expanded="true" />
+            <element signature="e#4833#4834#0" expanded="true" />
+            <element signature="e#4865#4866#0" expanded="true" />
+            <element signature="e#4915#4916#0" expanded="true" />
+            <element signature="e#4957#4958#0" expanded="true" />
+            <element signature="e#4991#4992#0" expanded="true" />
+            <element signature="e#5024#5025#0" expanded="true" />
+            <element signature="e#5073#5074#0" expanded="true" />
+            <element signature="e#5117#5118#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/vue/Challenger.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/rasen/mastermind/Mastermind/vue/Acceuil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="35" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
+        <state relative-caret-position="365">
+          <caret line="45" column="23" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="23" />
         </state>
       </provider>
     </entry>
