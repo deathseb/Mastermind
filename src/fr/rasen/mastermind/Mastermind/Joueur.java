@@ -32,7 +32,7 @@ public class Joueur {
                 derProp.add(b.getPastille());
             }
             listAncienTours.add(derProp);
-        } else {
+        } else { // PARTIE ALGORITHME
             if (derProp == null) { // créer la première proposition
                 derProp = new LinkedList<Pastille>();
                 for (int i = 0; i < nbChiffre; i++) {

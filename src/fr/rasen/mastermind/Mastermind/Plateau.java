@@ -84,6 +84,11 @@ public class Plateau {
         defaite = true;
     }
 
+    public String challenger(String prop){
+        String str = gmChall.evalProp(prop);
+        return str;
+    }
+
     public void challenger(){
         if(p.isModeDev()){
             System.out.println("Combinaison = " + gmChall.showCombi());

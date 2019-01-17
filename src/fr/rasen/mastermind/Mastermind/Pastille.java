@@ -2,18 +2,18 @@ package fr.rasen.mastermind.Mastermind;
 
 public enum Pastille {
 
-    BLANC("B", "src/images/Blanc.png"),
-    BLEU("0", "src/images/Bleu.png"),
-    BLEU_CLAIR("1", "src/images/Bleu_Clair.png"),
-    GRIS("2", "src/images/Gris.png"),
-    JAUNE("3", "src/images/Jaune.png"),
-    MARRON("4", "src/images/Marron.png"),
-    NOIR("N", "src/images/Noir.png"),
-    ORANGE("5", "src/images/Orange.png"),
-    ROSE("6", "src/images/Rose.png"),
-    ROUGE("7", "src/images/Rouge.png"),
-    VERT("8", "src/images/Vert.png"),
-    VIOLET("9", "src/images/Violet.png");
+    BLANC("B", "ressources/images/Blanc.png"),
+    BLEU("0", "ressources/images/Bleu.png"),
+    BLEU_CLAIR("1", "ressources/images/Bleu_Clair.png"),
+    GRIS("2", "ressources/images/Gris.png"),
+    JAUNE("3", "ressources/images/Jaune.png"),
+    MARRON("4", "ressources/images/Marron.png"),
+    NOIR("N", "ressources/images/Noir.png"),
+    ORANGE("5", "ressources/images/Orange.png"),
+    ROSE("6", "ressources/images/Rose.png"),
+    ROUGE("7", "ressources/images/Rouge.png"),
+    VERT("8", "ressources/images/Vert.png"),
+    VIOLET("9", "ressources/images/Violet.png");
 
     private String valeur;
     private String fichier;

@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public class Fenetre extends JFrame {
 
-    private Challenger challenger = new Challenger();
+    private Challenger challenger = new Challenger(this);
 
     public Fenetre(){
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
