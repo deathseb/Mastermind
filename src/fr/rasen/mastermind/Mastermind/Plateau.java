@@ -104,7 +104,7 @@ public class Plateau {
     }
 
     public void defenseur(){
-       // System.out.println("Combinaison = " + gmDef.showCombi());
+        //System.out.println("Combinaison = " + gmDef.showCombi());
         String str = jDef.envoieProp();
         System.out.println(str);
         String rep = gmDef.evalProp(str);

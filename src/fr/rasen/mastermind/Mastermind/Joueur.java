@@ -10,7 +10,7 @@ public class Joueur {
     private List<Pastille> derProp = null;
     private List<List<Pastille>> listAncienTours = new LinkedList<List<Pastille>>(); //Ancien tours joué
     private List<String> listAncienneRep = new LinkedList<String>(); // anciennes réponses
-    private int posChiffreADeplacer = 0;
+    private int posChiffreADeplacer = -1;
     private String derRep;
     private boolean allColor = false;
     private int nbChiffre;
@@ -46,7 +46,7 @@ public class Joueur {
                 List<Pastille> listProp = new LinkedList<Pastille>();
                 for(int i = 0; i < nbChiffre;  i++){
                     if(i < getNbNoirEtBlanc()) { // On ajoute les valeurs ayant obtenue une boule blanche ou noir
-                        prop = derProp.get(i).getValeur();
+                        prop = prop + derProp.get(i).getValeur();
                         listProp.add(derProp.get(i));
                     } else { // on passe au la couleur suivante pour les restantes
                         Bille b = new Bille(derProp.get(i));
@@ -59,22 +59,26 @@ public class Joueur {
                 derProp = listProp;
                 return prop;
             } else { //Si l'ordi a trouvé toutes les couleurs
-                if(getNbNoir(derRep)<getNbNoir(listAncienneRep.get(listAncienneRep.size()))){
+                if(getNbNoir(derRep)<getNbNoir(listAncienneRep.get(listAncienneRep.size()-1))){
                     for(int i=0; i < nbChiffre; i++){
-                        prop = prop +listAncienTours.get(listAncienTours.size()).get(i).getValeur(); // Si l'on a moins de noire qu'au tour d'avant, on revient à l'ancienne forme.
+                        prop = prop +listAncienTours.get(listAncienTours.size()-2).get(i).getValeur(); // Si l'on a moins de noire qu'au tour d'avant, on revient à l'ancienne forme.
+                    }
+                    if(posChiffreADeplacer == nbChiffre-2){
+                        posChiffreADeplacer = -1;
+                    } else{
                         posChiffreADeplacer++;
                     }
                 } else{
-                    if(getNbNoir(derRep)>getNbNoir(listAncienneRep.get(listAncienneRep.size()))){ // Si on a une nouvelle boule noire, on augmente la position de la boule à bouger, et si elle est au max on recommence du début.
+                    if(getNbNoir(derRep) >= getNbNoir(listAncienneRep.get(listAncienneRep.size()-1))){ // Si on a une nouvelle boule noire, on augmente la position de la boule à bouger, et si elle est au max on recommence du début.
                         if(posChiffreADeplacer == nbChiffre-2){
-                            posChiffreADeplacer = 0;
+                            posChiffreADeplacer = -1;
                         } else{
                             posChiffreADeplacer++;
                         }
                     }
                     Pastille a, b;
                     List<Pastille> p = new LinkedList<Pastille>(); // On intervertit 2 boules une fois par tour.
-                    a = derProp.get(posChiffreADeplacer);
+                    a = derProp.get(posChiffreADeplacer+1);
                     b = derProp.get(posChiffreADeplacer);
                     for(int i = 0; i < nbChiffre; i++){
                         if(i == posChiffreADeplacer){
@@ -116,7 +120,7 @@ public class Joueur {
     public void setAllColor(String rep){
         boolean ok =true;
         for(int i =0; i < nbChiffre; i++){
-            if(rep.charAt(i) != 'N' || rep.charAt(i) != 'B'){
+            if(rep.charAt(i) != 'N' && rep.charAt(i) != 'B'){
                 ok = false;
             }
         }

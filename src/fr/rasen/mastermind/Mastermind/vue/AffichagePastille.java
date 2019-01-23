@@ -9,7 +9,6 @@ import java.awt.event.MouseListener;
 public class AffichagePastille extends JLabel  implements MouseListener {
     private Pastille pastille;
     private Challenger challenger;
-    private AffichagePastille affichagePastille = this;
 
     public AffichagePastille(Pastille p, Challenger c){
         pastille = p;
@@ -27,20 +26,19 @@ public class AffichagePastille extends JLabel  implements MouseListener {
     }
 
     public void mouseClicked(MouseEvent e) {
-        challenger.getProp().add(affichagePastille);
-        challenger.ajoutProp();
+
     }
 
 
     public void mousePressed(MouseEvent e) {
-        challenger.getProp().add(affichagePastille);
+        challenger.getProp().add(this.pastille);
         challenger.ajoutProp();
+
     }
 
 
     public void mouseReleased(MouseEvent e) {
-        challenger.getProp().add(affichagePastille);
-        challenger.ajoutProp();
+
     }
 
 

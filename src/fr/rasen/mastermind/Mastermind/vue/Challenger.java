@@ -8,13 +8,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Challenger extends JPanel {
 
     private Plateau plateau = new Plateau();
     private JFrame menu;
-    private List<AffichagePastille> prop = new ArrayList<AffichagePastille>();
+    private List<Pastille> prop = new ArrayList<Pastille>();
 
     // Affichage pastille de couleurs
     private AffichagePastille bleu = new AffichagePastille(Pastille.BLEU, this);
@@ -47,6 +48,13 @@ public class Challenger extends JPanel {
     private JButton valider = new JButton("Valider");
     private JButton effacer = new JButton("Effacer");
 
+    //Panneau Central
+    private GridLayout tableau = new GridLayout(plateau.getNbToursMax(),2);
+    private GridLayout gridProp = new GridLayout(1,plateau.getNbChiffre());
+    private JPanel panCentre = new JPanel();
+    private List<List<Pastille>> listProp = new LinkedList<List<Pastille>>();
+    private List<List<Pastille>> listIndic = new LinkedList<List<Pastille>>();
+
 
 
     public Challenger(JFrame frame){
@@ -54,6 +62,7 @@ public class Challenger extends JPanel {
         this.setLayout(new BorderLayout());
         initInfo();
         initCommande();
+        initPanCentral();
         this.setBackground(Color.white);
     }
 
@@ -90,6 +99,7 @@ public class Challenger extends JPanel {
 
     public void initCommande(){
         valider.addActionListener(new validerProp());
+        effacer.addActionListener(new effacerProp());
         panCommande.setLayout(new BorderLayout());
         panBoutton.setLayout(commandes);
         proposition.setPreferredSize(new Dimension(500,50));
@@ -145,29 +155,96 @@ public class Challenger extends JPanel {
         panCommande.add(panPastille, BorderLayout.SOUTH);
     }
 
-    public void ajoutProp(){
-        proposition.add(prop.get(prop.size()-1));
+    public void initPanCentral(){
+        panCentre.setLayout(tableau);
+        panCentre.setBorder(BorderFactory.createLineBorder(Color.black));
+        panCentre.setBackground(Color.white);
+        this.add(panCentre, BorderLayout.CENTER);
     }
 
-    public List<AffichagePastille> getProp() {
+    public void ajoutProp(){
+        proposition.add(new JLabel(new ImageIcon(prop.get(prop.size()-1).getFichier())));
+        proposition.repaint();
+        proposition.revalidate();
+    }
+
+    public List<Pastille> getProp() {
         return prop;
     }
 
-    public void setProp(List<AffichagePastille> prop) {
+    public void setProp(List<Pastille> prop) {
         this.prop = prop;
     }
 
     public String convertPastilleString(){
         String str = "";
         for(int i=0; i<prop.size(); i++){
-            str = str + prop.get(i).getPastille().getValeur();
+            str = str + prop.get(i).getValeur();
         }
         return str;
+    }
+
+    public List<Pastille> convertStringPastille(String rep){
+        List<Pastille> list = new ArrayList<Pastille>();
+        for(int i =0; i<rep.length(); i++){
+            if(rep.charAt(i)=='B'){
+                list.add(Pastille.BLANC);
+            }
+            if(rep.charAt(i)=='N'){
+                list.add(Pastille.NOIR);
+            }
+        }
+        return list;
+    }
+
+    public void affichageProp(){
+        JPanel pan = new JPanel();
+        pan.setPreferredSize(new Dimension(400,25));
+        pan.setBackground(Color.white);
+        pan.setBorder(BorderFactory.createLineBorder(Color.black));
+        pan.setLayout(gridProp);
+        for (int i =0; i<prop.size(); i++){
+            pan.add(new JLabel(new ImageIcon(prop.get(i).getFichier())));
+        }
+        panCentre.add(pan);
+        panCentre.repaint();
+        panCentre.revalidate();
+    }
+
+    public void affichageIndic(List<Pastille> list){
+        JPanel pan = new JPanel();
+        pan.setPreferredSize(new Dimension(200, 25));
+        pan.setBackground(Color.white);
+        pan.setBorder(BorderFactory.createLineBorder(Color.black));
+        pan.setLayout(new GridLayout(2,2));
+        for(int i = 0; i<list.size(); i++){
+            pan.add(new JLabel(new ImageIcon(list.get(i).getFichier())));
+        }
+        panCentre.add(pan);
+        panCentre.repaint();
+        panCentre.revalidate();
     }
 
     class validerProp implements ActionListener{
         public void actionPerformed(ActionEvent e) {
            String rep = plateau.challenger(convertPastilleString());
+           listProp.add(prop);
+           affichageProp();
+           proposition.removeAll();
+           proposition.repaint();
+           proposition.revalidate();
+           prop = new ArrayList<Pastille>();
+           listIndic.add(convertStringPastille(rep));
+           affichageIndic(listIndic.get(listIndic.size()-1));
+        }
+    }
+
+    class effacerProp implements ActionListener{
+        public void actionPerformed(ActionEvent e) {
+            proposition.remove(prop.size()-1);
+            prop.remove(prop.size()-1);
+            proposition.repaint();
+            proposition.revalidate();
         }
     }
 
