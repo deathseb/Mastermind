@@ -31,6 +31,7 @@ public class Challenger extends JPanel {
     private JPanel panPastille = new JPanel();
     private GridLayout couleurs = new GridLayout(1,10);
 
+
     //Affichage titre et info générales
     private JPanel panInfo = new JPanel();
     private GridLayout informations = new GridLayout(4, 1);
@@ -51,6 +52,7 @@ public class Challenger extends JPanel {
     //Panneau Central
     private GridLayout tableau = new GridLayout(plateau.getNbToursMax(),2);
     private GridLayout gridProp = new GridLayout(1,plateau.getNbChiffre());
+    private GridBagLayout gridBagLayout = new GridBagLayout();
     private JPanel panCentre = new JPanel();
     private List<List<Pastille>> listProp = new LinkedList<List<Pastille>>();
     private List<List<Pastille>> listIndic = new LinkedList<List<Pastille>>();

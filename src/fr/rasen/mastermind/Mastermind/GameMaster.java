@@ -99,7 +99,7 @@ public class GameMaster {
     public String evalProp (String str){
         String rep = "";
         eval = new String[nbChiffre];
-        if(joueur.equals(Entite.ORDI)){
+        if(joueur.equals(Entite.ORDI)) {
             for (int k =0; k < nbChiffre; k++){
                 eval[k] = "_";
             }

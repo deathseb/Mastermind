@@ -71,7 +71,10 @@ public class Plateau {
 
 
     public Plateau(){
+        this.nbToursMax = p.getNbTours();
+        this.nbChiffre = p.getNbChiffre();
         gmChall = new GameMaster(Entite.ORDI, nbChiffre);
+        jChall = new Joueur(Entite.HUMAIN, nbChiffre);
     }
 
     public void gagne(){
@@ -87,6 +90,11 @@ public class Plateau {
     public String challenger(String prop){
         String str = gmChall.evalProp(prop);
         return str;
+    }
+
+    public String defenseur(String rep){
+        jDef.setDerRep(rep);
+        return jDef.envoieProp();
     }
 
     public void challenger(){

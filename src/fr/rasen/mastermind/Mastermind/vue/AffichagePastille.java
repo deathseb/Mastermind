@@ -8,11 +8,27 @@ import java.awt.event.MouseListener;
 
 public class AffichagePastille extends JLabel  implements MouseListener {
     private Pastille pastille;
-    private Challenger challenger;
+    private Challenger challenger = null;
+    private Defenseur defenseur = null;
+    private JDialog jDialog = null;
 
     public AffichagePastille(Pastille p, Challenger c){
         pastille = p;
         challenger = c;
+        this.setIcon(new ImageIcon(pastille.getFichier()));
+        this.addMouseListener(this);
+    }
+
+    public AffichagePastille(Pastille p, Defenseur d){
+        pastille = p;
+        defenseur = d;
+        this.setIcon(new ImageIcon(pastille.getFichier()));
+        this.addMouseListener(this);
+    }
+
+    public AffichagePastille (Pastille p, JDialog jd){
+        pastille = p;
+        jDialog = jd;
         this.setIcon(new ImageIcon(pastille.getFichier()));
         this.addMouseListener(this);
     }
@@ -31,8 +47,15 @@ public class AffichagePastille extends JLabel  implements MouseListener {
 
 
     public void mousePressed(MouseEvent e) {
-        challenger.getProp().add(this.pastille);
-        challenger.ajoutProp();
+        if(challenger != null){
+            challenger.getProp().add(this.pastille);
+            challenger.ajoutProp();
+        } else if(defenseur != null){
+
+        } else{
+
+        }
+
 
     }
 

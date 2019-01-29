@@ -63,14 +63,14 @@ public class Joueur {
                     for(int i=0; i < nbChiffre; i++){
                         prop = prop +listAncienTours.get(listAncienTours.size()-2).get(i).getValeur(); // Si l'on a moins de noire qu'au tour d'avant, on revient à l'ancienne forme.
                     }
-                    if(posChiffreADeplacer == nbChiffre-2){
+                    if(posChiffreADeplacer >= nbChiffre-2){
                         posChiffreADeplacer = -1;
                     } else{
                         posChiffreADeplacer++;
                     }
                 } else{
                     if(getNbNoir(derRep) >= getNbNoir(listAncienneRep.get(listAncienneRep.size()-1))){ // Si on a une nouvelle boule noire, on augmente la position de la boule à bouger, et si elle est au max on recommence du début.
-                        if(posChiffreADeplacer == nbChiffre-2){
+                        if(posChiffreADeplacer >= nbChiffre-2){
                             posChiffreADeplacer = -1;
                         } else{
                             posChiffreADeplacer++;

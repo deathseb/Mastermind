@@ -1,6 +1,6 @@
 package fr.rasen.mastermind.Mastermind.vue;
 
-import fr.rasen.mastermind.JeuPm.Plateau;
+import fr.rasen.mastermind.Mastermind.Plateau;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -8,8 +8,8 @@ import java.awt.event.ActionListener;
 
 public class Fenetre extends JFrame {
 
-    private Challenger challenger = new Challenger(this);
-    private Defenseur defenseur = new Defenseur();
+    private Challenger challenger;
+    private Defenseur defenseur;
     private Duel duel = new Duel();
     private Accueil accueil = new Accueil();
     private Fenetre fenetre = this;
@@ -38,6 +38,7 @@ public class Fenetre extends JFrame {
 
     class challengerListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
+            challenger = new Challenger(fenetre);
             fenetre.getContentPane().removeAll();
             fenetre.getContentPane().add(challenger);
             fenetre.repaint();
@@ -47,6 +48,7 @@ public class Fenetre extends JFrame {
 
     class defenseurListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
+            defenseur = new Defenseur(fenetre);
             fenetre.getContentPane().removeAll();
             fenetre.getContentPane().add(defenseur);
             fenetre.repaint();

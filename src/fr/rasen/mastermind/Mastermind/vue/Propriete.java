@@ -1,6 +1,6 @@
 package fr.rasen.mastermind.Mastermind.vue;
 
-import fr.rasen.mastermind.JeuPm.Plateau;
+import fr.rasen.mastermind.Mastermind.Plateau;
 
 import javax.swing.*;
 import java.awt.*;
