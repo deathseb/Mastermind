@@ -117,6 +117,10 @@ public class Joueur {
         return nb;
     }
 
+    public List<Pastille> getDerProp() {
+        return derProp;
+    }
+
     public void setAllColor(String rep){
         boolean ok =true;
         for(int i =0; i < nbChiffre; i++){

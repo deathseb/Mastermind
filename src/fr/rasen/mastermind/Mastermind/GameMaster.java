@@ -15,8 +15,14 @@ public class GameMaster {
     public GameMaster(Entite joueur, int nbChiffre){
         this.joueur = joueur;
         this.nbChiffre = nbChiffre;
-        creerCombi();
+        if(joueur.equals(Entite.ORDI)) {
+            creerCombi();
+        }
         eval = new String[nbChiffre];
+    }
+
+    public void creerCombi(List<Pastille> list){
+        combi = list;
     }
 
     public void creerCombi(){

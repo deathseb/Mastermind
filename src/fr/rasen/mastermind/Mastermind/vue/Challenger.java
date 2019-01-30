@@ -238,6 +238,7 @@ public class Challenger extends JPanel {
            prop = new ArrayList<Pastille>();
            listIndic.add(convertStringPastille(rep));
            affichageIndic(listIndic.get(listIndic.size()-1));
+           plateau.setTourActuel(plateau.getTourActuel()+1);
         }
     }
 

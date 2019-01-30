@@ -37,6 +37,7 @@ public class Plateau {
                 break;
             case "def":
                 gmDef = new GameMaster(Entite.HUMAIN, nbChiffre);
+                gmDef.creerCombi();
                 jDef = new Joueur(Entite.ORDI, nbChiffre);
                 victoire = false;
                 defaite = false;
@@ -75,6 +76,8 @@ public class Plateau {
         this.nbChiffre = p.getNbChiffre();
         gmChall = new GameMaster(Entite.ORDI, nbChiffre);
         jChall = new Joueur(Entite.HUMAIN, nbChiffre);
+        gmDef = new GameMaster(Entite.HUMAIN, nbChiffre);
+        jDef = new Joueur(Entite.ORDI, nbChiffre);
     }
 
     public void gagne(){

@@ -6,8 +6,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 public class combiDef extends JDialog {
+
+    private JDialog jd = this;
+    private List<Pastille> prop = new ArrayList<Pastille>();
 
     //Partie pastille
     private AffichagePastille bleu = new AffichagePastille(Pastille.BLEU, this);
@@ -23,10 +28,10 @@ public class combiDef extends JDialog {
     private JPanel panPastille = new JPanel();
     private GridLayout couleurs = new GridLayout(1,10);
 
-    //Panneau commande
+    private JLabel texte = new JLabel("Veuillez entrer la combinaison à trouver");
     private JPanel panCommande = new JPanel();
     private JPanel panBoutton = new JPanel();
-    private GridLayout commandes = new GridLayout(2, 1);
+    private GridLayout commandes = new GridLayout(2, 2);
     private GridLayout decoupeProposition = new GridLayout(1,10);
     private JPanel proposition = new JPanel();
     private JButton valider = new JButton("Valider");
@@ -40,6 +45,9 @@ public class combiDef extends JDialog {
         this.setTitle("Entrez la combinaison à trouver");
         this.setLocationRelativeTo(null);
         initCommande();
+        texte.setBackground(Color.white);
+        this.add(texte, BorderLayout.CENTER);
+        this.setBackground(Color.white);
     }
 
     public void initCommande(){
@@ -47,7 +55,7 @@ public class combiDef extends JDialog {
         effacer.addActionListener(new effacerCombi());
         panCommande.setLayout(new BorderLayout());
         panBoutton.setLayout(commandes);
-        proposition.setPreferredSize(new Dimension(500,50));
+        proposition.setPreferredSize(new Dimension(300,50));
         proposition.setBorder(BorderFactory.createTitledBorder("Proposition"));
         proposition.setOpaque(true);
         proposition.setBackground(Color.white);
@@ -100,9 +108,28 @@ public class combiDef extends JDialog {
         panCommande.add(panPastille, BorderLayout.SOUTH);
     }
 
+    public java.util.List<Pastille> getProp() {
+        return prop;
+    }
+
+    public void setProp(List<Pastille> prop) {
+        this.prop = prop;
+    }
+
+    public void ajoutProp(){
+        proposition.add(new JLabel(new ImageIcon(prop.get(prop.size()-1).getFichier())));
+        proposition.repaint();
+        proposition.revalidate();
+    }
+
+
     class validerCombi implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-
+            if(prop.size()==defenseur.getPlateau().getNbChiffre()){
+                jd.setVisible(false);
+                defenseur.getPlateau().getGmDef().creerCombi(prop);
+                defenseur.initDefenseur();
+            }
         }
     }
 

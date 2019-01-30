@@ -61,6 +61,9 @@ public class Defenseur extends JPanel {
         initCommande();
         initPanCentral();
         this.setBackground(Color.white);
+        this.repaint();
+        this.revalidate();
+        jouerTour();
     }
 
     public void initInfo(){
@@ -139,10 +142,45 @@ public class Defenseur extends JPanel {
         this.add(panCentre, BorderLayout.CENTER);
     }
 
+    public List<Pastille> getProp() {
+        return prop;
+    }
+
+    public void setProp(List<Pastille> prop) {
+        this.prop = prop;
+    }
+
+    public void jouerTour(){
+        if(plateau.getTourActuel()==0){
+            plateau.defenseur(null);
+           prop = plateau.getjDef().getDerProp();
+           affichageProp();
+           listProp.add(prop);
+           prop = new ArrayList<>();
+        } else{
+            plateau.defenseur(convertPastilleString());
+            prop = plateau.getjDef().getDerProp();
+            affichageProp();
+            listProp.add(prop);
+            prop = new ArrayList<>();
+        }
+
+    }
+
+    public void ajoutProp(){
+        proposition.add(new JLabel(new ImageIcon(prop.get(prop.size()-1).getFichier())));
+        proposition.repaint();
+        proposition.revalidate();
+    }
+
+
     public String convertPastilleString(){
         String str = "";
-        for(int i=0; i<prop.size(); i++){
-            str = str + prop.get(i).getValeur();
+        for(int i=0; i<listIndic.get(listIndic.size()-1).size(); i++){
+            str = str + listIndic.get(listIndic.size()-1).get(i).getValeur();
+        }
+        while(str.length() != plateau.getNbChiffre()){
+            str = str + "_";
         }
         return str;
     }
@@ -150,11 +188,37 @@ public class Defenseur extends JPanel {
     public List<Pastille> convertStringPastille(String rep){
         List<Pastille> list = new ArrayList<Pastille>();
         for(int i =0; i<rep.length(); i++){
-            if(rep.charAt(i)=='B'){
-                list.add(Pastille.BLANC);
-            }
-            if(rep.charAt(i)=='N'){
-                list.add(Pastille.NOIR);
+            switch (rep.charAt(i)) {
+                case 0:
+                    list.add(Pastille.BLEU);
+                    break;
+                case 1:
+                    list.add(Pastille.BLEU_CLAIR);
+                    break;
+                case 2:
+                    list.add(Pastille.GRIS);
+                    break;
+                case 3:
+                    list.add(Pastille.JAUNE);
+                    break;
+                case 4:
+                    list.add(Pastille.MARRON);
+                    break;
+                case 5:
+                    list.add(Pastille.ORANGE);
+                    break;
+                case 6:
+                    list.add(Pastille.ROSE);
+                    break;
+                case 7:
+                    list.add(Pastille.ROUGE);
+                    break;
+                case 8:
+                    list.add(Pastille.VERT);
+                    break;
+                case 9:
+                    list.add(Pastille.VIOLET);
+                    break;
             }
         }
         return list;
@@ -174,6 +238,10 @@ public class Defenseur extends JPanel {
         panCentre.revalidate();
     }
 
+    public Plateau getPlateau() {
+        return plateau;
+    }
+
     public void affichageIndic(List<Pastille> list){
         JPanel pan = new JPanel();
         pan.setPreferredSize(new Dimension(200, 25));
@@ -190,15 +258,14 @@ public class Defenseur extends JPanel {
 
     class validerIndic implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            String rep = plateau.defenseur(convertPastilleString());
-            listProp.add(prop);
-            affichageProp();
+            listIndic.add(prop);
+            affichageIndic(prop);
+            prop = new ArrayList<>();
             proposition.removeAll();
             proposition.repaint();
             proposition.revalidate();
-            prop = new ArrayList<Pastille>();
-            listIndic.add(convertStringPastille(rep));
-            affichageIndic(listIndic.get(listIndic.size()-1));
+            plateau.setTourActuel(plateau.getTourActuel()+1);
+            jouerTour();
         }
     }
 

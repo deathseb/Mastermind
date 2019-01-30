@@ -10,7 +10,7 @@ public class AffichagePastille extends JLabel  implements MouseListener {
     private Pastille pastille;
     private Challenger challenger = null;
     private Defenseur defenseur = null;
-    private JDialog jDialog = null;
+    private combiDef combiDef = null;
 
     public AffichagePastille(Pastille p, Challenger c){
         pastille = p;
@@ -26,9 +26,9 @@ public class AffichagePastille extends JLabel  implements MouseListener {
         this.addMouseListener(this);
     }
 
-    public AffichagePastille (Pastille p, JDialog jd){
+    public AffichagePastille (Pastille p, combiDef cd){
         pastille = p;
-        jDialog = jd;
+        combiDef = cd;
         this.setIcon(new ImageIcon(pastille.getFichier()));
         this.addMouseListener(this);
     }
@@ -51,9 +51,11 @@ public class AffichagePastille extends JLabel  implements MouseListener {
             challenger.getProp().add(this.pastille);
             challenger.ajoutProp();
         } else if(defenseur != null){
-
+            defenseur.getProp().add(this.pastille);
+            defenseur.ajoutProp();
         } else{
-
+            combiDef.getProp().add(this.pastille);
+            combiDef.ajoutProp();
         }
 
 
