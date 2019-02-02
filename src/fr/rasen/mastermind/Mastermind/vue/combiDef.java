@@ -117,6 +117,7 @@ public class combiDef extends JDialog {
     }
 
     public void ajoutProp(){
+        proposition.setPreferredSize(new Dimension(300, 55));
         proposition.add(new JLabel(new ImageIcon(prop.get(prop.size()-1).getFichier())));
         proposition.repaint();
         proposition.revalidate();
