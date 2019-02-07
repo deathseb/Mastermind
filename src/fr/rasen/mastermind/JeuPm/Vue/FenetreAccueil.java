@@ -1,15 +1,7 @@
 package fr.rasen.mastermind.JeuPm.Vue;
 
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
 import javax.swing.*;
-
-import static javax.imageio.ImageIO.*;
+import java.awt.*;
 
 public class FenetreAccueil extends JPanel {
 
@@ -84,44 +76,16 @@ public class FenetreAccueil extends JPanel {
 		 g.drawImage(img, 0, 0, null);
 	}
 
-	public JPanel getPanNord() {
-		return panNord;
-	}
-
-	public void setPanNord(JPanel panNord) {
-		this.panNord = panNord;
-	}
-
-	public JLabel getTitre() {
-		return titre;
-	}
-
-	public void setTitre(JLabel titre) {
-		this.titre = titre;
-	}
-
 	public JButton getChall() {
 		return chall;
-	}
-
-	public void setChall(JButton chall) {
-		this.chall = chall;
 	}
 
 	public JButton getDef() {
 		return def;
 	}
 
-	public void setDef(JButton def) {
-		this.def = def;
-	}
-
 	public JButton getDuel() {
 		return duel;
-	}
-
-	public void setDuel(JButton duel) {
-		this.duel = duel;
 	}
 
 	public JButton getPropriete() {
@@ -130,30 +94,6 @@ public class FenetreAccueil extends JPanel {
 
 	public void setPropriete(JButton propriete) {
 		this.propriete = propriete;
-	}
-
-	public JButton getApropos() {
-		return apropos;
-	}
-
-	public void setApropos(JButton apropos) {
-		this.apropos = apropos;
-	}
-
-	public JPanel getMenu() {
-		return menu;
-	}
-
-	public void setMenu(JPanel menu) {
-		this.menu = menu;
-	}
-
-	public JPanel getPan() {
-		return pan;
-	}
-
-	public void setPan(JPanel pan) {
-		this.pan = pan;
 	}
 
 }

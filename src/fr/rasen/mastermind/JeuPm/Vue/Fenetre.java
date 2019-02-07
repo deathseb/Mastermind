@@ -1,28 +1,17 @@
 package fr.rasen.mastermind.JeuPm.Vue;
 
+import fr.rasen.mastermind.JeuPm.Plateau;
+import fr.rasen.mastermind.Projet3;
+
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
-import fr.rasen.mastermind.JeuPm.Plateau;
-
 public class Fenetre extends JFrame{
 
-	private JPanel panNord = new JPanel();
-	private JLabel titre = new JLabel("Jeu du +/-");
-	
-	private JButton chall = new JButton("Jouer en mode Challenger");
-	private JButton def = new JButton("Jouer en mode Défenseur");
-	private JButton duel = new JButton("Jouer en mode Duel");
-	private JButton propriete = new JButton("Propriétés");
-	private JButton apropos = new JButton("A Propos");
-	private JPanel menu = new JPanel();
-	
+	private Projet3 projet3;
+
 	private FenetreChal fc;
 	private FenetreDef fd;
 	private FenetreAccueil fa;
@@ -30,7 +19,8 @@ public class Fenetre extends JFrame{
 	
 	private Container pan = this.getContentPane();
 	
-	public Fenetre() {
+	public Fenetre(Projet3 p) {
+		projet3 = p;
 		this.setTitle("P3 Mastermind");
 		this.setSize(600, 800);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,18 +38,18 @@ public class Fenetre extends JFrame{
 	}
 	
 	public void initChall() {
-		fc = new FenetreChal();
+		fc = new FenetreChal(this);
 		this.getContentPane().add(fc, BorderLayout.CENTER);
 		
 	}
 	
 	public void initDef() {
-		fd = new FenetreDef();
+		fd = new FenetreDef(this);
 		this.getContentPane().add(fd, BorderLayout.CENTER);
 	}
 	
 	public void initDuel() {
-		fDuel = new FenetreDuel();
+		fDuel = new FenetreDuel(this);
 		this.getContentPane().removeAll();
 		this.setSize(new Dimension(1228, 800));
 		this.getContentPane().add(fDuel, BorderLayout.CENTER);
@@ -101,10 +91,8 @@ public class Fenetre extends JFrame{
 		}
 		
 	}
-	
-	
-	public static void main (String[] args) {
-		Fenetre f = new Fenetre();
-		f.setVisible(true);
+
+	public Projet3 getProjet3() {
+		return projet3;
 	}
 }

@@ -12,10 +12,6 @@ public class Tours {
 		indication = "";
 	}
 
-	public int getTour() {
-		return tour;
-	}
-
 	public void setTour(int tour) {
 		this.tour = tour;
 	}

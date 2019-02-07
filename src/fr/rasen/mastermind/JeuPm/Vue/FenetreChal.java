@@ -12,6 +12,8 @@ import java.util.ArrayList;
 
 public class FenetreChal extends JPanel {
 
+	private Fenetre fenetre;
+
 	private GridLayout gl;
 	private JLabel propo = new JLabel("Proposition");
 	private JLabel indication = new JLabel("Indication");
@@ -38,26 +40,22 @@ public class FenetreChal extends JPanel {
 	private static final Logger logger = LogManager.getLogger();
 
 
-	public FenetreChal() {
+	public FenetreChal(Fenetre f) {
+		fenetre =f;
 		this.setLayout(new BorderLayout());
 		plateau = new Plateau("chall");
 
 
 		gl = new GridLayout(plateau.getNbToursMax()+1,2);
 		Font ft = new Font("showcard gothic", Font.BOLD, 20);
-		//propo.setPreferredSize(new Dimension(180, 360/(plateau.getNbToursMax()+1)));
 		propo.setFont(ft);
-		//propo.setBorder(BorderFactory.createLineBorder(Color.black));
-		//indication.setBorder(BorderFactory.createLineBorder(Color.black));
 		propo.setHorizontalAlignment(JLabel.CENTER);
-		//ndication.setPreferredSize(new Dimension(180, 360/(plateau.getNbToursMax()+1)));
 		indication.setFont(ft);
 		indication.setHorizontalAlignment(JLabel.CENTER);
 		panProp.setBorder(BorderFactory.createLineBorder(Color.black));
 		panProp.add(propo);
 		panIndic.setBorder(BorderFactory.createLineBorder(Color.black));
 		panIndic.add(indication);
-		//panCenter.setPreferredSize(new Dimension(360, 360));
 		panCenter.setBackground(Color.white);
 		panCenter.setBorder(BorderFactory.createLineBorder(Color.black));
 		panCenter.setLayout(gl);
@@ -72,7 +70,7 @@ public class FenetreChal extends JPanel {
 		mode.setText("Mode : Challenger");
 		mode.setFont(ft);
 		tours.setFont(ft);;
-		tours.setText("Nombre de tours restant : " + String.valueOf(plateau.getNbToursMax()));
+		tours.setText("Nombre de tours restant : " + (plateau.getNbToursMax()));
 		tours.setHorizontalAlignment(JLabel.CENTER);
 		titre.setHorizontalAlignment(JLabel.CENTER);
 		mode.setHorizontalAlignment(JLabel.CENTER);
@@ -131,7 +129,6 @@ public class FenetreChal extends JPanel {
 
 	public void majTableau() {
 		panCenter.removeAll();
-		//panCenter = new JPanel();
 		panCenter.setBackground(Color.white);
 		panCenter.setBorder(BorderFactory.createLineBorder(Color.black));
 		panCenter.setLayout(new GridLayout(plateau.getNbToursMax()+1, 2));
@@ -153,91 +150,29 @@ public class FenetreChal extends JPanel {
 			panCenter.add(indic);
 		}
 		panCenter.revalidate();
-		//panCenter.repaint();
 		tours.removeAll();
-		tours.setText("Nombre de tours restant : " + String.valueOf(plateau.getNbToursMax()-compteurTours));
+		tours.setText("Nombre de tours restant : " + (plateau.getNbToursMax()-compteurTours));
 		tours.setHorizontalAlignment(JLabel.CENTER);
 		tours.revalidate();
-		//scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		this.add(panCenter, BorderLayout.CENTER);
-		//this.revalidate();
-		//this.repaint();
 	}
 
 	public void gagne() {
-		JDialog jd = new JDialog();
-		jd.setBackground(Color.white);
-		Font ft = new Font("showcard gothic", Font.BOLD, 15);
-		jd.setSize(new Dimension(600,300));
-		JLabel jl = new JLabel("Félicitation, vous avez gagner");
-		jl.setBackground(Color.white);
-		jl.setFont(ft);
-		jl.setHorizontalAlignment(JLabel.CENTER);
-		jd.setTitle("Victoire!");
-		jd.setLocationRelativeTo(null);
-		jd.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
-		proposition.setEnabled(false);
-		jd.add(jl);
-		jd.setVisible(true);
+		FinDePartie fp = new FinDePartie("Victoire", true, fenetre.getProjet3(), fenetre);
 		logger.trace("Fin de partie en mode challenger : Victoire");
 	}
 
 	public void perdu() {
-		JDialog jd = new JDialog();
-		jd.setTitle("Perdu !!");
-		jd.setBackground(Color.white);
-		Font ft = new Font("showcard gothic", Font.BOLD, 15);
-		jd.setLocationRelativeTo(null);
-		jd.setSize(new Dimension(600,300));
-		jd.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
-		proposition.setEnabled(false);
-		JLabel jl = new JLabel("Dommage, vous n'avez pas trouvez la combinaison. N'hésitez pas à réessayer!");
-		jl.setBackground(Color.white);
-		jl.setHorizontalAlignment(JLabel.CENTER);
-		jl.setFont(ft);
-		jd.add(jl);
-		jd.setVisible(true);
+		FinDePartie fp = new FinDePartie("Défaite", false, fenetre.getProjet3(), fenetre);
 		logger.trace("Fin de partie en mode challenger : Défaite");
-	}
-
-	public JLabel getPropo() {
-		return propo;
-	}
-
-	public void setPropo(JLabel propo) {
-		this.propo = propo;
-	}
-
-	public JLabel getIndication() {
-		return indication;
-	}
-
-	public void setIndication(JLabel indication) {
-		this.indication = indication;
 	}
 
 	public ArrayList<JLabel> getListProp() {
 		return listProp;
 	}
 
-	public void setListProp(ArrayList<JLabel> listProp) {
-		this.listProp = listProp;
-	}
-
 	public ArrayList<JLabel> getListIndic() {
 		return listIndic;
-	}
-
-	public void setListIndic(ArrayList<JLabel> listIndic) {
-		this.listIndic = listIndic;
-	}
-
-	public JPanel getPanCenter() {
-		return panCenter;
-	}
-
-	public void setPanCenter(JPanel panCenter) {
-		this.panCenter = panCenter;
 	}
 
 	public Plateau getPlateau() {
@@ -260,47 +195,46 @@ public class FenetreChal extends JPanel {
 		return compteurTours;
 	}
 
-	public void setCompteurTours(int compteurTours) {
-		this.compteurTours = compteurTours;
-	}
-
 	public JButton getValider() {
 		return valider;
-	}
-
-	public void setValider(JButton valider) {
-		this.valider = valider;
 	}
 
 	class playListener implements ActionListener{
 
 		public void actionPerformed(ActionEvent arg0) {
-			if (plateau.getNbChiffre() == proposition.getText().length()) {
-				Font ft = new Font("showcard gothic", Font.BOLD, 15);
-				JLabel prop = new JLabel();
-				prop.setPreferredSize(new Dimension(180, 360/(plateau.getNbToursMax()+1)));
-				prop.setFont(ft);
-				prop.setHorizontalAlignment(JLabel.CENTER);
-				prop.setBorder(BorderFactory.createLineBorder(Color.black));
-				prop.setText(proposition.getText());
-				listProp.add(compteurTours, prop);
-				JLabel indic = new JLabel();
-				indic.setFont(ft);
-				indic.setPreferredSize(new Dimension(180, 360/(plateau.getNbToursMax()+1)));
-				indic.setHorizontalAlignment(JLabel.CENTER);
-				indic.setBorder(BorderFactory.createLineBorder(Color.black));
-				indic.setText(plateau.challenger(proposition.getText()));
-				listIndic.add(compteurTours, indic);
-				proposition.setText("");
-				majTableau();
-				String egalFinal = plateau.getEgalFinal();
-				if (indic.getText().equals(egalFinal)) {
-					gagne();
+			try{
+				Integer.parseInt(proposition.getText());
+				if (plateau.getNbChiffre() == proposition.getText().length()) {
+					Font ft = new Font("showcard gothic", Font.BOLD, 15);
+					JLabel prop = new JLabel();
+					prop.setPreferredSize(new Dimension(180, 360/(plateau.getNbToursMax()+1)));
+					prop.setFont(ft);
+					prop.setHorizontalAlignment(JLabel.CENTER);
+					prop.setBorder(BorderFactory.createLineBorder(Color.black));
+					prop.setText(proposition.getText());
+					listProp.add(compteurTours, prop);
+					JLabel indic = new JLabel();
+					indic.setFont(ft);
+					indic.setPreferredSize(new Dimension(180, 360/(plateau.getNbToursMax()+1)));
+					indic.setHorizontalAlignment(JLabel.CENTER);
+					indic.setBorder(BorderFactory.createLineBorder(Color.black));
+					indic.setText(plateau.challenger(proposition.getText()));
+					listIndic.add(compteurTours, indic);
+					proposition.setText("");
+					majTableau();
+					String egalFinal = plateau.getEgalFinal();
+					if (indic.getText().equals(egalFinal)) {
+						gagne();
+					}
+					if(plateau.getNbToursMax() == compteurTours-1) {
+						perdu();
+					}
 				}
-				if(plateau.getNbToursMax() == compteurTours-1) {
-					perdu();
-				}
+			} catch (Exception e){
+				JOptionPane jop = new JOptionPane();
+				jop.showMessageDialog(null, "Veuillez rentrer une combinaison de " + plateau.getNbChiffre() + " chiffres", "Erreur", JOptionPane.ERROR_MESSAGE);
 			}
+
 
 		}
 

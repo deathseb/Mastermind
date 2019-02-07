@@ -20,10 +20,6 @@ public class Plateau {
 		
 	}
 
-	/**
-	 * Création pour les modes de jeu challenger et défenseur
-	 * @param partie Défini le mode de jeu sélectionné par l'utilisateur
-	 */
 	public Plateau(String partie) {
 		nbChiffre = p.getNbChiffre();
 		nbToursMax = p.getNbTours();
@@ -70,12 +66,6 @@ public class Plateau {
 		return nbToursMax;
 	}
 
-	/**
-	 * Création pour le mode duel
-	 * @param partie Défini le rôle de cette objet dans le mode duel
-	 * @param p Fichier propriété
-	 * @param tour Tour actuel
-	 */
 	public Plateau (String partie, Propriete p, int tour) {
 		tourActuel = tour;
 		nbChiffre = p.getNbChiffre();
@@ -97,13 +87,6 @@ public class Plateau {
 		}
 	}
 
-
-	/**
-	 * Méthode déroulant la partie en mode challenger
-	 * @param gm Donne le bon GameMaster pour le mode duel
-	 * @param j Donne le bon Joueur pour le mode duel
-	 * @return le String permettant d'évaluer une victoire
-	 */
 	public String challenger(GameMaster gm, Joueur j) { //lance le mode challenger
 		t.setProp(j.envoieProp());
 		t.setIndication(gm.evalProp(t.getProp()));
@@ -117,12 +100,6 @@ public class Plateau {
 	}
 
 
-	/**
-	 * Méthode déroulant la partie en mode défenseur
-	 * @param gm Donne le bon GameMaster pour le mode duel
-	 * @param j Donne le bon Joueur pour le mode duel
-	 * @return le String permettant de savoir si il y a victoire
-	 */
 	public String defenseur(GameMaster gm, Joueur j) { // lance le mode défenseur
 		t.setProp(j.envoieProp());
 		System.out.println(t.getProp());
@@ -136,38 +113,21 @@ public class Plateau {
 	public String defenseur() {
 		return jDef.envoieProp();
 	}
-	
 
 	public GameMaster getGmChall() {
 		return gmChall;
-	}
-
-	public void setGmChall(GameMaster gmChall) {
-		this.gmChall = gmChall;
 	}
 
 	public Joueur getjChall() {
 		return jChall;
 	}
 
-	public void setjChall(Joueur jChall) {
-		this.jChall = jChall;
-	}
-
 	public GameMaster getGmDef() {
 		return gmDef;
 	}
 
-	public void setGmDef(GameMaster gmDef) {
-		this.gmDef = gmDef;
-	}
-
 	public Joueur getjDef() {
 		return jDef;
-	}
-
-	public void setjDef(Joueur jDef) {
-		this.jDef = jDef;
 	}
 
 	public void setTourActuel(int tourActuel) {
@@ -182,26 +142,6 @@ public class Plateau {
 		return egalFinal;
 	}
 
-	public void setEgalFinal(String egalFinal) {
-		this.egalFinal = egalFinal;
-	}
-
-	public boolean isVictoire() {
-		return victoire;
-	}
-
-	public void setVictoire(boolean victoire) {
-		this.victoire = victoire;
-	}
-
-	public Tours getT() {
-		return t;
-	}
-
-	public void setT(Tours t) {
-		this.t = t;
-	}
-
 	public Propriete getP() {
 		return p;
 	}
@@ -209,21 +149,6 @@ public class Plateau {
 	public void setP(Propriete p) {
 		this.p = p;
 	}
-
-	public int getTourActuel() {
-		return tourActuel;
-	}
-
-	public void setNbToursMax(int nbToursMax) {
-		this.nbToursMax = nbToursMax;
-	}
-
-	public void setNbChiffre(int nbChiffre) {
-		this.nbChiffre = nbChiffre;
-	}
-
-	
-
 
 }
 
