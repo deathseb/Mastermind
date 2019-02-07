@@ -14,8 +14,9 @@ import java.util.List;
 public class Defenseur extends JPanel {
 
     private Plateau plateau = new Plateau();
-    private JFrame menu;
+    private Fenetre fenetre;
     private List<Pastille> prop = new ArrayList<Pastille>();
+    private List<Pastille> listBouleNoires = new ArrayList<Pastille>();
 
     // Affichage pastille de couleurs
     private JPanel panDroite = new JPanel();
@@ -43,19 +44,22 @@ public class Defenseur extends JPanel {
     private JButton effacer = new JButton("Effacer");
 
     //Panneau Central
-    private GridLayout tableau = new GridLayout(plateau.getNbToursMax(),2);
-    private GridLayout gridProp = new GridLayout(1,plateau.getNbChiffre());
+    private GridLayout tableau = new GridLayout(plateau.getNbToursMax(),2, 5,5);
+    private GridLayout gridProp = new GridLayout(1,plateau.getNbChiffre(), 5, 5);
     private JPanel panCentre = new JPanel();
     private java.util.List<java.util.List<Pastille>> listProp = new LinkedList<java.util.List<Pastille>>();
     private java.util.List<java.util.List<Pastille>> listIndic = new LinkedList<List<Pastille>>();
 
-    public Defenseur(JFrame frame){
-        menu = frame;
+    public Defenseur(Fenetre f){
+        fenetre = f;
         combiDef cd = new combiDef(this);
         cd.setVisible(true);
     }
 
     public void initDefenseur(){
+        for(int i=0; i<plateau.getNbChiffre(); i++){
+            listBouleNoires.add(Pastille.NOIR);
+        }
         this.setLayout(new BorderLayout());
         initInfo();
         initCommande();
@@ -98,8 +102,8 @@ public class Defenseur extends JPanel {
     }
 
     public void initCommande(){
-        valider.addActionListener(new Defenseur.validerIndic());
-        effacer.addActionListener(new Defenseur.effacerIndic());
+        valider.addActionListener(new validerIndic());
+        effacer.addActionListener(new effacerIndic());
         panCommande.setLayout(new BorderLayout());
         panBoutton.setLayout(commandes);
         proposition.setPreferredSize(new Dimension(500,50));
@@ -226,12 +230,14 @@ public class Defenseur extends JPanel {
 
     public void affichageProp(){
         JPanel pan = new JPanel();
-        pan.setPreferredSize(new Dimension(400,25));
+        pan.setPreferredSize(new Dimension(400,50));
         pan.setBackground(Color.white);
         pan.setBorder(BorderFactory.createLineBorder(Color.black));
         pan.setLayout(gridProp);
         for (int i =0; i<prop.size(); i++){
-            pan.add(new JLabel(new ImageIcon(prop.get(i).getFichier())));
+            JLabel jl = new JLabel((new ImageIcon(prop.get(i).getFichier())));
+            jl.setPreferredSize(new Dimension(50,50));
+            pan.add(jl);
         }
         panCentre.add(pan);
         panCentre.repaint();
@@ -249,7 +255,9 @@ public class Defenseur extends JPanel {
         pan.setBorder(BorderFactory.createLineBorder(Color.black));
         pan.setLayout(new GridLayout(2,2));
         for(int i = 0; i<list.size(); i++){
-            pan.add(new JLabel(new ImageIcon(list.get(i).getFichier())));
+            JLabel jl = new JLabel((new ImageIcon(prop.get(i).getFichier())));
+            jl.setPreferredSize(new Dimension(50,50));
+            pan.add(jl);
         }
         panCentre.add(pan);
         panCentre.repaint();
@@ -264,8 +272,14 @@ public class Defenseur extends JPanel {
             proposition.removeAll();
             proposition.repaint();
             proposition.revalidate();
-            plateau.setTourActuel(plateau.getTourActuel()+1);
-            jouerTour();
+            if(listIndic.get(listIndic.size()-1).equals(listBouleNoires)){ //gestion victoire
+                FinDePartie fp = new FinDePartie("Victoire", true, fenetre.getProjet3(), fenetre);
+            } else if(plateau.getTourActuel()==plateau.getNbToursMax()){ //gestion défaite
+                FinDePartie fp = new FinDePartie("Défaite", false, fenetre.getProjet3(), fenetre);
+            } else { //Si la partie n'est ni gagné ni perdu, on continue
+                plateau.setTourActuel(plateau.getTourActuel() + 1);
+                jouerTour();
+            }
         }
     }
 

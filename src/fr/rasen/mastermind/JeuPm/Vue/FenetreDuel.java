@@ -15,9 +15,9 @@ public class FenetreDuel extends JPanel {
     private FenetreDef fd;
     private static final Logger logger = LogManager.getLogger();
 
-    public FenetreDuel(){
-        fc = new FenetreChal();
-        fd = new FenetreDef();
+    public FenetreDuel(Fenetre f){
+        fc = new FenetreChal(f);
+        fd = new FenetreDef(f);
         fc.setBorder(BorderFactory.createLineBorder(Color.green, 3));
         fd.setBorder(BorderFactory.createLineBorder(Color.red, 3));
         fd.getProposition().setEnabled(false);

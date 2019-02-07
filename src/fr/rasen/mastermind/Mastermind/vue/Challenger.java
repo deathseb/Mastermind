@@ -14,8 +14,9 @@ import java.util.List;
 public class Challenger extends JPanel {
 
     private Plateau plateau = new Plateau();
-    private JFrame menu;
+    private Fenetre fenetre;
     private List<Pastille> prop = new ArrayList<Pastille>();
+    private List<Pastille> listBouleNoires = new ArrayList<Pastille>();
 
     // Affichage pastille de couleurs
     private AffichagePastille bleu = new AffichagePastille(Pastille.BLEU, this);
@@ -59,12 +60,15 @@ public class Challenger extends JPanel {
 
 
 
-    public Challenger(JFrame frame){
-        menu = frame;
+    public Challenger(Fenetre f){
+        fenetre = f;
         this.setLayout(new BorderLayout());
         initInfo();
         initCommande();
         initPanCentral();
+        for(int i=0; i<plateau.getNbChiffre(); i++){
+            listBouleNoires.add(Pastille.NOIR);
+        }
         this.setBackground(Color.white);
     }
 
@@ -238,6 +242,11 @@ public class Challenger extends JPanel {
            prop = new ArrayList<Pastille>();
            listIndic.add(convertStringPastille(rep));
            affichageIndic(listIndic.get(listIndic.size()-1));
+           if(listIndic.get(listIndic.size()-1).equals(listBouleNoires)){ //gestion victoire
+                FinDePartie fp = new FinDePartie("Victoire", true, fenetre.getProjet3(), fenetre);
+           } else if(plateau.getTourActuel()==plateau.getNbToursMax()){ //gestion défaite
+               FinDePartie fp = new FinDePartie("Défaite", false, fenetre.getProjet3(), fenetre);
+           }
            plateau.setTourActuel(plateau.getTourActuel()+1);
         }
     }

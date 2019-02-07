@@ -14,6 +14,8 @@ import java.util.List;
 
 public class FenetreDef extends JPanel {
 
+    private Fenetre fenetre;
+
     private GridLayout gl;
     private JLabel propo = new JLabel("Proposition");
     private JLabel indication = new JLabel("Indication");
@@ -36,7 +38,8 @@ public class FenetreDef extends JPanel {
     private int compteurTours = 0;
     private static final Logger logger = LogManager.getLogger();
 
-    public FenetreDef() {
+    public FenetreDef(Fenetre f) {
+        fenetre = f;
         plateau = new Plateau("def");
 
         JDialog jd = new JDialog();
@@ -63,18 +66,12 @@ public class FenetreDef extends JPanel {
 
             }
         });
-        jtf.setPreferredSize(new
-
-            Dimension(30,25));
+        jtf.setPreferredSize(new Dimension(30,25));
         jd.add(jl,BorderLayout.NORTH);
         jd.add(jtf,BorderLayout.CENTER);
         jd.setVisible(true);
-        proposition.addActionListener(new
-
-            playListener());
-        valider.addActionListener(new
-
-            playListener());
+        proposition.addActionListener(new playListener());
+        valider.addActionListener(new playListener());
         logger.trace("Initialisation de l'affichage du mode défenseur.");
         }
 
@@ -108,7 +105,7 @@ public class FenetreDef extends JPanel {
             mode.setFont(ft);
             tours.setFont(ft);
             ;
-            tours.setText("Nombre de tours restant : " + String.valueOf(plateau.getNbToursMax()));
+            tours.setText("Nombre de tours restant : " + (plateau.getNbToursMax()));
             tours.setHorizontalAlignment(JLabel.CENTER);
             JLabel combi = new JLabel("Combinaison rentré : " + plateau.getGmDef().getCombinaison());
             combi.setFont(ft);
@@ -206,7 +203,7 @@ public class FenetreDef extends JPanel {
             }
             panCenter.revalidate();
             tours.removeAll();
-            tours.setText("Nombre de tours restant : " + String.valueOf(plateau.getNbToursMax() - compteurTours));
+            tours.setText("Nombre de tours restant : " + (plateau.getNbToursMax() - compteurTours));
             tours.setHorizontalAlignment(JLabel.CENTER);
             tours.revalidate();
             this.add(panCenter, BorderLayout.CENTER);
@@ -214,71 +211,22 @@ public class FenetreDef extends JPanel {
         }
 
         public void gagne () {
-            JDialog jd = new JDialog();
-            jd.setBackground(Color.white);
-            Font ft = new Font("showcard gothic", Font.BOLD, 15);
-            jd.setSize(new Dimension(600, 300));
-            JLabel jl = new JLabel("Félicitation, votre combinaison n'a pas été trouvé !");
-            jl.setBackground(Color.white);
-            jl.setFont(ft);
-            jl.setHorizontalAlignment(JLabel.CENTER);
-            jd.setTitle("Victoire!");
-            jd.setLocationRelativeTo(null);
-            jd.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
-            proposition.setEnabled(false);
-            jd.add(jl);
-            jd.setVisible(true);
+            FinDePartie fp = new FinDePartie("Victoire", true, fenetre.getProjet3(), fenetre);
             logger.trace("Fin de partie en mode Défenseur : Victoire du joueur");
         }
 
         public void perdu () {
-            JDialog jd = new JDialog();
-            jd.setTitle("Perdu !!");
-            jd.setBackground(Color.white);
-            Font ft = new Font("showcard gothic", Font.BOLD, 15);
-            jd.setLocationRelativeTo(null);
-            jd.setSize(new Dimension(600, 300));
-            jd.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
-            proposition.setEnabled(false);
-            JLabel jl = new JLabel("Dommage, votre combinaison a été trouvé");
-            jl.setBackground(Color.white);
-            jl.setHorizontalAlignment(JLabel.CENTER);
-            jl.setFont(ft);
-            jd.add(jl);
-            jd.setVisible(true);
+            FinDePartie fp = new FinDePartie("Défaite", false, fenetre.getProjet3(), fenetre);
             logger.trace("Fin de partie du mode Défenseur : Victoire de l'ordinateur");
         }
 
-        public JLabel getPropo () {
-            return propo;
-        }
-
-        public void setPropo (JLabel propo){
-            this.propo = propo;
-        }
-
-        public JLabel getIndication () {
-            return indication;
-        }
-
-        public void setIndication (JLabel indication){
-            this.indication = indication;
-        }
 
         public List<JLabel> getListProp () {
             return listProp;
         }
 
-        public void setListProp (List < JLabel > listProp) {
-            this.listProp = listProp;
-        }
-
         public List<JLabel> getListIndic () {
             return listIndic;
-        }
-
-        public void setListIndic (List < JLabel > listIndic) {
-            this.listIndic = listIndic;
         }
 
         public JTextField getProposition () {
@@ -301,16 +249,8 @@ public class FenetreDef extends JPanel {
             return compteurTours;
         }
 
-        public void setCompteurTours ( int compteurTours){
-            this.compteurTours = compteurTours;
-        }
-
         public JButton getValider () {
             return valider;
-        }
-
-        public void setValider (JButton valider){
-            this.valider = valider;
         }
 
         class playListener implements ActionListener {

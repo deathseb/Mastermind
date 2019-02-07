@@ -10,27 +10,29 @@ public class Joueur {
 	private int nbChiffre;
 	private Scanner sc = new Scanner(System.in);
 
-
-	/**
-	 * Création du joueur
-	 * @param e Défini le type de joueur 
-	 * @param nbChiffre Nombre de chiffre que doit contenir la combinaison
-	 */
 	public Joueur(Entite e, int nbChiffre) {
 		this.e = e;
 		this.nbChiffre = nbChiffre;
 	}
-
-
-	/**
-	 * Méthode permettant de récupérer la chaine de caractère qui servira de proposition pour trouver la combinaison mystère
-	 * @retur Proposition entré par l'humain ou calculé par l'ordi selon qui est le joueur
-	 */
+	
 	public String envoieProp() {
 		String prop = "";
+		boolean ok =true;
 		if (e.toString().equals("humain")) {
-			System.out.println("Veuillez entrer votre proposition");
-			prop = sc.nextLine();
+			do {
+				System.out.println("Veuillez entrer votre proposition");
+				prop = sc.nextLine();
+				try{
+					Integer.parseInt(prop);
+					if (prop.length() == nbChiffre){
+						ok = true;
+					}
+				} catch( Exception e){
+					System.out.println("Veuillez entrez uniquement " + nbChiffre + " chiffres");
+					ok = false;
+				}
+			} while(!ok);
+
 		}else {
 			if(derProp == null) {
 				for (int i = 0; i < nbChiffre; i++)
