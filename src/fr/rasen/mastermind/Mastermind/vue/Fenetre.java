@@ -30,13 +30,20 @@ public class Fenetre extends JFrame {
     }
 
     public void initAccueil(){
-        accueil.getChall().addActionListener(new challengerListener());
-        accueil.getDef().addActionListener(new defenseurListener());
-        accueil.getDuel().addActionListener(new duelListener());
-        accueil.getPropriete().addActionListener(new proprieteListener());
+
+        accueil.getChall().addActionListener(new ChallengerListener());
+        accueil.getDef().addActionListener(new DefenseurListener());
+        accueil.getDuel().addActionListener(new DuelListener());
+        accueil.getPropriete().addActionListener(new ProprietesListener());
+        accueil.getApropos().addActionListener(new AProposListener());
     }
 
-    class challengerListener implements ActionListener{
+
+
+    /**
+     * Inner class pour gérer le click sur le menu Challenger pour le jeu du Mastermind.
+     */
+    class ChallengerListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
             challenger = new Challenger(fenetre);
             fenetre.getContentPane().removeAll();
@@ -46,7 +53,10 @@ public class Fenetre extends JFrame {
         }
     }
 
-    class defenseurListener implements ActionListener{
+    /**
+     * Inner class pour gérer le click sur le menu Défenseur pour le jeu du Mastermind.
+     */
+    class DefenseurListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
             defenseur = new Defenseur(fenetre);
             fenetre.getContentPane().removeAll();
@@ -56,7 +66,10 @@ public class Fenetre extends JFrame {
         }
     }
 
-    class duelListener implements ActionListener{
+    /**
+     * Inner class pour gérer le click sur le menu Duel pour le jeu du Mastermind.
+     */
+    class DuelListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
             fenetre.getContentPane().removeAll();
             fenetre.getContentPane().add(duel);
@@ -65,13 +78,26 @@ public class Fenetre extends JFrame {
         }
     }
 
-    class proprieteListener implements ActionListener{
+    /**
+     * Inner class pour gérer le click sur le menu Propriétés pour le jeu du Mastermind.
+     */
+    class ProprietesListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
             propriete = new Propriete(plateau);
             propriete.show(true);
         }
     }
 
+
+    /**
+     * Inner class pour gérer le click sur le menu A propos pour le jeu du Mastermind.
+     */
+    class AProposListener implements ActionListener{
+        public void actionPerformed(ActionEvent e) {
+            JOptionPane.showMessageDialog(null, "Developpé par Deathseb le xx/xx/2019", "A propos...", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+  
     public Projet3 getProjet3() {
         return projet3;
     }
