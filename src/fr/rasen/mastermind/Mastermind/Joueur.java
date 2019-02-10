@@ -1,5 +1,6 @@
 package fr.rasen.mastermind.Mastermind;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -10,7 +11,10 @@ public class Joueur {
     private List<Pastille> derProp = null;
     private List<List<Pastille>> listAncienTours = new LinkedList<List<Pastille>>(); //Ancien tours joué
     private List<String> listAncienneRep = new LinkedList<String>(); // anciennes réponses
-    private int posChiffreADeplacer = -1;
+    private List<Pastille> listCouleurCombi = null;
+    private boolean premierTour = true;
+    private int numBouleModif = 0;
+    private int numCouleurList = 0;
     private String derRep;
     private boolean allColor = false;
     private int nbChiffre;
@@ -59,52 +63,82 @@ public class Joueur {
                 derProp = listProp;
                 return prop;
             } else { //Si l'ordi a trouvé toutes les couleurs
-                if(getNbNoir(derRep)<getNbNoir(listAncienneRep.get(listAncienneRep.size()-1))){
-                    for(int i=0; i < nbChiffre; i++){
-                        prop = prop +listAncienTours.get(listAncienTours.size()-2).get(i).getValeur(); // Si l'on a moins de noire qu'au tour d'avant, on revient à l'ancienne forme.
+                if(listCouleurCombi==null){ //Créé la liste des couleurs formant la combinaison
+                    listCouleurCombi = new LinkedList<>();
+                    for(int i = 0; i<derProp.size(); i++){
+                        listCouleurCombi.add(derProp.get(i));
                     }
-                    if(posChiffreADeplacer >= nbChiffre-2){
-                        posChiffreADeplacer = -1;
-                    } else{
-                        posChiffreADeplacer++;
-                    }
-                } else{
-                    if(getNbNoir(derRep) >= getNbNoir(listAncienneRep.get(listAncienneRep.size()-1))){ // Si on a une nouvelle boule noire, on augmente la position de la boule à bouger, et si elle est au max on recommence du début.
-                        if(posChiffreADeplacer >= nbChiffre-2){
-                            posChiffreADeplacer = -1;
-                        } else{
-                            posChiffreADeplacer++;
-                        }
-                    }
-                    Pastille a, b;
-                    List<Pastille> p = new LinkedList<Pastille>(); // On intervertit 2 boules une fois par tour.
-                    a = derProp.get(posChiffreADeplacer+1);
-                    b = derProp.get(posChiffreADeplacer);
-                    for(int i = 0; i < nbChiffre; i++){
-                        if(i == posChiffreADeplacer){
-                            prop = prop + a.getValeur();
-                            p.add(a);
-                        }else {
-                            if (i == posChiffreADeplacer + 1) {
-                                prop = prop + b.getValeur();
-                                p.add(b);
-                            } else {
-                                p.add(derProp.get(i));
-                                prop = prop + derProp.get(i).getValeur();
-                            }
-                        }
-                    }
-                    listAncienneRep.add(derRep);
-                    listAncienTours.add(p);
-                    derProp = p;
-                    return prop;
                 }
-
+                prop = trouverCombi();
             }
         }
 
 
         return prop;
+    }
+
+    public String trouverCombi(){
+        List<Pastille> list = new ArrayList<>();
+        String str = "";
+        if (premierTour){
+            premierTour = false;
+            list.add(listCouleurCombi.get(numCouleurList+1));
+            for(int i=1; i<derProp.size(); i++){
+                list.add(derProp.get(i));
+            }
+            derProp = list;
+            for(int i =0; i<list.size(); i++){
+                str += list.get(i).getValeur();
+            }
+            return str;
+        } else{
+            String rep1 = listAncienneRep.get(listAncienneRep.size()-1);
+            if(getNbNoir(derRep)> getNbNoir(rep1)){ //Si le changement de couleur à créé une nouvelle boule noire
+                numBouleModif ++;
+                numCouleurList =0;
+                for (int i =0; i<derProp.size(); i++){
+                    if(i == numBouleModif){
+                        list.add(listCouleurCombi.get(numCouleurList));
+                    }else{
+                        list.add(derProp.get(i));
+                    }
+                }
+                for (int j =0; j<list.size(); j++){
+                    str += list.get(j);
+                }
+                return str;
+            } else if (getNbNoir(derRep) == getNbNoir(rep1)){ //Si le changement de couleur n'a rien fait
+                numCouleurList ++;
+                for (int i =0; i<derProp.size(); i++) {
+                    if (i == numBouleModif) {
+                        list.add(listCouleurCombi.get(numCouleurList));
+                    } else {
+                        list.add(derProp.get(i));
+                    }
+                }
+                for (int j = 0; j < list.size(); j++) {
+                    str += list.get(j);
+                }
+                return str;
+            } else{ //Si le changement de couleur à supprimé une boule noire
+                numCouleurList --;
+                for (int i =0; i<derProp.size(); i++) {
+                    if (i == numBouleModif) {
+                        list.add(listCouleurCombi.get(numCouleurList));
+                    } else if( i == numBouleModif+1){
+                        list.add(listCouleurCombi.get(0));
+                    } else {
+                        list.add(derProp.get(i));
+                    }
+                }
+                numBouleModif ++;
+                numCouleurList =0;
+                for (int j = 0; j < list.size(); j++) {
+                    str += list.get(j);
+                }
+                return str;
+            }
+        }
     }
 
     public int getNbNoir(String rep){

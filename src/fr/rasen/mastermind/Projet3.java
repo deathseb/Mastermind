@@ -28,7 +28,6 @@ public class Projet3 extends JFrame {
     }
 
 
-
     public void initFrame(){
         this.setLayout(new BorderLayout());
         panTitre.setBackground(Color.white);

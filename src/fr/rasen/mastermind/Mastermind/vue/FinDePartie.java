@@ -58,7 +58,6 @@ public class FinDePartie extends JDialog {
 
     class accueilListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-            fenetre.dispose();
             p3 = new Projet3();
             fp.setVisible(false);
         }
@@ -67,7 +66,7 @@ public class FinDePartie extends JDialog {
     class modeListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
             fenetre = new Fenetre(p3);
-            fp.dispose();
+            fp.setVisible(false);
         }
     }
 
