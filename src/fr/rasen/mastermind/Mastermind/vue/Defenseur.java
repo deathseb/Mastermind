@@ -52,7 +52,8 @@ public class Defenseur extends JPanel {
 
     public Defenseur(Fenetre f){
         fenetre = f;
-        combiDef cd = new combiDef(this);
+        valider.addActionListener(new validerIndic());
+        CombiDef cd = new CombiDef(this);
         cd.setVisible(true);
     }
 
@@ -102,7 +103,6 @@ public class Defenseur extends JPanel {
     }
 
     public void initCommande(){
-        valider.addActionListener(new validerIndic());
         effacer.addActionListener(new effacerIndic());
         panCommande.setLayout(new BorderLayout());
         panBoutton.setLayout(commandes);
@@ -291,4 +291,30 @@ public class Defenseur extends JPanel {
             proposition.revalidate();
         }
     }
+
+    public JButton getValider() {
+        return valider;
+    }
+
+    public void setPlateau(Plateau plateau) {
+        this.plateau = plateau;
+    }
+
+    public List<Pastille> getListBouleNoires() {
+        return listBouleNoires;
+    }
+
+
+    public JPanel getProposition() {
+        return proposition;
+    }
+
+    public void setProposition(JPanel proposition) {
+        this.proposition = proposition;
+    }
+
+    public List<List<Pastille>> getListIndic() {
+        return listIndic;
+    }
+
 }

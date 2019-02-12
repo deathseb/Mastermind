@@ -30,7 +30,9 @@ public class Challenger extends JPanel {
     private AffichagePastille vert = new AffichagePastille(Pastille.VERT, this);
     private AffichagePastille violet = new AffichagePastille(Pastille.VIOLET, this);
     private JPanel panPastille = new JPanel();
-    private GridLayout couleurs = new GridLayout(1,10);
+    private GridLayout couleurs;
+    private int nbCouleursMax;
+    private List<AffichagePastille> listPastille = new ArrayList<>();
 
 
     //Affichage titre et info générales
@@ -62,6 +64,8 @@ public class Challenger extends JPanel {
 
     public Challenger(Fenetre f){
         fenetre = f;
+        nbCouleursMax = plateau.getP().getNbCouleursMax();
+        couleurs = new GridLayout(1, nbCouleursMax);
         this.setLayout(new BorderLayout());
         initInfo();
         initCommande();
@@ -147,16 +151,19 @@ public class Challenger extends JPanel {
         rose.setBackground(Color.white);
         vert.setBackground(Color.white);
         violet.setBackground(Color.white);
-        panPastille.add(bleu);
-        panPastille.add(bleu_clair);
-        panPastille.add(gris);
-        panPastille.add(jaune);
-        panPastille.add(marron);
-        panPastille.add(orange);
-        panPastille.add(rose);
-        panPastille.add(rouge);
-        panPastille.add(vert);
-        panPastille.add(violet);
+        listPastille.add(bleu);
+        listPastille.add(bleu_clair);
+        listPastille.add(gris);
+        listPastille.add(jaune);
+        listPastille.add(marron);
+        listPastille.add(orange);
+        listPastille.add(rose);
+        listPastille.add(rouge);
+        listPastille.add(vert);
+        listPastille.add(violet);
+        for(int i=0; i<nbCouleursMax; i++){
+            panPastille.add(listPastille.get(i));
+        }
         panPastille.setBackground(Color.white);
         panCommande.add(panPastille, BorderLayout.SOUTH);
     }
@@ -260,6 +267,37 @@ public class Challenger extends JPanel {
         }
     }
 
+    public JButton getValider() {
+        return valider;
+    }
+
+    public List<Pastille> getListBouleNoires() {
+        return listBouleNoires;
+    }
+
+    public Plateau getPlateau() {
+        return plateau;
+    }
+
+    public void setPlateau(Plateau plateau) {
+        this.plateau = plateau;
+    }
+
+    public JPanel getProposition() {
+        return proposition;
+    }
+
+    public void setProposition(JPanel proposition) {
+        this.proposition = proposition;
+    }
+
+    public List<List<Pastille>> getListProp() {
+        return listProp;
+    }
+
+    public List<List<Pastille>> getListIndic() {
+        return listIndic;
+    }
 
 }
 

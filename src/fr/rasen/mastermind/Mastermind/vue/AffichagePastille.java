@@ -10,7 +10,7 @@ public class AffichagePastille extends JLabel  implements MouseListener {
     private Pastille pastille;
     private Challenger challenger = null;
     private Defenseur defenseur = null;
-    private combiDef combiDef = null;
+    private CombiDef combiDef = null;
 
     public AffichagePastille(Pastille p, Challenger c){
         pastille = p;
@@ -26,7 +26,7 @@ public class AffichagePastille extends JLabel  implements MouseListener {
         this.addMouseListener(this);
     }
 
-    public AffichagePastille (Pastille p, combiDef cd){
+    public AffichagePastille (Pastille p, CombiDef cd){
         pastille = p;
         combiDef = cd;
         this.setIcon(new ImageIcon(pastille.getFichier()));

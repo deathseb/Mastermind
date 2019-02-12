@@ -8,6 +8,7 @@ public class Propriete {
     private int nbTours;
     private int nbChiffre;
     private boolean modeDev;
+    private int nbCouleursMax;
 
     public Propriete() {
         Properties prop = new Properties();
@@ -26,6 +27,7 @@ public class Propriete {
             modeDev = true;
         else
             modeDev = false;
+        nbCouleursMax = Integer.parseInt(prop.getProperty("nbCouleursMax"));
     }
 
     public void sauvegarde() {
@@ -37,6 +39,7 @@ public class Propriete {
             properties.setProperty("nbTours", String.valueOf(nbTours));
             properties.setProperty("nbChiffre", String.valueOf(nbChiffre));
             properties.setProperty("modeDev", String.valueOf(modeDev));
+            properties.setProperty("nbCouleursMax", String.valueOf(nbCouleursMax));
             FileOutputStream fos = new FileOutputStream("src/infoPM.properties");
             properties.store(fos,null);
             fis.close();
@@ -44,7 +47,6 @@ public class Propriete {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        //System.out.println("Done!");
     }
 
     public int getNbTours() {
@@ -69,6 +71,14 @@ public class Propriete {
 
     public void setModeDev(boolean modeDev) {
         this.modeDev = modeDev;
+    }
+
+    public int getNbCouleursMax() {
+        return nbCouleursMax;
+    }
+
+    public void setNbCouleursMax(int nbCouleursMax) {
+        this.nbCouleursMax = nbCouleursMax;
     }
 
     public String toString() {

@@ -9,12 +9,13 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class combiDef extends JDialog {
+public class CombiDef extends JDialog {
 
     private JDialog jd = this;
     private List<Pastille> prop = new ArrayList<Pastille>();
 
     //Partie pastille
+    private List<AffichagePastille> listPastille = new ArrayList<>();
     private AffichagePastille bleu = new AffichagePastille(Pastille.BLEU, this);
     private AffichagePastille bleu_clair = new AffichagePastille(Pastille.BLEU_CLAIR, this);
     private AffichagePastille gris = new AffichagePastille(Pastille.GRIS, this);
@@ -26,7 +27,8 @@ public class combiDef extends JDialog {
     private AffichagePastille vert = new AffichagePastille(Pastille.VERT, this);
     private AffichagePastille violet = new AffichagePastille(Pastille.VIOLET, this);
     private JPanel panPastille = new JPanel();
-    private GridLayout couleurs = new GridLayout(1,10);
+    private GridLayout couleurs;
+    private int nbCouleursMax;
 
     private JLabel texte = new JLabel("Veuillez entrer la combinaison à trouver");
     private JPanel panCommande = new JPanel();
@@ -39,8 +41,10 @@ public class combiDef extends JDialog {
 
     private Defenseur defenseur;
 
-    public combiDef (Defenseur d){
+    public CombiDef(Defenseur d){
         defenseur = d;
+        nbCouleursMax = d.getPlateau().getP().getNbCouleursMax();
+        couleurs = new GridLayout(1, nbCouleursMax);
         this.setSize(new Dimension(400,200));
         this.setTitle("Entrez la combinaison à trouver");
         this.setLocationRelativeTo(null);
@@ -94,16 +98,20 @@ public class combiDef extends JDialog {
         rose.setBackground(Color.white);
         vert.setBackground(Color.white);
         violet.setBackground(Color.white);
-        panPastille.add(bleu);
-        panPastille.add(bleu_clair);
-        panPastille.add(gris);
-        panPastille.add(jaune);
-        panPastille.add(marron);
-        panPastille.add(orange);
-        panPastille.add(rose);
-        panPastille.add(rouge);
-        panPastille.add(vert);
-        panPastille.add(violet);
+        listPastille.add(bleu);
+        listPastille.add(bleu_clair);
+        listPastille.add(gris);
+        listPastille.add(jaune);
+        listPastille.add(marron);
+        listPastille.add(orange);
+        listPastille.add(rose);
+        listPastille.add(rouge);
+        listPastille.add(vert);
+        listPastille.add(violet);
+        for(int i=0; i<nbCouleursMax; i++){
+            panPastille.add(listPastille.get(i));
+        }
+
         panPastille.setBackground(Color.white);
         panCommande.add(panPastille, BorderLayout.SOUTH);
     }

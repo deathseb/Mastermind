@@ -22,7 +22,7 @@ public class Plateau {
 
         switch (mode){
             case "chall":
-                gmChall = new GameMaster(Entite.ORDI, nbChiffre);
+                gmChall = new GameMaster(Entite.ORDI, nbChiffre, p.getNbCouleursMax());
                 jChall = new Joueur(Entite.HUMAIN, nbChiffre);
                 victoire = false;
                 defaite = false;
@@ -36,7 +36,7 @@ public class Plateau {
                 }
                 break;
             case "def":
-                gmDef = new GameMaster(Entite.HUMAIN, nbChiffre);
+                gmDef = new GameMaster(Entite.HUMAIN, nbChiffre, p.getNbCouleursMax());
                 gmDef.creerCombi();
                 jDef = new Joueur(Entite.ORDI, nbChiffre);
                 victoire = false;
@@ -51,9 +51,9 @@ public class Plateau {
                 }
                 break;
             case "duel":
-                gmDef = new GameMaster(Entite.HUMAIN, nbChiffre);
+                gmDef = new GameMaster(Entite.HUMAIN, nbChiffre, p.getNbCouleursMax());
                 jDef = new Joueur(Entite.ORDI, nbChiffre);
-                gmChall = new GameMaster(Entite.HUMAIN, nbChiffre);
+                gmChall = new GameMaster(Entite.HUMAIN, nbChiffre, p.getNbCouleursMax());
                 jChall = new Joueur(Entite.ORDI, nbChiffre);
                 victoire = false;
                 defaite = false;
@@ -74,9 +74,9 @@ public class Plateau {
     public Plateau(){
         this.nbToursMax = p.getNbTours();
         this.nbChiffre = p.getNbChiffre();
-        gmChall = new GameMaster(Entite.ORDI, nbChiffre);
+        gmChall = new GameMaster(Entite.ORDI, nbChiffre, p.getNbCouleursMax());
         jChall = new Joueur(Entite.HUMAIN, nbChiffre);
-        gmDef = new GameMaster(Entite.HUMAIN, nbChiffre);
+        gmDef = new GameMaster(Entite.HUMAIN, nbChiffre, p.getNbCouleursMax());
         jDef = new Joueur(Entite.ORDI, nbChiffre);
     }
 

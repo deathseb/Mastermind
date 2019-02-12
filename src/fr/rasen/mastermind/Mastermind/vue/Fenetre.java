@@ -13,7 +13,7 @@ public class Fenetre extends JFrame {
 
     private Challenger challenger;
     private Defenseur defenseur;
-    private Duel duel = new Duel();
+    private Duel duel;
     private Accueil accueil = new Accueil();
     private Fenetre fenetre = this;
     private Propriete propriete;
@@ -71,6 +71,7 @@ public class Fenetre extends JFrame {
      */
     class DuelListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
+            duel = new Duel(fenetre);
             fenetre.getContentPane().removeAll();
             fenetre.getContentPane().add(duel);
             fenetre.repaint();

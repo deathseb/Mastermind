@@ -10,11 +10,13 @@ public class GameMaster {
     private Entite joueur;
     private List<Pastille> combi = new LinkedList<>();
     private int nbChiffre;
+    private int nbCouleursMax;
     private String [] eval;
 
-    public GameMaster(Entite joueur, int nbChiffre){
+    public GameMaster(Entite joueur, int nbChiffre, int couleurs){
         this.joueur = joueur;
         this.nbChiffre = nbChiffre;
+        nbCouleursMax = couleurs;
         if(joueur.equals(Entite.ORDI)) {
             creerCombi();
         }
@@ -28,7 +30,7 @@ public class GameMaster {
     public void creerCombi(){
         if(joueur.equals(Entite.ORDI)){
             for(int i = 0; i < nbChiffre; i++){
-                int p = (int) (Math.random()*9);
+                int p = (int) (Math.random()*nbCouleursMax);
                 switch (p){
                     case 0:
                         combi.add(Pastille.BLEU);
@@ -63,7 +65,7 @@ public class GameMaster {
                 }
             }
         } else {
-            System.out.println("Entrez une combinaison de " + nbChiffre + " chiffres (de 0 à 9) à trouver par l'ordinateur.");
+            System.out.println("Entrez une combinaison de " + nbChiffre + " chiffres (de 0 à " + (nbCouleursMax-1) + ") à trouver par l'ordinateur.");
             String str = scanner.nextLine();
             for(int i = 0; i < str.length(); i++){
                 switch (str.charAt(i)){

@@ -27,7 +27,7 @@ public class FenetreDuel extends JPanel {
         fc.getProposition().addActionListener(new PlayDuelListenerChall());
         fc.getValider().addActionListener(new PlayDuelListenerChall());
         al = fd.getProposition().getActionListeners();
-       fd.getValider().removeActionListener(al[0]);
+        fd.getValider().removeActionListener(al[0]);
         fd.getProposition().removeActionListener(al[0]);
         fd.getProposition().addActionListener(new PlayDuelListenerDef());
         fd.getValider().addActionListener(new PlayDuelListenerDef());
