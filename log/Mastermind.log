@@ -15,3 +15,88 @@
 08:48:00.706 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
 08:48:00.719 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Affichage mode challenger réussi
 08:48:05.840 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Fin de partie en mode challenger : Victoire
+15:01:17.094 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+15:01:17.108 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Affichage mode challenger réussi
+15:02:37.772 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+15:02:37.784 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Affichage mode challenger réussi
+15:04:01.884 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+15:04:01.896 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Affichage mode challenger réussi
+15:05:53.798 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+15:05:53.810 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Affichage mode challenger réussi
+15:22:11.693 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+15:22:11.705 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Affichage mode challenger réussi
+15:24:12.786 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+15:24:12.797 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Affichage mode challenger réussi
+15:28:44.530 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+15:28:44.541 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Affichage mode challenger réussi
+15:30:04.179 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+15:30:04.191 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Affichage mode challenger réussi
+15:35:11.312 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+15:35:11.325 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Affichage mode challenger réussi
+15:35:26.970 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+15:35:26.985 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Affichage mode challenger réussi
+15:37:30.811 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+15:37:30.823 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Affichage mode challenger réussi
+15:39:04.130 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+15:39:04.141 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Affichage mode challenger réussi
+15:39:53.575 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+15:39:53.587 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Affichage mode challenger réussi
+15:41:30.589 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+15:41:30.602 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Affichage mode challenger réussi
+15:50:01.733 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+15:50:01.744 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Affichage mode challenger réussi
+15:50:13.312 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Fin de partie en mode challenger : Victoire
+15:52:48.518 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+15:52:48.530 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Affichage mode challenger réussi
+15:54:26.796 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+15:54:26.809 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Affichage mode challenger réussi
+15:55:41.242 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+15:55:41.253 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Affichage mode challenger réussi
+15:56:59.301 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+15:56:59.314 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Affichage mode challenger réussi
+15:57:41.425 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+15:57:41.437 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Affichage mode challenger réussi
+16:00:20.447 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+16:00:20.459 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Affichage mode challenger réussi
+16:15:02.350 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+16:15:02.364 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Affichage mode challenger réussi
+16:23:15.962 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+16:23:15.978 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Affichage mode challenger réussi
+16:24:50.995 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+16:24:51.010 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Affichage mode challenger réussi
+16:25:19.907 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Fin de partie en mode challenger : Victoire
+16:31:36.169 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+16:31:36.224 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreDef - Initialisation de l'affichage du mode défenseur.
+16:31:39.087 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreDef - Affichage du mode Défenseur réussi.
+20:00:58.392 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+20:00:58.457 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreDef - Initialisation de l'affichage du mode défenseur.
+20:01:28.127 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+20:01:28.187 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreDef - Initialisation de l'affichage du mode défenseur.
+20:02:33.522 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+20:02:33.579 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreDef - Initialisation de l'affichage du mode défenseur.
+20:02:35.400 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreDef - Affichage du mode Défenseur réussi.
+20:39:03.214 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+20:39:03.273 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreDef - Initialisation de l'affichage du mode défenseur.
+20:39:05.900 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreDef - Affichage du mode Défenseur réussi.
+20:41:00.323 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+20:41:00.383 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreDef - Initialisation de l'affichage du mode défenseur.
+20:41:02.657 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreDef - Affichage du mode Défenseur réussi.
+20:41:26.764 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreDef - Fin de partie du mode Défenseur : Victoire de l'ordinateur
+20:43:52.026 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+20:43:52.085 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreDef - Initialisation de l'affichage du mode défenseur.
+20:43:54.895 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreDef - Affichage du mode Défenseur réussi.
+20:44:08.922 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreDef - Fin de partie du mode Défenseur : Victoire de l'ordinateur
+08:08:34.934 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+08:08:34.969 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Affichage mode challenger réussi
+08:09:17.177 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+08:09:17.268 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreDef - Initialisation de l'affichage du mode défenseur.
+08:09:22.033 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreDef - Affichage du mode Défenseur réussi.
+08:09:58.301 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreDef - Fin de partie du mode Défenseur : Victoire de l'ordinateur
+08:11:02.785 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+08:11:02.814 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Affichage mode challenger réussi
+08:11:35.540 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+08:11:35.640 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreDef - Initialisation de l'affichage du mode défenseur.
+08:11:38.895 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreDef - Affichage du mode Défenseur réussi.
+08:12:48.413 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreDef - Fin de partie du mode Défenseur : Victoire de l'ordinateur
+08:15:45.396 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+08:15:45.426 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Affichage mode challenger réussi

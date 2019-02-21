@@ -19,6 +19,8 @@ public class FenetreDef extends JPanel {
     private GridLayout gl;
     private JLabel propo = new JLabel("Proposition");
     private JLabel indication = new JLabel("Indication");
+    private JPanel panProp = new JPanel();
+    private JPanel panIndic = new JPanel();
     private List<JLabel> listProp = new ArrayList<JLabel>();
     private List<JLabel> listIndic = new ArrayList<JLabel>();
     private JPanel panCenter = new JPanel();
@@ -31,6 +33,8 @@ public class FenetreDef extends JPanel {
 
     private JPanel panEst = new JPanel();
     private JPanel panOuest = new JPanel();
+    private GridBagConstraints gbc = new GridBagConstraints();
+    private JScrollPane jScrollPane = new JScrollPane();
 
     private JPanel panSud = new JPanel();
     private JTextField proposition = new JTextField();
@@ -79,20 +83,24 @@ public class FenetreDef extends JPanel {
             this.setLayout(new BorderLayout());
             gl = new GridLayout(plateau.getNbToursMax() + 1, 2);
             Font ft = new Font("showcard gothic", Font.BOLD, 20);
-            propo.setPreferredSize(new Dimension(180, 360 / (plateau.getNbToursMax() + 1)));
             propo.setFont(ft);
-            propo.setBorder(BorderFactory.createLineBorder(Color.black));
-            indication.setBorder(BorderFactory.createLineBorder(Color.black));
             propo.setHorizontalAlignment(JLabel.CENTER);
-            indication.setPreferredSize(new Dimension(180, 360 / (plateau.getNbToursMax() + 1)));
             indication.setFont(ft);
             indication.setHorizontalAlignment(JLabel.CENTER);
-            panCenter.setPreferredSize(new Dimension(360, 360));
+            panProp.setBorder(BorderFactory.createLineBorder(Color.black));
+            panProp.setBackground(Color.white);
+            panProp.setPreferredSize(new Dimension(180, 30));
+            panProp.setMinimumSize(new Dimension(180, 30));
+            panProp.add(propo);
+            panIndic.setBorder(BorderFactory.createLineBorder(Color.black));
+            panIndic.setBackground(Color.white);
+            panIndic.setPreferredSize(new Dimension(180, 30));
+            panIndic.setMinimumSize(new Dimension(180, 30));
+            panIndic.add(indication);
             panCenter.setBackground(Color.white);
             panCenter.setBorder(BorderFactory.createLineBorder(Color.black));
-            panCenter.setLayout(gl);
-            panCenter.add(propo);
-            panCenter.add(indication);
+            panCenter.setLayout(new GridBagLayout());
+
 
             GridLayout nordLayout = new GridLayout(4, 1);
             ft = new Font("showcard gothic", Font.BOLD, 50);
@@ -131,8 +139,8 @@ public class FenetreDef extends JPanel {
 
             this.add(panNord, BorderLayout.NORTH);
             this.add(panEst, BorderLayout.EAST);
-            initTableau(plateau.getNbToursMax());
-            this.add(panCenter, BorderLayout.CENTER);
+            initTableau();
+            this.add(jScrollPane, BorderLayout.CENTER);
             this.add(panOuest, BorderLayout.WEST);
             this.add(panSud, BorderLayout.SOUTH);
             this.getParent().repaint();
@@ -140,34 +148,69 @@ public class FenetreDef extends JPanel {
             logger.trace("Affichage du mode Défenseur réussi.");
         }
 
-        public void initTableau ( int nb){
-            for (int i = 0; i < nb; i++) {
+        public void initTableau (){
+            for (int i = 0; i < plateau.getNbToursMax() + 1; i++) {
+                gbc.gridx = 0;
+                gbc.gridy = i;
+                gbc.gridheight = 1;
+                gbc.gridwidth = 1;
                 if (i == 0) {
-                    JLabel prop = new JLabel();
-                    Font ft = new Font("showcard gothic", Font.BOLD, 15);
-                    prop.setFont(ft);
-                    prop.setBorder(BorderFactory.createLineBorder(Color.black));
-                    prop.setHorizontalAlignment(JLabel.CENTER);
-                    prop.setText(plateau.defenseur());
-                    listProp.add(compteurTours, prop);
-                    if (plateau.getP().isModeDev()) {
-                        proposition.setText(plateau.getGmDef().evalProp(prop.getText()));
-                    }
-                    JLabel indic = new JLabel();
-                    indic.setBorder(BorderFactory.createLineBorder(Color.black));
-                    indic.setHorizontalAlignment(JLabel.CENTER);
-                    panCenter.add(prop);
-                    panCenter.add(indic);
-                } else {
-                    JLabel prop = new JLabel();
-                    prop.setBorder(BorderFactory.createLineBorder(Color.black));
-                    prop.setHorizontalAlignment(JLabel.CENTER);
-                    JLabel indic = new JLabel();
-                    indic.setBorder(BorderFactory.createLineBorder(Color.black));
-                    indic.setHorizontalAlignment(JLabel.CENTER);
-                    panCenter.add(prop);
-                    panCenter.add(indic);
+                    gbc.anchor = GridBagConstraints.LINE_START;
+                    panCenter.add(panProp, gbc);
+                    gbc.gridwidth = GridBagConstraints.REMAINDER;
+                    gbc.gridx = 1;
+                    gbc.gridy = i;
+                    gbc.gridheight = 1;
+                    gbc.gridwidth = 1;
+                    gbc.anchor = GridBagConstraints.BASELINE_LEADING;
+                    panCenter.add(panIndic, gbc);
+                } else if (i==1) {
+                    JLabel propLab = new JLabel(plateau.defenseur());
+                    Font ft = new Font("showcard gothic", Font.BOLD, 20);
+                    propLab.setFont(ft);
+                    propLab.setBorder(BorderFactory.createLineBorder(Color.black));
+                    propLab.setHorizontalAlignment(JLabel.CENTER);
+                    propLab.setPreferredSize(new Dimension(180, 30));
+                    propLab.setMinimumSize(new Dimension(180, 30));
+                    listProp.add(propLab);
+                    gbc.anchor =GridBagConstraints.LINE_START;
+                    panCenter.add(listProp.get(0), gbc);
+                    gbc.gridy = i;
+                    gbc.gridx = 1;
+                    JLabel indicLab = new JLabel();
+                    indicLab.setBorder(BorderFactory.createLineBorder(Color.black));
+                    indicLab.setHorizontalAlignment(JLabel.CENTER);
+                    gbc.fill = GridBagConstraints.BOTH;
+                    gbc.anchor = GridBagConstraints.BASELINE_LEADING;
+                    gbc.gridwidth = GridBagConstraints.REMAINDER;
+                    indicLab.setPreferredSize(new Dimension(180, 30));
+                    indicLab.setMinimumSize(new Dimension(180, 30));
+                    panCenter.add(indicLab, gbc);
+                } else{
+                    JLabel propLab = new JLabel();
+                    propLab.setBorder(BorderFactory.createLineBorder(Color.black));
+                    propLab.setHorizontalAlignment(JLabel.CENTER);
+                    propLab.setPreferredSize(new Dimension(180, 30));
+                    propLab.setMinimumSize(new Dimension(180, 30));
+                    gbc.fill = GridBagConstraints.BOTH;
+                    gbc.anchor = GridBagConstraints.LINE_START;
+                    panCenter.add(propLab, gbc);
+                    gbc.gridwidth = GridBagConstraints.REMAINDER;
+                    gbc.gridx = 1;
+                    gbc.gridy = i;
+                    gbc.gridheight = 1;
+                    gbc.gridwidth = 1;
+                    JLabel indicLab = new JLabel();
+                    indicLab.setBorder(BorderFactory.createLineBorder(Color.black));
+                    indicLab.setHorizontalAlignment(JLabel.CENTER);
+                    gbc.fill = GridBagConstraints.BOTH;
+                    gbc.anchor = GridBagConstraints.BASELINE_LEADING;
+                    indicLab.setPreferredSize(new Dimension(180, 30));
+                    indicLab.setMinimumSize(new Dimension(180, 30));
+                    panCenter.add(indicLab, gbc);
                 }
+                jScrollPane.setViewportView(panCenter);
+                jScrollPane.setBounds(100, 200, 400, 400);
             }
         }
 
@@ -175,39 +218,94 @@ public class FenetreDef extends JPanel {
             panCenter.removeAll();
             panCenter.setBackground(Color.white);
             panCenter.setBorder(BorderFactory.createLineBorder(Color.black));
-            panCenter.setLayout(new GridLayout(plateau.getNbToursMax() + 1, 2));
-            panCenter.add(propo);
-            panCenter.add(indication);
+            panCenter.setLayout(new GridBagLayout());
+            gbc.gridx = 0;
+            gbc.gridy = 0;
+            gbc.gridheight = 1;
+            gbc.gridwidth = 1;
+            gbc.anchor = GridBagConstraints.LINE_START;
+            panCenter.add(panProp, gbc);
+            gbc.gridwidth = GridBagConstraints.REMAINDER;
+            gbc.gridx = 1;
+            gbc.gridy = 0;
+            gbc.gridheight = 1;
+            gbc.gridwidth = 1;
+            gbc.anchor = GridBagConstraints.BASELINE_LEADING;
+            panCenter.add(panIndic, gbc);
+            panCenter.add(panProp);
+            panCenter.add(panIndic);
+            int ligne =1;
             for (int i = 0; i < listProp.size(); i++) {
-                if (i == listProp.size() - 1) {
-                    panCenter.add(listProp.get(i));
-                    JLabel indic = new JLabel();
-                    indic.setBorder(BorderFactory.createLineBorder(Color.black));
-                    indic.setHorizontalAlignment(JLabel.CENTER);
-                    panCenter.add(indic);
+                if(i == listProp.size()-1){
+                    gbc.gridy = ligne;
+                    gbc.gridx = 0;
+                    gbc.gridheight = 1;
+                    gbc.gridwidth = 1;
+                    gbc.anchor =GridBagConstraints.LINE_START;
+                    panCenter.add(listProp.get(i), gbc);
+                    gbc.gridy = ligne;
+                    gbc.gridx = 1;
+                    JLabel indicLab = new JLabel();
+                    indicLab.setBorder(BorderFactory.createLineBorder(Color.black));
+                    indicLab.setHorizontalAlignment(JLabel.CENTER);
+                    gbc.fill = GridBagConstraints.BOTH;
+                    gbc.anchor = GridBagConstraints.BASELINE_LEADING;
+                    indicLab.setPreferredSize(new Dimension(200, 30));
+                    indicLab.setMinimumSize(new Dimension(200, 30));
+                    panCenter.add(indicLab, gbc);
                 } else {
-                    panCenter.add(listProp.get(i));
-                    panCenter.add(listIndic.get(i));
+                    gbc.gridx = 0;
+                    gbc.gridy = ligne;
+                    gbc.gridheight = 1;
+                    gbc.gridwidth = 1;
+                    gbc.anchor = GridBagConstraints.LINE_START;
+                    panCenter.add(listProp.get(i), gbc);
+                    gbc.gridx = 1;
+                    gbc.gridy = ligne;
+                    gbc.gridheight = 1;
+                    gbc.gridwidth = 1;
+                    gbc.anchor = GridBagConstraints.BASELINE_LEADING;
+                    panCenter.add(listIndic.get(i), gbc);
                 }
+                ligne++;
             }
             compteurTours++;
-            for (int j = plateau.getNbToursMax(); j > compteurTours + 1; j--) {
-                JLabel prop = new JLabel();
-                prop.setBorder(BorderFactory.createLineBorder(Color.black));
-                prop.setHorizontalAlignment(JLabel.CENTER);
-                JLabel indic = new JLabel();
-                indic.setBorder(BorderFactory.createLineBorder(Color.black));
-                indic.setHorizontalAlignment(JLabel.CENTER);
-                panCenter.add(prop);
-                panCenter.add(indic);
+            for (int j = plateau.getNbToursMax(); j > compteurTours; j--) {
+                gbc.gridx = 0;
+                gbc.gridy = ligne;
+                gbc.gridheight = 1;
+                gbc.gridwidth = 1;
+                gbc.anchor = GridBagConstraints.LINE_START;
+                JLabel propLab = new JLabel();
+                propLab.setBorder(BorderFactory.createLineBorder(Color.black));
+                propLab.setHorizontalAlignment(JLabel.CENTER);
+                propLab.setPreferredSize(new Dimension(200, 30));
+                propLab.setMinimumSize(new Dimension(200, 30));
+                gbc.fill = GridBagConstraints.BOTH;
+                gbc.anchor = GridBagConstraints.LINE_START;
+                panCenter.add(propLab, gbc);
+                gbc.gridwidth = GridBagConstraints.REMAINDER;
+                gbc.gridx = 1;
+                gbc.gridy = ligne;
+                gbc.gridheight = 1;
+                gbc.gridwidth = 1;
+                JLabel indicLab = new JLabel();
+                indicLab.setBorder(BorderFactory.createLineBorder(Color.black));
+                indicLab.setHorizontalAlignment(JLabel.CENTER);
+                gbc.fill = GridBagConstraints.BOTH;
+                gbc.anchor = GridBagConstraints.BASELINE_LEADING;
+                indicLab.setPreferredSize(new Dimension(200, 30));
+                indicLab.setMinimumSize(new Dimension(200, 30));
+                panCenter.add(indicLab, gbc);
+                ligne ++;
             }
             panCenter.revalidate();
             tours.removeAll();
             tours.setText("Nombre de tours restant : " + (plateau.getNbToursMax() - compteurTours));
             tours.setHorizontalAlignment(JLabel.CENTER);
             tours.revalidate();
-            this.add(panCenter, BorderLayout.CENTER);
-            this.revalidate();
+            this.add(jScrollPane, BorderLayout.CENTER);
+
         }
 
         public void gagne () {
@@ -256,10 +354,11 @@ public class FenetreDef extends JPanel {
         class playListener implements ActionListener {
             public void actionPerformed(ActionEvent arg0) {
                 if (plateau.getNbChiffre() == proposition.getText().length()) {
-                    Font ft = new Font("showcard gothic", Font.BOLD, 15);
+                    Font ft = new Font("showcard gothic", Font.BOLD, 20);
                     JLabel prop = new JLabel();
                     prop.setFont(ft);
                     prop.setBorder(BorderFactory.createLineBorder(Color.black));
+                    prop.setMinimumSize(new Dimension(200,30));
                     prop.setText(proposition.getText());
                     prop.setHorizontalAlignment(JLabel.CENTER);
                     plateau.getjDef().setDerRep(prop.getText());
@@ -270,6 +369,7 @@ public class FenetreDef extends JPanel {
                     indic.setBorder(BorderFactory.createLineBorder(Color.black));
                     indic.setText(plateau.defenseur());
                     indic.setHorizontalAlignment(JLabel.CENTER);
+                    indic.setMinimumSize(new Dimension(200,30));
                     listProp.add(compteurTours + 1, indic);
                     majTableau();
                     if (prop.getText().equals(plateau.getEgalFinal())) {
