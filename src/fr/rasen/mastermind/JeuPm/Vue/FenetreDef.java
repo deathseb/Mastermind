@@ -47,6 +47,7 @@ public class FenetreDef extends JPanel {
         plateau = new Plateau("def");
 
         JDialog jd = new JDialog();
+        jd.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
         JTextField jtf = new JTextField();
         JLabel jl = new JLabel("Veuillez entrer une combinaison de " + plateau.getNbChiffre() + " chiffres");
         jd.setSize(new Dimension(300, 100));
@@ -209,9 +210,9 @@ public class FenetreDef extends JPanel {
                     indicLab.setMinimumSize(new Dimension(180, 30));
                     panCenter.add(indicLab, gbc);
                 }
-                jScrollPane.setViewportView(panCenter);
-                jScrollPane.setBounds(100, 200, 400, 400);
             }
+            jScrollPane.setViewportView(panCenter);
+            jScrollPane.setBounds(100, 200, 400, 400);
         }
 
         public void majTableau () {

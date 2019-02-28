@@ -16,7 +16,6 @@ public class FenetreChal extends JPanel {
 
     private Fenetre fenetre;
 
-    private GridLayout gl;
     private JLabel propo = new JLabel("Proposition");
     private JLabel indication = new JLabel("Indication");
     private JPanel panProp = new JPanel();
@@ -159,9 +158,10 @@ public class FenetreChal extends JPanel {
                 indicLab.setMinimumSize(new Dimension(180, 30));
                 panCenter.add(indicLab, gbc);
             }
-            jScrollPane.setViewportView(panCenter);
-            jScrollPane.setBounds(100, 200, 400, 400);
+
         }
+        jScrollPane.setViewportView(panCenter);
+        jScrollPane.setBounds(100, 200, 400, 400);
 
     }
 

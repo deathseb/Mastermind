@@ -17,6 +17,8 @@ public class Defenseur extends JPanel {
     private Fenetre fenetre;
     private List<Pastille> prop = new ArrayList<Pastille>();
     private List<Pastille> listBouleNoires = new ArrayList<Pastille>();
+    private List<JPanel> listPanProp = new LinkedList<>();
+    private List<JPanel> listPanIndic = new LinkedList<>();
 
     // Affichage pastille de couleurs
     private JPanel panDroite = new JPanel();
@@ -24,41 +26,48 @@ public class Defenseur extends JPanel {
     private AffichagePastille blanc = new AffichagePastille(Pastille.BLANC, this);
     private AffichagePastille noir = new AffichagePastille(Pastille.NOIR, this);
     private JPanel panPastille = new JPanel();
-    private GridLayout couleurs = new GridLayout(1,2);
+    private GridLayout couleurs = new GridLayout(1, 2);
 
     //Affichage titre et info générales
     private JPanel panInfo = new JPanel();
     private GridLayout informations = new GridLayout(4, 1);
     private JLabel titre = new JLabel("Mastermind");
+    private int compteurTours = 0;
     private JLabel combinaison;
     private JLabel nbTours = new JLabel("Tour 0");
     private JLabel mode = new JLabel("Mode : Défenseur");
 
     //Panneau commande
+    private JLabel propo = new JLabel("Proposition");
+    private JLabel indication = new JLabel("Indication");
+    private JPanel panProp = new JPanel();
+    private JPanel panIndic = new JPanel();
     private JPanel panCommande = new JPanel();
     private JPanel panBoutton = new JPanel();
     private GridLayout commandes = new GridLayout(2, 1);
-    private GridLayout decoupeProposition = new GridLayout(1,plateau.getNbChiffre());
+    private GridLayout decoupeProposition = new GridLayout(1, plateau.getNbChiffre());
     private JPanel proposition = new JPanel();
     private JButton valider = new JButton("Valider");
     private JButton effacer = new JButton("Effacer");
 
     //Panneau Central
-    private GridLayout tableau = new GridLayout(plateau.getNbToursMax(),2, 5,5);
-    private GridLayout gridProp = new GridLayout(1,plateau.getNbChiffre(), 5, 5);
+    private GridLayout tableau = new GridLayout(plateau.getNbToursMax(), 2, 5, 5);
+    private GridLayout gridProp = new GridLayout(1, plateau.getNbChiffre(), 5, 5);
     private JPanel panCentre = new JPanel();
     private java.util.List<java.util.List<Pastille>> listProp = new LinkedList<java.util.List<Pastille>>();
     private java.util.List<java.util.List<Pastille>> listIndic = new LinkedList<List<Pastille>>();
+    private GridBagConstraints gbc = new GridBagConstraints();
+    private JScrollPane jScrollPane = new JScrollPane();
 
-    public Defenseur(Fenetre f){
+    public Defenseur(Fenetre f) {
         fenetre = f;
         valider.addActionListener(new validerIndic());
         CombiDef cd = new CombiDef(this);
         cd.setVisible(true);
     }
 
-    public void initDefenseur(){
-        for(int i=0; i<plateau.getNbChiffre(); i++){
+    public void initDefenseur() {
+        for (int i = 0; i < plateau.getNbChiffre(); i++) {
             listBouleNoires.add(Pastille.NOIR);
         }
         this.setLayout(new BorderLayout());
@@ -71,7 +80,7 @@ public class Defenseur extends JPanel {
         jouerTour();
     }
 
-    public void initInfo(){
+    public void initInfo() {
         panInfo.setLayout(informations);
         Font font = new Font("showcard gothic", Font.BOLD, 50);
         titre.setFont(font);
@@ -90,23 +99,86 @@ public class Defenseur extends JPanel {
         panInfo.add(titre);
         panInfo.add(mode);
         panInfo.add(nbTours);
-     /*   if(plateau.getP().isModeDev()){
-            combinaison = new JLabel("Combinaison : " + plateau.getGmDef().showCombi());
-            combinaison.setFont(font);
-            combinaison.setHorizontalAlignment(JLabel.CENTER);
-            combinaison.setOpaque(true);
-            combinaison.setBackground(Color.white);
-            panInfo.add(combinaison);
-        } */
+        JLabel textCombi = new JLabel("Combinaison : ");
+        textCombi.setFont(font);
+        textCombi.setHorizontalAlignment(JLabel.CENTER);
+        textCombi.setOpaque(true);
+        textCombi.setBackground(Color.white);
+
+        JPanel allCombi = new JPanel();
+        allCombi.setLayout(new GridLayout(1, 2));
+        allCombi.add(textCombi, BorderLayout.WEST);
+        JPanel combinaison = new JPanel();
+        combinaison.setBackground(Color.white);
+        combinaison.setLayout(new GridLayout(1, plateau.getNbChiffre()));
+        JLabel lab;
+        for (int i = 0; i < plateau.getGmChall().showCombi().length(); i++) {
+            switch (plateau.getGmChall().showCombi().charAt(i)) {
+                case '0':
+                    lab = new JLabel(new ImageIcon(Pastille.BLEU.getFichier()));
+                    lab.setBackground(Color.white);
+                    combinaison.add(lab);
+                    break;
+                case '1':
+                    lab = new JLabel(new ImageIcon(Pastille.BLEU_CLAIR.getFichier()));
+                    lab.setBackground(Color.white);
+                    combinaison.add(lab);
+                    break;
+                case '2':
+                    lab = new JLabel(new ImageIcon(Pastille.GRIS.getFichier()));
+                    lab.setBackground(Color.white);
+                    combinaison.add(lab);
+                    break;
+                case '3':
+                    lab = new JLabel(new ImageIcon(Pastille.JAUNE.getFichier()));
+                    lab.setBackground(Color.white);
+                    combinaison.add(lab);
+                    break;
+                case '4':
+                    lab = new JLabel(new ImageIcon(Pastille.MARRON.getFichier()));
+                    lab.setBackground(Color.white);
+                    combinaison.add(lab);
+                    break;
+                case '5':
+                    lab = new JLabel(new ImageIcon(Pastille.ORANGE.getFichier()));
+                    lab.setBackground(Color.white);
+                    combinaison.add(lab);
+                    break;
+                case '6':
+                    lab = new JLabel(new ImageIcon(Pastille.ROSE.getFichier()));
+                    lab.setBackground(Color.white);
+                    combinaison.add(lab);
+                    break;
+                case '7':
+                    lab = new JLabel(new ImageIcon(Pastille.ROUGE.getFichier()));
+                    lab.setBackground(Color.white);
+                    combinaison.add(lab);
+                    break;
+                case '8':
+                    lab = new JLabel(new ImageIcon(Pastille.VERT.getFichier()));
+                    lab.setBackground(Color.white);
+                    combinaison.add(lab);
+                    break;
+                case '9':
+                    lab = new JLabel(new ImageIcon(Pastille.VIOLET.getFichier()));
+                    lab.setBackground(Color.white);
+                    combinaison.add(lab);
+                    break;
+            }
+        }
+        allCombi.add(combinaison, BorderLayout.EAST);
+        allCombi.setBackground(Color.white);
+        panInfo.add(allCombi);
         panInfo.setBackground(Color.white);
         this.add(panInfo, BorderLayout.NORTH);
     }
 
-    public void initCommande(){
+
+    public void initCommande() {
         effacer.addActionListener(new effacerIndic());
         panCommande.setLayout(new BorderLayout());
         panBoutton.setLayout(commandes);
-        proposition.setPreferredSize(new Dimension(500,50));
+        proposition.setPreferredSize(new Dimension(500, 50));
         proposition.setBorder(BorderFactory.createTitledBorder("Proposition"));
         proposition.setOpaque(true);
         proposition.setBackground(Color.white);
@@ -122,7 +194,7 @@ public class Defenseur extends JPanel {
         this.add(panCommande, BorderLayout.SOUTH);
     }
 
-    public void initCouleurs(){
+    public void initCouleurs() {
         panPastille.setPreferredSize(new Dimension(600, 50));
         panPastille.setLayout(couleurs);
         blanc.setOpaque(true);
@@ -139,11 +211,71 @@ public class Defenseur extends JPanel {
         panCommande.add(panPastille, BorderLayout.SOUTH);
     }
 
-    public void initPanCentral(){
-        panCentre.setLayout(tableau);
-        panCentre.setBorder(BorderFactory.createLineBorder(Color.black));
+    public void initPanCentral() {
+        Font ft = new Font("showcard gothic", Font.BOLD, 20);
+        propo.setFont(ft);
+        propo.setHorizontalAlignment(JLabel.CENTER);
+        indication.setFont(ft);
+        indication.setHorizontalAlignment(JLabel.CENTER);
+        panProp.setBorder(BorderFactory.createLineBorder(Color.black));
+        panProp.setBackground(Color.white);
+        panProp.setPreferredSize(new Dimension(180, 30));
+        panProp.setMinimumSize(new Dimension(180, 30));
+        panProp.add(propo);
+        panIndic.setBorder(BorderFactory.createLineBorder(Color.black));
+        panIndic.setBackground(Color.white);
+        panIndic.setPreferredSize(new Dimension(180, 30));
+        panIndic.setMinimumSize(new Dimension(180, 30));
+        panIndic.add(indication);
+
+        panCentre.setLayout(new GridBagLayout());
         panCentre.setBackground(Color.white);
-        this.add(panCentre, BorderLayout.CENTER);
+        panCentre.setBorder(BorderFactory.createLineBorder(Color.black));
+        gbc.gridy = 0;
+        gbc.gridx = 0;
+        gbc.gridheight = 1;
+        gbc.gridwidth = 1;
+        gbc.anchor = GridBagConstraints.LINE_START;
+        panCentre.add(panProp, gbc);
+        gbc.gridwidth = GridBagConstraints.REMAINDER;
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
+        gbc.anchor = GridBagConstraints.BASELINE_LEADING;
+        panCentre.add(panIndic, gbc);
+        for (int i = 0; i < plateau.getNbToursMax() + 1; i++) {
+            gbc.gridx = 0;
+            gbc.gridy = i + 1;
+            gbc.gridheight = 1;
+            gbc.gridwidth = 1;
+            JLabel propLab = new JLabel();
+            propLab.setBorder(BorderFactory.createLineBorder(Color.black));
+            propLab.setHorizontalAlignment(JLabel.CENTER);
+            propLab.setPreferredSize(new Dimension(180, 30));
+            propLab.setMinimumSize(new Dimension(180, 30));
+            gbc.fill = GridBagConstraints.BOTH;
+            gbc.anchor = GridBagConstraints.LINE_START;
+            panCentre.add(propLab, gbc);
+            gbc.gridwidth = GridBagConstraints.REMAINDER;
+            gbc.gridx = 1;
+            gbc.gridy = i + 1;
+            gbc.gridheight = 1;
+            gbc.gridwidth = 1;
+            JLabel indicLab = new JLabel();
+            indicLab.setBorder(BorderFactory.createLineBorder(Color.black));
+            indicLab.setHorizontalAlignment(JLabel.CENTER);
+            gbc.fill = GridBagConstraints.BOTH;
+            gbc.anchor = GridBagConstraints.BASELINE_LEADING;
+            indicLab.setPreferredSize(new Dimension(180, 30));
+            indicLab.setMinimumSize(new Dimension(180, 30));
+            panCentre.add(indicLab, gbc);
+
+        }
+        jScrollPane.add(panCentre);
+        jScrollPane.setViewportView(panCentre);
+        jScrollPane.setBounds(100, 200, 400, 400);
+        this.add(jScrollPane, BorderLayout.CENTER);
     }
 
     public List<Pastille> getProp() {
@@ -154,14 +286,14 @@ public class Defenseur extends JPanel {
         this.prop = prop;
     }
 
-    public void jouerTour(){
-        if(plateau.getTourActuel()==0){
+    public void jouerTour() {
+        if (plateau.getTourActuel() == 0) {
             plateau.defenseur(null);
-           prop = plateau.getjDef().getDerProp();
-           affichageProp();
-           listProp.add(prop);
-           prop = new ArrayList<>();
-        } else{
+            prop = plateau.getjDef().getDerProp();
+            listProp.add(prop);
+            affichageProp();
+            prop = new ArrayList<>();
+        } else {
             plateau.defenseur(convertPastilleString());
             prop = plateau.getjDef().getDerProp();
             affichageProp();
@@ -171,27 +303,27 @@ public class Defenseur extends JPanel {
 
     }
 
-    public void ajoutProp(){
-        proposition.add(new JLabel(new ImageIcon(prop.get(prop.size()-1).getFichier())));
+    public void ajoutProp() {
+        proposition.add(new JLabel(new ImageIcon(prop.get(prop.size() - 1).getFichier())));
         proposition.repaint();
         proposition.revalidate();
     }
 
 
-    public String convertPastilleString(){
+    public String convertPastilleString() {
         String str = "";
-        for(int i=0; i<listIndic.get(listIndic.size()-1).size(); i++){
-            str = str + listIndic.get(listIndic.size()-1).get(i).getValeur();
+        for (int i = 0; i < listIndic.get(listIndic.size() - 1).size(); i++) {
+            str = str + listIndic.get(listIndic.size() - 1).get(i).getValeur();
         }
-        while(str.length() != plateau.getNbChiffre()){
+        while (str.length() != plateau.getNbChiffre()) {
             str = str + "_";
         }
         return str;
     }
 
-    public List<Pastille> convertStringPastille(String rep){
+    public List<Pastille> convertStringPastille(String rep) {
         List<Pastille> list = new ArrayList<Pastille>();
-        for(int i =0; i<rep.length(); i++){
+        for (int i = 0; i < rep.length(); i++) {
             switch (rep.charAt(i)) {
                 case 0:
                     list.add(Pastille.BLEU);
@@ -228,40 +360,121 @@ public class Defenseur extends JPanel {
         return list;
     }
 
-    public void affichageProp(){
+    public void affichageProp() {
         JPanel pan = new JPanel();
-        pan.setPreferredSize(new Dimension(400,50));
+        pan.setPreferredSize(new Dimension(400, 30));
         pan.setBackground(Color.white);
         pan.setBorder(BorderFactory.createLineBorder(Color.black));
         pan.setLayout(gridProp);
-        for (int i =0; i<prop.size(); i++){
+        for (int i = 0; i < prop.size(); i++) {
             JLabel jl = new JLabel((new ImageIcon(prop.get(i).getFichier())));
-            jl.setPreferredSize(new Dimension(50,50));
+            jl.setPreferredSize(new Dimension(50, 50));
             pan.add(jl);
         }
-        panCentre.add(pan);
-        panCentre.repaint();
+        listPanProp.add(pan);
+
+        panCentre.removeAll();
+        panCentre.setBackground(Color.white);
+        panCentre.setBorder(BorderFactory.createLineBorder(Color.black));
+        panCentre.setLayout(new GridBagLayout());
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.gridheight = 1;
+        gbc.gridwidth = 1;
+        gbc.anchor = GridBagConstraints.LINE_START;
+        panCentre.add(panProp, gbc);
+        gbc.gridwidth = GridBagConstraints.REMAINDER;
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.gridheight = 1;
+        gbc.gridwidth = 1;
+        gbc.anchor = GridBagConstraints.BASELINE_LEADING;
+        panCentre.add(panIndic, gbc);
+        int ligne = 1;
+        for (int i = 0; i < listProp.size(); i++) {
+            if (i == listProp.size() - 1) {
+                gbc.gridy = ligne;
+                gbc.gridx = 0;
+                gbc.gridheight = 1;
+                gbc.gridwidth = 1;
+                gbc.anchor = GridBagConstraints.LINE_START;
+                panCentre.add(listPanProp.get(i), gbc);
+                gbc.gridy = ligne;
+                gbc.gridx = 1;
+                JLabel indicLab = new JLabel();
+                indicLab.setBorder(BorderFactory.createLineBorder(Color.black));
+                indicLab.setHorizontalAlignment(JLabel.CENTER);
+                gbc.fill = GridBagConstraints.BOTH;
+                gbc.anchor = GridBagConstraints.BASELINE_LEADING;
+                indicLab.setPreferredSize(new Dimension(180, 30));
+                indicLab.setMinimumSize(new Dimension(180, 30));
+                panCentre.add(indicLab, gbc);
+            } else {
+                gbc.gridx = 0;
+                gbc.gridy = ligne;
+                gbc.gridheight = 1;
+                gbc.gridwidth = 1;
+                gbc.anchor = GridBagConstraints.LINE_START;
+                panCentre.add(listPanProp.get(i), gbc);
+                gbc.gridx = 1;
+                gbc.gridy = ligne;
+                gbc.gridheight = 1;
+                gbc.gridwidth = 1;
+                gbc.anchor = GridBagConstraints.BASELINE_LEADING;
+                panCentre.add(listPanIndic.get(i), gbc);
+            }
+            ligne++;
+        }
+        compteurTours++;
+        for (int j = plateau.getNbToursMax(); j > compteurTours; j--) {
+            gbc.gridx = 0;
+            gbc.gridy = ligne;
+            gbc.gridheight = 1;
+            gbc.gridwidth = 1;
+            gbc.anchor = GridBagConstraints.LINE_START;
+            JLabel propLab = new JLabel();
+            propLab.setBorder(BorderFactory.createLineBorder(Color.black));
+            propLab.setHorizontalAlignment(JLabel.CENTER);
+            propLab.setPreferredSize(new Dimension(180, 30));
+            propLab.setMinimumSize(new Dimension(180, 30));
+            gbc.fill = GridBagConstraints.BOTH;
+            gbc.anchor = GridBagConstraints.LINE_START;
+            panCentre.add(propLab, gbc);
+            gbc.gridwidth = GridBagConstraints.REMAINDER;
+            gbc.gridx = 1;
+            gbc.gridy = ligne;
+            gbc.gridheight = 1;
+            gbc.gridwidth = 1;
+            JLabel indicLab = new JLabel();
+            indicLab.setBorder(BorderFactory.createLineBorder(Color.black));
+            indicLab.setHorizontalAlignment(JLabel.CENTER);
+            gbc.fill = GridBagConstraints.BOTH;
+            gbc.anchor = GridBagConstraints.BASELINE_LEADING;
+            indicLab.setPreferredSize(new Dimension(180, 30));
+            indicLab.setMinimumSize(new Dimension(180, 30));
+            panCentre.add(indicLab, gbc);
+            ligne++;
+        }
         panCentre.revalidate();
+        this.add(jScrollPane, BorderLayout.CENTER);
     }
 
     public Plateau getPlateau() {
         return plateau;
     }
 
-    public void affichageIndic(List<Pastille> list){
+    public void affichageIndic(List<Pastille> list) {
         JPanel pan = new JPanel();
-        pan.setPreferredSize(new Dimension(200, 25));
+        pan.setPreferredSize(new Dimension(200, 30));
         pan.setBackground(Color.white);
         pan.setBorder(BorderFactory.createLineBorder(Color.black));
-        pan.setLayout(new GridLayout(2,2));
-        for(int i = 0; i<list.size(); i++){
+        pan.setLayout(new GridLayout(2, 2));
+        for (int i = 0; i < list.size(); i++) {
             JLabel jl = new JLabel((new ImageIcon(prop.get(i).getFichier())));
-            jl.setPreferredSize(new Dimension(50,50));
+            jl.setPreferredSize(new Dimension(50, 50));
             pan.add(jl);
         }
-        panCentre.add(pan);
-        panCentre.repaint();
-        panCentre.revalidate();
+        listPanIndic.add(pan);
     }
 
     class validerIndic implements ActionListener {
@@ -272,9 +485,9 @@ public class Defenseur extends JPanel {
             proposition.removeAll();
             proposition.repaint();
             proposition.revalidate();
-            if(listIndic.get(listIndic.size()-1).equals(listBouleNoires)){ //gestion victoire
+            if (listIndic.get(listIndic.size() - 1).equals(listBouleNoires)) { //gestion victoire
                 FinDePartie fp = new FinDePartie("Victoire", true, fenetre.getProjet3(), fenetre);
-            } else if(plateau.getTourActuel()==plateau.getNbToursMax()){ //gestion défaite
+            } else if (plateau.getTourActuel() == plateau.getNbToursMax()) { //gestion défaite
                 FinDePartie fp = new FinDePartie("Défaite", false, fenetre.getProjet3(), fenetre);
             } else { //Si la partie n'est ni gagné ni perdu, on continue
                 plateau.setTourActuel(plateau.getTourActuel() + 1);
@@ -283,10 +496,10 @@ public class Defenseur extends JPanel {
         }
     }
 
-    class effacerIndic implements ActionListener{
+    class effacerIndic implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            proposition.remove(prop.size()-1);
-            prop.remove(prop.size()-1);
+            proposition.remove(prop.size() - 1);
+            prop.remove(prop.size() - 1);
             proposition.repaint();
             proposition.revalidate();
         }

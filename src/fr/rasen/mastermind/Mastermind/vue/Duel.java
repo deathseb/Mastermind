@@ -18,18 +18,30 @@ public class Duel extends JPanel {
     public Duel (Fenetre f){
         fenetre = f;
         duel = this;
+        this.setLayout(new BorderLayout());
+        f.setSize(new Dimension(1230,800));
         challenger = new Challenger(fenetre);
         ActionListener [] al = challenger.getValider().getActionListeners();
         challenger.getValider().removeActionListener(al[0]);
         challenger.getValider().addActionListener(new ChallengerListener());
-        this.add(challenger);
+        challenger.setBorder(BorderFactory.createLineBorder(Color.green,3));
+        this.add(challenger, BorderLayout.WEST);
+
+        defenseur = new Defenseur(fenetre);
+        defenseur.getValider().setEnabled(false);
+        al = defenseur.getValider().getActionListeners();
+        defenseur.getValider().removeActionListener(al[0]);
+        defenseur.getValider().addActionListener(new DefenseurListener());
+        defenseur.getValider().setEnabled(false);
+        defenseur.setBorder(BorderFactory.createLineBorder(Color.red, 3));
+        this.add(defenseur, BorderLayout.EAST);
     }
 
     class ChallengerListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
             String rep = challenger.getPlateau().challenger(challenger.convertPastilleString());
             challenger.getListProp().add(challenger.getProp());
-            challenger.affichageProp();
+            challenger.sauvegardeProp();
             challenger.getProposition().removeAll();
             challenger.getProposition().repaint();
             challenger.getProposition().revalidate();
@@ -79,43 +91,37 @@ public class Duel extends JPanel {
     class ThreadFocusCD implements Runnable {
         public void run() {
             challenger.getValider().setEnabled(false);
-            duel.setBorder(BorderFactory.createLineBorder(Color.red, 3));
+            challenger.setBorder(BorderFactory.createLineBorder(Color.red, 3));
             Thread thread = new Thread();
             try {
                 thread.sleep(1000);
             } catch (InterruptedException e) {
                 //logger.error("Erreur lors du thread de pause.");
             }
-            if(challenger.getPlateau().getTourActuel()==1){
+         /*   if(challenger.getPlateau().getTourActuel()==1){
                 defenseur = new Defenseur(fenetre);
                 defenseur.getValider().setEnabled(false);
                 ActionListener [] al = defenseur.getValider().getActionListeners();
                 defenseur.getValider().removeActionListener(al[0]);
                 defenseur.getValider().addActionListener(new DefenseurListener());
-            }
-            duel.removeAll();
-            duel.add(defenseur);
-            duel.setBorder(BorderFactory.createLineBorder(Color.green, 3));
+            }*/
+            defenseur.setBorder(BorderFactory.createLineBorder(Color.green, 3));
             defenseur.getValider().setEnabled(true);
-            duel.revalidate();
         }
     }
 
     class ThreadFocusDC implements Runnable {
         public void run() {
             defenseur.getValider().setEnabled(false);
-            duel.setBorder(BorderFactory.createLineBorder(Color.red, 3));
+            defenseur.setBorder(BorderFactory.createLineBorder(Color.red, 3));
             Thread thread = new Thread();
             try {
                 thread.sleep(1000);
             } catch (InterruptedException e) {
                // logger.error("Erreur lors du thread de pause.");
             }
-            duel.removeAll();
-            duel.add(challenger);
-            duel.setBorder(BorderFactory.createLineBorder(Color.green, 3));
+            challenger.setBorder(BorderFactory.createLineBorder(Color.green, 3));
             challenger.getValider().setEnabled(true);
-            duel.revalidate();
         }
     }
 }

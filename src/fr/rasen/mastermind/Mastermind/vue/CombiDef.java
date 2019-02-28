@@ -144,7 +144,10 @@ public class CombiDef extends JDialog {
 
     class effacerCombi implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-
+            proposition.remove(prop.size()-1);
+            prop.remove(prop.size()-1);
+            proposition.repaint();
+            proposition.revalidate();
         }
     }
 }

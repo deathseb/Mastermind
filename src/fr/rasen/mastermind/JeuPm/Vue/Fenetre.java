@@ -21,14 +21,14 @@ public class Fenetre extends JFrame{
 	
 	public Fenetre(Projet3 p) {
 		projet3 = p;
-		this.setTitle("P3 Mastermind");
-		this.setSize(600, 800);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setLocationRelativeTo(null);
 		initMenu();
 	}
 	
 	public void initMenu() {
+		this.setTitle("P3 Mastermind");
+		this.setSize(600, 800);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setLocationRelativeTo(null);
 		fa = new FenetreAccueil();
 		fa.getChall().addActionListener(new challListener());
 		fa.getDef().addActionListener(new defListener());

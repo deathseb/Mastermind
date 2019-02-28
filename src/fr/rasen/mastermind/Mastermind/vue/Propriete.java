@@ -50,11 +50,6 @@ public class Propriete extends JDialog{
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
 
-        //-- OFA : J'ajouter des bordures pour comprendre comment les placements s'effectuent.
-        panInfo.setBorder(BorderFactory.createLineBorder(Color.red));
-        panSud.setBorder(BorderFactory.createLineBorder(Color.yellow));
-        panTours.setBorder(BorderFactory.createLineBorder(Color.blue));
-        panChiffre.setBorder(BorderFactory.createLineBorder(Color.green));
 
         //-- OFA : Les panneaux Nord, Ouest et Est me permettent de compresser le panneau du centre afin de mieux le centrer.
         panNord.setPreferredSize(new Dimension(600, 50));

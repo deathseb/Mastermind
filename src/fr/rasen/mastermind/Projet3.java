@@ -19,16 +19,16 @@ public class Projet3 extends JFrame {
     private Projet3 p3;
 
     public Projet3(){
-        this.setSize(new Dimension(600,800));
-        this.setTitle("Projet 3");
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setLocationRelativeTo(null);
         this.initFrame();
         p3 = this;
     }
 
 
     public void initFrame(){
+        this.setSize(new Dimension(600,800));
+        this.setTitle("Projet 3");
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
         panTitre.setBackground(Color.white);
         this.setBackground(Color.white);
