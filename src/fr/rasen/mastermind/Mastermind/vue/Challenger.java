@@ -2,6 +2,8 @@ package fr.rasen.mastermind.Mastermind.vue;
 
 import fr.rasen.mastermind.Mastermind.Pastille;
 import fr.rasen.mastermind.Mastermind.Plateau;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,6 +14,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Challenger extends JPanel {
+
+    private static final Logger logger = LogManager.getLogger();
 
     private Plateau plateau = new Plateau();
     private Fenetre fenetre;
@@ -80,6 +84,7 @@ public class Challenger extends JPanel {
             listBouleNoires.add(Pastille.NOIR);
         }
         this.setBackground(Color.white);
+        logger.trace("Affichage mode Challenger réussi.");
     }
 
     public void initInfo() {
@@ -442,8 +447,10 @@ public class Challenger extends JPanel {
             affichageIndic(listIndic.get(listIndic.size() - 1));
             if (listIndic.get(listIndic.size() - 1).equals(listBouleNoires)) { //gestion victoire
                 FinDePartie fp = new FinDePartie("Victoire", true, fenetre.getProjet3(), fenetre);
+                logger.trace("Fin de partie mode Challenger.");
             } else if (plateau.getTourActuel() == plateau.getNbToursMax()) { //gestion défaite
                 FinDePartie fp = new FinDePartie("Défaite", false, fenetre.getProjet3(), fenetre);
+                logger.trace("Fin de partie mode Challenger.");
             }
             plateau.setTourActuel(plateau.getTourActuel() + 1);
         }

@@ -2,6 +2,8 @@ package fr.rasen.mastermind.Mastermind.vue;
 
 import fr.rasen.mastermind.Mastermind.Pastille;
 import fr.rasen.mastermind.Mastermind.Plateau;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,6 +14,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Defenseur extends JPanel {
+
+    private static final Logger logger = LogManager.getLogger();
 
     private Plateau plateau = new Plateau();
     private Fenetre fenetre;
@@ -171,6 +175,7 @@ public class Defenseur extends JPanel {
         panInfo.add(allCombi);
         panInfo.setBackground(Color.white);
         this.add(panInfo, BorderLayout.NORTH);
+        logger.trace("Affichage mode Défenseur réussi.");
     }
 
 
@@ -487,8 +492,10 @@ public class Defenseur extends JPanel {
             proposition.revalidate();
             if (listIndic.get(listIndic.size() - 1).equals(listBouleNoires)) { //gestion victoire
                 FinDePartie fp = new FinDePartie("Victoire", true, fenetre.getProjet3(), fenetre);
+                logger.trace("Fin de partie mode Défenseur");
             } else if (plateau.getTourActuel() == plateau.getNbToursMax()) { //gestion défaite
                 FinDePartie fp = new FinDePartie("Défaite", false, fenetre.getProjet3(), fenetre);
+                logger.trace("Fin de partie mode Défenseur.");
             } else { //Si la partie n'est ni gagné ni perdu, on continue
                 plateau.setTourActuel(plateau.getTourActuel() + 1);
                 jouerTour();
