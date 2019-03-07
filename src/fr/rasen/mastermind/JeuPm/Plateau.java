@@ -20,14 +20,16 @@ public class Plateau {
 		
 	}
 
+	/**
+	 * Création plateau
+	 * @param partie permet de connaitre le mode de jeu à démarrer.
+	 */
 	public Plateau(String partie) {
 		nbChiffre = p.getNbChiffre();
 		nbToursMax = p.getNbTours();
 		for (int i=0; i<nbChiffre; i++) {
 			egalFinal = egalFinal + "=";
 		}
-
-
 		switch (partie) {
 		case "chall": //Mode challenger
 			gmChall = new GameMaster(Entite.ORDI, nbChiffre);
@@ -66,6 +68,12 @@ public class Plateau {
 		return nbToursMax;
 	}
 
+	/**
+	 * Création plateau pour l'IHM.
+	 * @param partie
+	 * @param p
+	 * @param tour
+	 */
 	public Plateau (String partie, Propriete p, int tour) {
 		tourActuel = tour;
 		nbChiffre = p.getNbChiffre();
@@ -87,20 +95,36 @@ public class Plateau {
 		}
 	}
 
-	public String challenger(GameMaster gm, Joueur j) { //lance le mode challenger
+	/**
+	 * Lance le mode challenger dans la console.
+	 * @param gm
+	 * @param j
+	 * @return
+	 */
+	public String challenger(GameMaster gm, Joueur j) {
 		t.setProp(j.envoieProp());
 		t.setIndication(gm.evalProp(t.getProp()));
 		t.setTour(tourActuel);
 		System.out.println(t.toString());
 		return t.getIndication();
 	}
-	
+
+	/**
+	 * Lance le mode challenger pour l'IHM.
+	 * @param text proposition faite par le joueur
+	 * @return
+	 */
 	public String challenger(String text) {
 		return gmChall.evalProp(text);
 	}
 
-
-	public String defenseur(GameMaster gm, Joueur j) { // lance le mode défenseur
+	/**
+	 * Lance le mode défenseur dans la console.
+	 * @param gm
+	 * @param j
+	 * @return
+	 */
+	public String defenseur(GameMaster gm, Joueur j) {
 		t.setProp(j.envoieProp());
 		System.out.println(t.getProp());
 		t.setIndication(gm.evalProp(t.getProp()));
@@ -109,7 +133,11 @@ public class Plateau {
 		j.setDerRep(t.getIndication());
 		return t.getIndication();
 	}
-	
+
+	/**
+	 * Lance le mode défenseur dans l'IHM.
+	 * @return
+	 */
 	public String defenseur() {
 		return jDef.envoieProp();
 	}

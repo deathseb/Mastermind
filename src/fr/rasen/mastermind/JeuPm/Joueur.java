@@ -14,7 +14,11 @@ public class Joueur {
 		this.e = e;
 		this.nbChiffre = nbChiffre;
 	}
-	
+
+	/**
+	 * Créé la proposition.
+	 * @return la proposition dans un String.
+	 */
 	public String envoieProp() {
 		String prop = "";
 		boolean ok =true;

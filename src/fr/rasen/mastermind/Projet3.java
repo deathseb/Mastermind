@@ -23,7 +23,9 @@ public class Projet3 extends JFrame {
         p3 = this;
     }
 
-
+    /**
+     * Création fenêtre.
+     */
     public void initFrame(){
         this.setSize(new Dimension(600,800));
         this.setTitle("Projet 3");
@@ -67,6 +69,9 @@ public class Projet3 extends JFrame {
         this.add(panButton, BorderLayout.CENTER);
     }
 
+    /**
+     * Active le mode Mastermind.
+     */
     class MastermindListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
             p3.setVisible(false);
@@ -75,6 +80,9 @@ public class Projet3 extends JFrame {
         }
     }
 
+    /**
+     * Active le mode + -.
+     */
     class PMListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
             p3.setVisible(false);

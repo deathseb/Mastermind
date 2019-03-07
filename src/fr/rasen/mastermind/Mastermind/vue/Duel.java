@@ -1,6 +1,8 @@
 package fr.rasen.mastermind.Mastermind.vue;
 
 import fr.rasen.mastermind.Mastermind.Pastille;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,6 +12,7 @@ import java.util.ArrayList;
 
 public class Duel extends JPanel {
 
+    private static final Logger logger = LogManager.getLogger();
     private Fenetre fenetre;
     private Challenger challenger;
     private Defenseur defenseur;
@@ -37,6 +40,9 @@ public class Duel extends JPanel {
         this.add(defenseur, BorderLayout.EAST);
     }
 
+    /**
+     * Inner class pour enclencher le mode challenger et sa transition avec le mode défenseur.
+     */
     class ChallengerListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
             String rep = challenger.getPlateau().challenger(challenger.convertPastilleString());
@@ -58,6 +64,9 @@ public class Duel extends JPanel {
         }
     }
 
+    /**
+     * Inner class pour gérer le mode défenseur et sa transition avec le mode challenger.
+     */
     class DefenseurListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
             defenseur.getListIndic().add(defenseur.getProp());
@@ -88,6 +97,9 @@ public class Duel extends JPanel {
         t.start();
     }
 
+    /**
+     * Inner class faisant la transition visuel entre le mode challenger et le mode défenseur.
+     */
     class ThreadFocusCD implements Runnable {
         public void run() {
             challenger.getValider().setEnabled(false);
@@ -96,20 +108,17 @@ public class Duel extends JPanel {
             try {
                 thread.sleep(1000);
             } catch (InterruptedException e) {
-                //logger.error("Erreur lors du thread de pause.");
+                logger.error("Erreur lors du thread de pause.");
             }
-         /*   if(challenger.getPlateau().getTourActuel()==1){
-                defenseur = new Defenseur(fenetre);
-                defenseur.getValider().setEnabled(false);
-                ActionListener [] al = defenseur.getValider().getActionListeners();
-                defenseur.getValider().removeActionListener(al[0]);
-                defenseur.getValider().addActionListener(new DefenseurListener());
-            }*/
+
             defenseur.setBorder(BorderFactory.createLineBorder(Color.green, 3));
             defenseur.getValider().setEnabled(true);
         }
     }
 
+    /**
+     * Inner class faisant le transition visuel entre le mode défenseur et le mode challenger.
+     */
     class ThreadFocusDC implements Runnable {
         public void run() {
             defenseur.getValider().setEnabled(false);
@@ -118,7 +127,7 @@ public class Duel extends JPanel {
             try {
                 thread.sleep(1000);
             } catch (InterruptedException e) {
-               // logger.error("Erreur lors du thread de pause.");
+               logger.error("Erreur lors du thread de pause.");
             }
             challenger.setBorder(BorderFactory.createLineBorder(Color.green, 3));
             challenger.getValider().setEnabled(true);

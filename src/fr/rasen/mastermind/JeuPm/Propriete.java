@@ -33,7 +33,10 @@ public class Propriete {
 			modeDev = false;
 		logger.trace("Properties chargées.");
 	}
-	
+
+	/**
+	 * Sauvegarde dans le fichier properties.
+	 */
 	public void sauvegarde() {
 		Properties properties = new Properties();
 		FileInputStream fis;

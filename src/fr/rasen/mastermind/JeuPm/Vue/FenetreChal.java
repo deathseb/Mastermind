@@ -119,6 +119,9 @@ public class FenetreChal extends JPanel {
         logger.trace("Affichage mode challenger réussi");
     }
 
+    /**
+     * Créé le tableau central.
+     */
     public void initTableau() {
         for (int i = 0; i < plateau.getNbToursMax() + 1; i++) {
             gbc.gridx = 0;
@@ -165,6 +168,9 @@ public class FenetreChal extends JPanel {
 
     }
 
+    /**
+     * Met à jour le tableau durant le jeu.
+     */
     public void majTableau() {
         panCenter.removeAll();
         panCenter.setBackground(Color.white);
@@ -282,6 +288,9 @@ public class FenetreChal extends JPanel {
         return valider;
     }
 
+    /**
+     * Inner class validant la proposition du joueur.
+     */
     class playListener implements ActionListener {
 
         public void actionPerformed(ActionEvent arg0) {

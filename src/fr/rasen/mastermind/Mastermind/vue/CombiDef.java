@@ -54,6 +54,9 @@ public class CombiDef extends JDialog {
         this.setBackground(Color.white);
     }
 
+    /**
+     * Création de la fenêtre.
+     */
     public void initCommande(){
         valider.addActionListener(new validerCombi());
         effacer.addActionListener(new effacerCombi());
@@ -75,6 +78,9 @@ public class CombiDef extends JDialog {
         this.add(panCommande, BorderLayout.SOUTH);
     }
 
+    /**
+     * Création de la partie des pastilles de couleurs.
+     */
     public void initCouleurs(){
         panPastille.setPreferredSize(new Dimension(600, 50));
         panPastille.setLayout(couleurs);
@@ -132,6 +138,9 @@ public class CombiDef extends JDialog {
     }
 
 
+    /**
+     * Inner class validant la combinaison rentré par le joueur.
+     */
     class validerCombi implements ActionListener{
         public void actionPerformed(ActionEvent e) {
             if(prop.size()==defenseur.getPlateau().getNbChiffre()){

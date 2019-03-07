@@ -87,6 +87,9 @@ public class Challenger extends JPanel {
         logger.trace("Affichage mode Challenger réussi.");
     }
 
+    /**
+     * Créé les informations générales
+     */
     public void initInfo() {
         panInfo.setLayout(informations);
         Font font = new Font("showcard gothic", Font.BOLD, 50);
@@ -203,6 +206,9 @@ public class Challenger extends JPanel {
         this.add(panCommande, BorderLayout.SOUTH);
     }
 
+    /**
+     * Créé la partie avec toutes les pastilles de couleurs.
+     */
     public void initCouleurs() {
         panPastille.setPreferredSize(new Dimension(600, 50));
         panPastille.setLayout(couleurs);
@@ -243,6 +249,9 @@ public class Challenger extends JPanel {
         panCommande.add(panPastille, BorderLayout.SOUTH);
     }
 
+    /**
+     * Création du tableau central.
+     */
     public void initPanCentral() {
         Font ft = new Font("showcard gothic", Font.BOLD, 20);
         propo.setFont(ft);
@@ -357,6 +366,10 @@ public class Challenger extends JPanel {
         listPanProp.add(pan);
     }
 
+    /**
+     * Mise à jour de l'affichage
+     * @param list list contenant la réponse à la proposition émise par le joueur.
+     */
     public void affichageIndic(List<Pastille> list) {
         JPanel pan = new JPanel();
         pan.setPreferredSize(new Dimension(200, 30));
@@ -434,6 +447,9 @@ public class Challenger extends JPanel {
         compteurTours++;
     }
 
+    /**
+     * Inner class validant la proposition du joueur et mettant à jour l'affichage.
+     */
     class validerProp implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             String rep = plateau.challenger(convertPastilleString());

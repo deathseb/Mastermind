@@ -70,6 +70,9 @@ public class Defenseur extends JPanel {
         cd.setVisible(true);
     }
 
+    /**
+     * Créer la fenêtre du mode défenseur une fois que la combinaison est validée.
+     */
     public void initDefenseur() {
         for (int i = 0; i < plateau.getNbChiffre(); i++) {
             listBouleNoires.add(Pastille.NOIR);
@@ -84,6 +87,9 @@ public class Defenseur extends JPanel {
         jouerTour();
     }
 
+    /**
+     * Créé la partie contenant les infos générales du mode.
+     */
     public void initInfo() {
         panInfo.setLayout(informations);
         Font font = new Font("showcard gothic", Font.BOLD, 50);
@@ -178,7 +184,9 @@ public class Defenseur extends JPanel {
         logger.trace("Affichage mode Défenseur réussi.");
     }
 
-
+    /**
+     * Créé la partie utilisé par le joueur pour intéragir.
+     */
     public void initCommande() {
         effacer.addActionListener(new effacerIndic());
         panCommande.setLayout(new BorderLayout());
@@ -199,6 +207,9 @@ public class Defenseur extends JPanel {
         this.add(panCommande, BorderLayout.SOUTH);
     }
 
+    /**
+     * Créé l'affichage de pastille de couleur.
+     */
     public void initCouleurs() {
         panPastille.setPreferredSize(new Dimension(600, 50));
         panPastille.setLayout(couleurs);
@@ -216,6 +227,9 @@ public class Defenseur extends JPanel {
         panCommande.add(panPastille, BorderLayout.SOUTH);
     }
 
+    /**
+     * Créé le tableau central
+     */
     public void initPanCentral() {
         Font ft = new Font("showcard gothic", Font.BOLD, 20);
         propo.setFont(ft);
@@ -365,6 +379,9 @@ public class Defenseur extends JPanel {
         return list;
     }
 
+    /**
+     * Met à jour l'affichage du panneau central après une nouvelle proposition.
+     */
     public void affichageProp() {
         JPanel pan = new JPanel();
         pan.setPreferredSize(new Dimension(400, 30));
@@ -482,6 +499,9 @@ public class Defenseur extends JPanel {
         listPanIndic.add(pan);
     }
 
+    /**
+     * Inner class permettant au joueur de valider son indication, avant que le jeu se met à jour.
+     */
     class validerIndic implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             listIndic.add(prop);

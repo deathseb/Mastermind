@@ -12,7 +12,7 @@ public class FinDePartie extends JDialog {
     private Projet3 p3;
     private Fenetre fenetre;
     private JPanel panTexte = new JPanel();
-    private JLabel texte = new JLabel();
+    private JTextField texte = new JTextField();
     private JLabel option = new JLabel("Veuillez sélectionner votre option pour continuer.");
     private GridLayout gridTexte = new GridLayout(2,1);
     private JButton accueil = new JButton("Accueil");
@@ -26,12 +26,13 @@ public class FinDePartie extends JDialog {
         fenetre = f;
         this.setTitle(titre);
         this.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
-        this.setSize(new Dimension(500,300));
+        this.setSize(new Dimension(650,300));
         if(victoire){
             texte.setText("Félicitation ! Vous avez gagné !!");
         } else{
             texte.setText("Dommage ! Vous avez perdu !!");
         }
+        texte.setBorder(BorderFactory.createLineBorder(Color.white));
         texte.setFont(new Font("showcard gothic", Font.CENTER_BASELINE, 30));
         texte.setHorizontalAlignment(JLabel.CENTER);
         option.setFont(new Font("showcard gothic", Font.CENTER_BASELINE, 20));
@@ -56,6 +57,9 @@ public class FinDePartie extends JDialog {
         this.add(panButton, BorderLayout.SOUTH);
     }
 
+    /**
+     * Inner class permettant de revenir à l'accueil.
+     */
     class accueilListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
             p3.setVisible(true);
@@ -64,6 +68,9 @@ public class FinDePartie extends JDialog {
         }
     }
 
+    /**
+     * Inner class permettant de revenir à la sélection du mode de jeu.
+     */
     class modeListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
             fenetre.initAccueil();
@@ -71,6 +78,9 @@ public class FinDePartie extends JDialog {
         }
     }
 
+    /**
+     * Inner class permettant de quitter l'application.
+     */
     class quitterListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
             fenetre.dispose();

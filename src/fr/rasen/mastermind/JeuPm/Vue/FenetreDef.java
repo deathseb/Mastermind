@@ -80,7 +80,10 @@ public class FenetreDef extends JPanel {
         logger.trace("Initialisation de l'affichage du mode défenseur.");
         }
 
-        public void initPan () {
+    /**
+     * Créé l'affichage du mode défenseur une fois la combinaison rentrée.
+     */
+    public void initPan () {
             this.setLayout(new BorderLayout());
             gl = new GridLayout(plateau.getNbToursMax() + 1, 2);
             Font ft = new Font("showcard gothic", Font.BOLD, 20);
@@ -149,7 +152,10 @@ public class FenetreDef extends JPanel {
             logger.trace("Affichage du mode Défenseur réussi.");
         }
 
-        public void initTableau (){
+    /**
+     * Créé le tableau central.
+     */
+    public void initTableau (){
             for (int i = 0; i < plateau.getNbToursMax() + 1; i++) {
                 gbc.gridx = 0;
                 gbc.gridy = i;
@@ -215,7 +221,10 @@ public class FenetreDef extends JPanel {
             jScrollPane.setBounds(100, 200, 400, 400);
         }
 
-        public void majTableau () {
+    /**
+     * Met le tableau à jour durant le jeu.
+     */
+    public void majTableau () {
             panCenter.removeAll();
             panCenter.setBackground(Color.white);
             panCenter.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -352,7 +361,10 @@ public class FenetreDef extends JPanel {
             return valider;
         }
 
-        class playListener implements ActionListener {
+    /**
+     * Inner class validant l'indication de l'utilisateur.
+     */
+    class playListener implements ActionListener {
             public void actionPerformed(ActionEvent arg0) {
                 if (plateau.getNbChiffre() == proposition.getText().length()) {
                     Font ft = new Font("showcard gothic", Font.BOLD, 20);

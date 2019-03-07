@@ -13,6 +13,11 @@ public class GameMaster {
 		creerCombi(nbChiffre);
 	}
 
+	/**
+	 * Compare la proposition du joueur avec la combinaison.
+	 * @param str proposition du joueur.
+	 * @return indication pour le joueur.
+	 */
 	public String evalProp(String str) { //str doit bien être une série de chiffre et uniquement de chiffre 
 		String reponse = "";
 		//if (e.toString().equals("ordinateur")) { //évaluation de la proposition par l'ordinateur
@@ -34,6 +39,10 @@ public class GameMaster {
 
 	}
 
+	/**
+	 * Créé une combinaison de façon aléatoire.
+	 * @param nbChiffre nombre de chiffre que doit posséder la combinaison.
+	 */
 	public void creerCombi(int nbChiffre) {
 		if (e.toString().equals("ordinateur")) {
 			for (int i = 0 ; i < nbChiffre; i++) { //génère une combinaison de X chiffres compris entre 0 et 9

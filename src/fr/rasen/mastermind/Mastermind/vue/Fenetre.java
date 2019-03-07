@@ -30,7 +30,6 @@ public class Fenetre extends JFrame {
     }
 
     public void initAccueil(){
-
         accueil.getChall().addActionListener(new ChallengerListener());
         accueil.getDef().addActionListener(new DefenseurListener());
         accueil.getDuel().addActionListener(new DuelListener());

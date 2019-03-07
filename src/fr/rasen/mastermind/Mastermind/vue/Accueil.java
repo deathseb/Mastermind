@@ -70,44 +70,16 @@ public class Accueil extends JPanel {
 
     }
 
-    public JPanel getPanNord() {
-        return panNord;
-    }
-
-    public void setPanNord(JPanel panNord) {
-        this.panNord = panNord;
-    }
-
-    public JLabel getTitre() {
-        return titre;
-    }
-
-    public void setTitre(JLabel titre) {
-        this.titre = titre;
-    }
-
     public JButton getChall() {
         return chall;
-    }
-
-    public void setChall(JButton chall) {
-        this.chall = chall;
     }
 
     public JButton getDef() {
         return def;
     }
 
-    public void setDef(JButton def) {
-        this.def = def;
-    }
-
     public JButton getDuel() {
         return duel;
-    }
-
-    public void setDuel(JButton duel) {
-        this.duel = duel;
     }
 
     public JButton getPropriete() {
@@ -120,26 +92,6 @@ public class Accueil extends JPanel {
 
     public JButton getApropos() {
         return apropos;
-    }
-
-    public void setApropos(JButton apropos) {
-        this.apropos = apropos;
-    }
-
-    public JPanel getMenu() {
-        return menu;
-    }
-
-    public void setMenu(JPanel menu) {
-        this.menu = menu;
-    }
-
-    public JPanel getPan() {
-        return pan;
-    }
-
-    public void setPan(JPanel pan) {
-        this.pan = pan;
     }
 
 }

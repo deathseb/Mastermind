@@ -36,18 +36,27 @@ public class Fenetre extends JFrame{
 		fa.getPropriete().addActionListener(new proprieteListener());
 		this.getContentPane().add(fa, BorderLayout.CENTER);
 	}
-	
+
+	/**
+	 * Affiche le mode challenger.
+	 */
 	public void initChall() {
 		fc = new FenetreChal(this);
 		this.getContentPane().add(fc, BorderLayout.CENTER);
 		
 	}
-	
+
+	/**
+	 * Affiche le mode défenseur.
+	 */
 	public void initDef() {
 		fd = new FenetreDef(this);
 		this.getContentPane().add(fd, BorderLayout.CENTER);
 	}
-	
+
+	/**
+	 * Affiche le mode duel.
+	 */
 	public void initDuel() {
 		fDuel = new FenetreDuel(this);
 		this.getContentPane().removeAll();
@@ -55,7 +64,10 @@ public class Fenetre extends JFrame{
 		this.getContentPane().add(fDuel, BorderLayout.CENTER);
 		this.revalidate();
 	}
-	
+
+	/**
+	 * Inner class déclanchant le mode challenger.
+	 */
 	class challListener implements ActionListener{
 		public void actionPerformed(ActionEvent arg0) {
 			pan.removeAll();
@@ -64,7 +76,10 @@ public class Fenetre extends JFrame{
 			pan.revalidate();
 		}
 	}
-	
+
+	/**
+	 * Inner class déclenchant le mode défenseur.
+	 */
 	class defListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			pan.removeAll();
@@ -73,7 +88,10 @@ public class Fenetre extends JFrame{
 			pan.revalidate();
 		}
 	}
-	
+
+	/**
+	 * Inner class déclenchant le mode duel.
+	 */
 	class duelListener implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			pan.removeAll();
@@ -82,7 +100,10 @@ public class Fenetre extends JFrame{
 			pan.revalidate();
 		}
 	}
-	
+
+	/**
+	 * Inner class affichant la fenêtre des propriétés.
+	 */
 	class proprieteListener implements ActionListener{
 		public void actionPerformed(ActionEvent arg0) {
 			Plateau plateau = new Plateau();

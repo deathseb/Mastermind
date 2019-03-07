@@ -48,7 +48,9 @@ public class FenetreDuel extends JPanel {
         t.start();
     }
 
-
+    /**
+     * Inner class gérant le changement entre le mode challenger et le mode défenseur.
+     */
     class PlayDuelListenerChall implements ActionListener{
 
         public void actionPerformed(ActionEvent e) {
@@ -82,6 +84,9 @@ public class FenetreDuel extends JPanel {
         }
     }
 
+    /**
+     * Inner class gérant la transition entre le mode défenseur et le mode challenger.
+     */
     class PlayDuelListenerDef implements ActionListener{
 
         public void actionPerformed(ActionEvent e) {
@@ -114,6 +119,9 @@ public class FenetreDuel extends JPanel {
         }
     }
 
+    /**
+     * Inner class faisant la transition visuel entre le mode challenger et le mode défenseur.
+     */
     class ThreadFocusCD implements Runnable {
         public void run() {
             fc.getProposition().setEnabled(false);
@@ -129,6 +137,9 @@ public class FenetreDuel extends JPanel {
         }
     }
 
+    /**
+     * Inner class faisant la transition visuel entre le mode défenseur et le mode challenger.
+     */
     class ThreadFocusDC implements Runnable {
         public void run() {
             fd.getProposition().setEnabled(false);

@@ -10,6 +10,9 @@ public class Propriete {
     private boolean modeDev;
     private int nbCouleursMax;
 
+    /**
+     * Créer en lisant les informations du fichier properties.
+     */
     public Propriete() {
         Properties prop = new Properties();
         FileInputStream in ;
@@ -30,6 +33,9 @@ public class Propriete {
         nbCouleursMax = Integer.parseInt(prop.getProperty("nbCouleursMax"));
     }
 
+    /**
+     * Sauvegarde le fichier properties.
+     */
     public void sauvegarde() {
         Properties properties = new Properties();
         FileInputStream fis;

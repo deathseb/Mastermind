@@ -23,10 +23,17 @@ public class GameMaster {
         eval = new String[nbChiffre];
     }
 
+    /**
+     * Ajoute la ocmbinaison rentré par le joueur en mode défenseur.
+     * @param list
+     */
     public void creerCombi(List<Pastille> list){
         combi = list;
     }
 
+    /**
+     * Créé une combinaison de façon aléatoire pour le mode challenger.
+     */
     public void creerCombi(){
         if(joueur.equals(Entite.ORDI)){
             for(int i = 0; i < nbChiffre; i++){
@@ -104,6 +111,11 @@ public class GameMaster {
         }
     }
 
+    /**
+     * Compare la proposition faite avec la combinaison.
+     * @param str proposition faite par le joueur.
+     * @return suite de B, N ou _ permettant au joueur de calculer son prochain coup.
+     */
     public String evalProp (String str){
         String rep = "";
         eval = new String[nbChiffre];

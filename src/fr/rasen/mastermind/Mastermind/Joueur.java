@@ -25,6 +25,10 @@ public class Joueur {
         this.nbChiffre = nbChiffre;
     }
 
+    /**
+     * Créer la proposition de solution.
+     * @return la proposition sous forme de String.
+     */
     public String envoieProp() {
         String prop = "";
         if (e.equals(Entite.HUMAIN)) {
@@ -77,6 +81,10 @@ public class Joueur {
         return prop;
     }
 
+    /**
+     * Recherche la combinaison de Pastille.
+     * @return la proposition sous forme de String.
+     */
     public String trouverCombi(){
         List<Pastille> list = new ArrayList<>();
         String str = "";

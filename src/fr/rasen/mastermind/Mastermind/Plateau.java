@@ -16,6 +16,10 @@ public class Plateau {
     private boolean defaite = false;
     private int tourActuel = 0;
 
+    /**
+     * Créer le jeu en mode console.
+     * @param mode Permet de savoir le mode de jeu souhaité.
+     */
     public Plateau (String mode){
         this.nbToursMax = p.getNbTours();
         this.nbChiffre = p.getNbChiffre();
@@ -70,7 +74,9 @@ public class Plateau {
     }
 
 
-
+    /**
+     * Créer pour jouer avec l'IHM.
+     */
     public Plateau(){
         this.nbToursMax = p.getNbTours();
         this.nbChiffre = p.getNbChiffre();
@@ -90,16 +96,29 @@ public class Plateau {
         defaite = true;
     }
 
+    /**
+     * Mode challenger en IHM.
+     * @param prop
+     * @return
+     */
     public String challenger(String prop){
         String str = gmChall.evalProp(prop);
         return str;
     }
 
+    /**
+     * Mode défenseur en IHM.
+     * @param rep
+     * @return
+     */
     public String defenseur(String rep){
         jDef.setDerRep(rep);
         return jDef.envoieProp();
     }
 
+    /**
+     * Mode challenger en console.
+     */
     public void challenger(){
         if(p.isModeDev()){
             System.out.println("Combinaison = " + gmChall.showCombi());
@@ -114,6 +133,9 @@ public class Plateau {
         }
     }
 
+    /**
+     * Mode défenseur en console.
+     */
     public void defenseur(){
         //System.out.println("Combinaison = " + gmDef.showCombi());
         String str = jDef.envoieProp();
@@ -129,52 +151,16 @@ public class Plateau {
         }
     }
 
-    public boolean isVictoire() {
-        return victoire;
-    }
-
-    public void setVictoire(boolean victoire) {
-        this.victoire = victoire;
-    }
-
-    public boolean isDefaite() {
-        return defaite;
-    }
-
-    public void setDefaite(boolean defaite) {
-        this.defaite = defaite;
-    }
-
     public GameMaster getGmChall() {
         return gmChall;
-    }
-
-    public void setGmChall(GameMaster gmChall) {
-        this.gmChall = gmChall;
     }
 
     public GameMaster getGmDef() {
         return gmDef;
     }
 
-    public void setGmDef(GameMaster gmDef) {
-        this.gmDef = gmDef;
-    }
-
-    public Joueur getjChall() {
-        return jChall;
-    }
-
-    public void setjChall(Joueur jChall) {
-        this.jChall = jChall;
-    }
-
     public Joueur getjDef() {
         return jDef;
-    }
-
-    public void setjDef(Joueur jDef) {
-        this.jDef = jDef;
     }
 
     public Propriete getP() {
@@ -189,24 +175,8 @@ public class Plateau {
         return nbToursMax;
     }
 
-    public void setNbToursMax(int nbToursMax) {
-        this.nbToursMax = nbToursMax;
-    }
-
     public int getNbChiffre() {
         return nbChiffre;
-    }
-
-    public void setNbChiffre(int nbChiffre) {
-        this.nbChiffre = nbChiffre;
-    }
-
-    public String getEgalFinal() {
-        return egalFinal;
-    }
-
-    public void setEgalFinal(String egalFinal) {
-        this.egalFinal = egalFinal;
     }
 
     public int getTourActuel() {
