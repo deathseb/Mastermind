@@ -88,12 +88,13 @@ public class FenetreAccueil extends JPanel {
 		return duel;
 	}
 
-	public JButton getPropriete() {
-		return propriete;
-	}
+	public JButton getPropriete() { return propriete; }
 
 	public void setPropriete(JButton propriete) {
 		this.propriete = propriete;
 	}
 
+	public JButton getApropos() {
+		return apropos;
+	}
 }

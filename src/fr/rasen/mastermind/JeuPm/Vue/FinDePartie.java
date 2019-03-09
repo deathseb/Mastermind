@@ -76,9 +76,7 @@ public class FinDePartie extends JDialog {
      */
     class modeListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-            fenetre.removeAll();
-            fenetre.initMenu();
-            fenetre.revalidate();
+            fenetre.afficheAccueil();
             fp.setVisible(false);
         }
     }
