@@ -34,7 +34,8 @@ public class Fenetre extends JFrame{
 		fa.getDef().addActionListener(new defListener());
 		fa.getDuel().addActionListener(new duelListener());
 		fa.getPropriete().addActionListener(new proprieteListener());
-		this.getContentPane().add(fa, BorderLayout.CENTER);
+		fa.getApropos().addActionListener(new AProposListener());
+		pan.add(fa, BorderLayout.CENTER);
 	}
 
 	/**
@@ -64,6 +65,20 @@ public class Fenetre extends JFrame{
 		this.getContentPane().add(fDuel, BorderLayout.CENTER);
 		this.revalidate();
 	}
+
+	/**
+	 * Affiche la page d'accueil.
+	 */
+	public void afficheAccueil() {
+		pan.removeAll();
+		pan.add(fa, BorderLayout.CENTER);
+		pan.repaint();
+		pan.revalidate();
+	}
+
+	//-----------------------------------------------------
+	//-----                INNER CLASSES              -----
+	//-----------------------------------------------------
 
 	/**
 	 * Inner class déclanchant le mode challenger.
@@ -111,6 +126,15 @@ public class Fenetre extends JFrame{
 			fp.setVisible(true);
 		}
 		
+	}
+
+	/**
+	 * Inner class pour gérer le click sur le menu A propos pour le jeu du Plus/Moins.
+	 */
+	class AProposListener implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			JOptionPane.showMessageDialog(null, "Developpé par Deathseb le 09/03/2019", "A propos...", JOptionPane.INFORMATION_MESSAGE);
+		}
 	}
 
 	public Projet3 getProjet3() {

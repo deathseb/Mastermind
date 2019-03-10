@@ -94,7 +94,7 @@ public class Fenetre extends JFrame {
      */
     class AProposListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-            JOptionPane.showMessageDialog(null, "Developpé par Deathseb le xx/xx/2019", "A propos...", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Developpé par Deathseb le 09/03/2019", "A propos...", JOptionPane.INFORMATION_MESSAGE);
         }
     }
   
