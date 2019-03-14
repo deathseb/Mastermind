@@ -5,10 +5,10 @@ import java.io.FileOutputStream;
 import java.util.Properties;
 
 public class Propriete {
-    private int nbTours;
-    private int nbChiffre;
+    private Integer nbTours;
+    private Integer nbChiffre;
     private boolean modeDev;
-    private int nbCouleursMax;
+    private Integer nbCouleursMax;
 
     /**
      * Créer en lisant les informations du fichier properties.
@@ -17,7 +17,7 @@ public class Propriete {
         Properties prop = new Properties();
         FileInputStream in ;
         try {
-            in = new FileInputStream("src/infoPM.properties");
+            in = new FileInputStream("ressources/infoPM.properties");
             prop.load(in);
             in.close();
         } catch (Exception e) {
@@ -40,7 +40,7 @@ public class Propriete {
         Properties properties = new Properties();
         FileInputStream fis;
         try {
-            fis = new FileInputStream("src/infoPM.properties");
+            fis = new FileInputStream("ressources/infoPM.properties");
             properties.load(fis);
             properties.setProperty("nbTours", String.valueOf(nbTours));
             properties.setProperty("nbChiffre", String.valueOf(nbChiffre));

@@ -176,3 +176,7 @@
 14:26:54.070 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Affichage mode Défenseur réussi.
 14:28:03.574 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Challenger - Affichage mode Challenger réussi.
 14:28:08.186 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Affichage mode Défenseur réussi.
+08:30:52.946 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Affichage mode Défenseur réussi.
+08:32:58.205 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Affichage mode Défenseur réussi.
+08:57:32.474 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Challenger - Affichage mode Challenger réussi.
+08:57:37.683 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Challenger - Fin de partie mode Challenger.

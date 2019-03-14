@@ -238,13 +238,13 @@ public class Defenseur extends JPanel {
         indication.setHorizontalAlignment(JLabel.CENTER);
         panProp.setBorder(BorderFactory.createLineBorder(Color.black));
         panProp.setBackground(Color.white);
-        panProp.setPreferredSize(new Dimension(180, 30));
-        panProp.setMinimumSize(new Dimension(180, 30));
+        panProp.setPreferredSize(new Dimension(180, 50));
+        panProp.setMinimumSize(new Dimension(180, 50));
         panProp.add(propo);
         panIndic.setBorder(BorderFactory.createLineBorder(Color.black));
         panIndic.setBackground(Color.white);
-        panIndic.setPreferredSize(new Dimension(180, 30));
-        panIndic.setMinimumSize(new Dimension(180, 30));
+        panIndic.setPreferredSize(new Dimension(180, 50));
+        panIndic.setMinimumSize(new Dimension(180, 50));
         panIndic.add(indication);
 
         panCentre.setLayout(new GridBagLayout());
@@ -271,8 +271,8 @@ public class Defenseur extends JPanel {
             JLabel propLab = new JLabel();
             propLab.setBorder(BorderFactory.createLineBorder(Color.black));
             propLab.setHorizontalAlignment(JLabel.CENTER);
-            propLab.setPreferredSize(new Dimension(180, 30));
-            propLab.setMinimumSize(new Dimension(180, 30));
+            propLab.setPreferredSize(new Dimension(180, 50));
+            propLab.setMinimumSize(new Dimension(180, 50));
             gbc.fill = GridBagConstraints.BOTH;
             gbc.anchor = GridBagConstraints.LINE_START;
             panCentre.add(propLab, gbc);
@@ -286,8 +286,8 @@ public class Defenseur extends JPanel {
             indicLab.setHorizontalAlignment(JLabel.CENTER);
             gbc.fill = GridBagConstraints.BOTH;
             gbc.anchor = GridBagConstraints.BASELINE_LEADING;
-            indicLab.setPreferredSize(new Dimension(180, 30));
-            indicLab.setMinimumSize(new Dimension(180, 30));
+            indicLab.setPreferredSize(new Dimension(180, 50));
+            indicLab.setMinimumSize(new Dimension(180, 50));
             panCentre.add(indicLab, gbc);
 
         }
@@ -384,7 +384,7 @@ public class Defenseur extends JPanel {
      */
     public void affichageProp() {
         JPanel pan = new JPanel();
-        pan.setPreferredSize(new Dimension(400, 30));
+        pan.setPreferredSize(new Dimension(400, 50));
         pan.setBackground(Color.white);
         pan.setBorder(BorderFactory.createLineBorder(Color.black));
         pan.setLayout(gridProp);
@@ -428,8 +428,8 @@ public class Defenseur extends JPanel {
                 indicLab.setHorizontalAlignment(JLabel.CENTER);
                 gbc.fill = GridBagConstraints.BOTH;
                 gbc.anchor = GridBagConstraints.BASELINE_LEADING;
-                indicLab.setPreferredSize(new Dimension(180, 30));
-                indicLab.setMinimumSize(new Dimension(180, 30));
+                indicLab.setPreferredSize(new Dimension(180, 50));
+                indicLab.setMinimumSize(new Dimension(180, 50));
                 panCentre.add(indicLab, gbc);
             } else {
                 gbc.gridx = 0;
@@ -457,8 +457,8 @@ public class Defenseur extends JPanel {
             JLabel propLab = new JLabel();
             propLab.setBorder(BorderFactory.createLineBorder(Color.black));
             propLab.setHorizontalAlignment(JLabel.CENTER);
-            propLab.setPreferredSize(new Dimension(180, 30));
-            propLab.setMinimumSize(new Dimension(180, 30));
+            propLab.setPreferredSize(new Dimension(180, 50));
+            propLab.setMinimumSize(new Dimension(180, 50));
             gbc.fill = GridBagConstraints.BOTH;
             gbc.anchor = GridBagConstraints.LINE_START;
             panCentre.add(propLab, gbc);
@@ -472,8 +472,8 @@ public class Defenseur extends JPanel {
             indicLab.setHorizontalAlignment(JLabel.CENTER);
             gbc.fill = GridBagConstraints.BOTH;
             gbc.anchor = GridBagConstraints.BASELINE_LEADING;
-            indicLab.setPreferredSize(new Dimension(180, 30));
-            indicLab.setMinimumSize(new Dimension(180, 30));
+            indicLab.setPreferredSize(new Dimension(180, 50));
+            indicLab.setMinimumSize(new Dimension(180, 50));
             panCentre.add(indicLab, gbc);
             ligne++;
         }
@@ -487,7 +487,7 @@ public class Defenseur extends JPanel {
 
     public void affichageIndic(List<Pastille> list) {
         JPanel pan = new JPanel();
-        pan.setPreferredSize(new Dimension(200, 30));
+        pan.setPreferredSize(new Dimension(200, 50));
         pan.setBackground(Color.white);
         pan.setBorder(BorderFactory.createLineBorder(Color.black));
         pan.setLayout(new GridLayout(2, 2));
