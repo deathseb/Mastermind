@@ -19,8 +19,9 @@ public class Fenetre extends JFrame {
     private Propriete propriete;
     private Plateau plateau = new Plateau();
 
-    public Fenetre(Projet3 p){
+    public Fenetre(Projet3 p, boolean dev){
         projet3 = p;
+        plateau.getP().setModeDev(dev);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(600, 800);
         this.setLocationRelativeTo(null);

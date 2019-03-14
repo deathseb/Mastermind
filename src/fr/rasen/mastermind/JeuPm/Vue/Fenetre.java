@@ -16,11 +16,13 @@ public class Fenetre extends JFrame{
 	private FenetreDef fd;
 	private FenetreAccueil fa;
 	private FenetreDuel fDuel;
+	private Plateau plateau = new Plateau();
 	
 	private Container pan = this.getContentPane();
 	
-	public Fenetre(Projet3 p) {
+	public Fenetre(Projet3 p, boolean dev) {
 		projet3 = p;
+		plateau.getP().setModeDev(dev);
 		initMenu();
 	}
 	
@@ -121,7 +123,6 @@ public class Fenetre extends JFrame{
 	 */
 	class proprieteListener implements ActionListener{
 		public void actionPerformed(ActionEvent arg0) {
-			Plateau plateau = new Plateau();
 			FenetreProperties fp = new FenetreProperties(plateau);
 			fp.setVisible(true);
 		}

@@ -16,9 +16,11 @@ public class Projet3 extends JFrame {
     private JButton buttonMaster = new JButton("Jouer au Mastermind");
     private JPanel panButton = new JPanel();
     private GridLayout gridButton = new GridLayout(5,1);
+    private boolean modeDev =false;
     private Projet3 p3;
 
-    public Projet3(){
+    public Projet3(boolean dev){
+        modeDev = dev;
         this.initFrame();
         p3 = this;
     }
@@ -75,7 +77,7 @@ public class Projet3 extends JFrame {
     class MastermindListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
             p3.setVisible(false);
-            Fenetre fenetreMastermind = new Fenetre(p3);
+            Fenetre fenetreMastermind = new Fenetre(p3, modeDev);
             fenetreMastermind.setVisible(true);
         }
     }
@@ -86,7 +88,7 @@ public class Projet3 extends JFrame {
     class PMListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
             p3.setVisible(false);
-            fr.rasen.mastermind.JeuPm.Vue.Fenetre fenetrePM = new fr.rasen.mastermind.JeuPm.Vue.Fenetre(p3);
+            fr.rasen.mastermind.JeuPm.Vue.Fenetre fenetrePM = new fr.rasen.mastermind.JeuPm.Vue.Fenetre(p3,modeDev);
             fenetrePM.setVisible(true);
         }
     }
@@ -94,7 +96,11 @@ public class Projet3 extends JFrame {
 
 
     public static void main(String[] args) {
-        Projet3 projet3 = new Projet3();
+        boolean dev = false;
+        if (args.length != 0){
+            dev = true;
+        }
+        Projet3 projet3 = new Projet3(dev);
         projet3.setVisible(true);
     }
 }

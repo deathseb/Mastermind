@@ -46,7 +46,7 @@ public class Propriete {
             properties.setProperty("nbChiffre", String.valueOf(nbChiffre));
             properties.setProperty("modeDev", String.valueOf(modeDev));
             properties.setProperty("nbCouleursMax", String.valueOf(nbCouleursMax));
-            FileOutputStream fos = new FileOutputStream("src/infoPM.properties");
+            FileOutputStream fos = new FileOutputStream("ressources/infoPM.properties");
             properties.store(fos,null);
             fis.close();
             fos.close();
