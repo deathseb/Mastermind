@@ -16,7 +16,7 @@ public class Projet3 extends JFrame {
     private JButton buttonMaster = new JButton("Jouer au Mastermind");
     private JPanel panButton = new JPanel();
     private GridLayout gridButton = new GridLayout(5,1);
-    private boolean modeDev =false;
+    private boolean modeDev;
     private Projet3 p3;
 
     public Projet3(boolean dev){
@@ -98,7 +98,9 @@ public class Projet3 extends JFrame {
     public static void main(String[] args) {
         boolean dev = false;
         if (args.length != 0){
-            dev = true;
+            if(args[0].equals("true")){
+                dev = true;
+            }
         }
         Projet3 projet3 = new Projet3(dev);
         projet3.setVisible(true);

@@ -15,9 +15,6 @@ public class FenetreAccueil extends JPanel {
 	private JButton apropos = new JButton("A Propos");
 	private JPanel menu = new JPanel();
 
-	private Image img = new ImageIcon("src/images/fond_plus_moins.png").getImage();
-
-	private JPanel pan = this;
 
 	public FenetreAccueil() {
 		this.setLayout(new BorderLayout());
@@ -70,10 +67,6 @@ public class FenetreAccueil extends JPanel {
 		menu.add(panPropos);
 		this.add(menu, BorderLayout.CENTER);
 
-	}
-
-	public void paintComponent(Graphics g){
-		 g.drawImage(img, 0, 0, null);
 	}
 
 	public JButton getChall() {

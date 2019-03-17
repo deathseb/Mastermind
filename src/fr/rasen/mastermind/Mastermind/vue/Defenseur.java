@@ -84,6 +84,7 @@ public class Defenseur extends JPanel {
         this.setBackground(Color.white);
         this.repaint();
         this.revalidate();
+        logger.trace("Affichage mode Défenseur réussi.");
         jouerTour();
     }
 
@@ -96,6 +97,7 @@ public class Defenseur extends JPanel {
         titre.setFont(font);
         font = new Font("showcard gothic", Font.BOLD, 20);
         mode.setFont(font);
+        nbTours.setText("Tours : " + plateau.getTourActuel());
         nbTours.setFont(font);
         titre.setHorizontalAlignment(JLabel.CENTER);
         mode.setHorizontalAlignment(JLabel.CENTER);
@@ -122,8 +124,8 @@ public class Defenseur extends JPanel {
         combinaison.setBackground(Color.white);
         combinaison.setLayout(new GridLayout(1, plateau.getNbChiffre()));
         JLabel lab;
-        for (int i = 0; i < plateau.getGmChall().showCombi().length(); i++) {
-            switch (plateau.getGmChall().showCombi().charAt(i)) {
+        for (int i = 0; i < plateau.getGmDef().getCombi().size(); i++) {
+           switch (plateau.getGmDef().getCombi().get(i).getValeur().charAt(0)) {
                 case '0':
                     lab = new JLabel(new ImageIcon(Pastille.BLEU.getFichier()));
                     lab.setBackground(Color.white);
@@ -181,7 +183,6 @@ public class Defenseur extends JPanel {
         panInfo.add(allCombi);
         panInfo.setBackground(Color.white);
         this.add(panInfo, BorderLayout.NORTH);
-        logger.trace("Affichage mode Défenseur réussi.");
     }
 
     /**
@@ -315,8 +316,8 @@ public class Defenseur extends JPanel {
         } else {
             plateau.defenseur(convertPastilleString());
             prop = plateau.getjDef().getDerProp();
-            affichageProp();
             listProp.add(prop);
+            affichageProp();
             prop = new ArrayList<>();
         }
 
@@ -414,7 +415,7 @@ public class Defenseur extends JPanel {
         panCentre.add(panIndic, gbc);
         int ligne = 1;
         for (int i = 0; i < listProp.size(); i++) {
-            if (i == listProp.size() - 1) {
+            if (i == listProp.size()-1) {
                 gbc.gridy = ligne;
                 gbc.gridx = 0;
                 gbc.gridheight = 1;
@@ -478,6 +479,10 @@ public class Defenseur extends JPanel {
             ligne++;
         }
         panCentre.revalidate();
+        panInfo.removeAll();
+        initInfo();
+        panInfo.repaint();
+        panInfo.revalidate();
         this.add(jScrollPane, BorderLayout.CENTER);
     }
 
@@ -492,7 +497,7 @@ public class Defenseur extends JPanel {
         pan.setBorder(BorderFactory.createLineBorder(Color.black));
         pan.setLayout(new GridLayout(2, 2));
         for (int i = 0; i < list.size(); i++) {
-            JLabel jl = new JLabel((new ImageIcon(prop.get(i).getFichier())));
+            JLabel jl = new JLabel((new ImageIcon(list.get(i).getFichier())));
             jl.setPreferredSize(new Dimension(50, 50));
             pan.add(jl);
         }

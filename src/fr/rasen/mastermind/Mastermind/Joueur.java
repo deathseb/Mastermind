@@ -76,8 +76,6 @@ public class Joueur {
                 prop = trouverCombi();
             }
         }
-
-
         return prop;
     }
 
@@ -94,16 +92,18 @@ public class Joueur {
             for(int i=1; i<derProp.size(); i++){
                 list.add(derProp.get(i));
             }
+            numCouleurList = 1;
             derProp = list;
+            listAncienneRep.add(derRep);
             for(int i =0; i<list.size(); i++){
                 str += list.get(i).getValeur();
             }
             return str;
         } else{
             String rep1 = listAncienneRep.get(listAncienneRep.size()-1);
-            if(getNbNoir(derRep)> getNbNoir(rep1)){ //Si le changement de couleur à créé une nouvelle boule noire
+            if(getNbNoir(derRep) > getNbNoir(rep1)){ //Si le changement de couleur à créé une nouvelle boule noire
                 numBouleModif ++;
-                numCouleurList =0;
+                numCouleurList = 0;
                 for (int i =0; i<derProp.size(); i++){
                     if(i == numBouleModif){
                         list.add(listCouleurCombi.get(numCouleurList));
@@ -111,10 +111,14 @@ public class Joueur {
                         list.add(derProp.get(i));
                     }
                 }
+                derProp = list;
+                listAncienneRep.add(derRep);
                 for (int j =0; j<list.size(); j++){
-                    str += list.get(j);
+                    str += list.get(j).getValeur();
                 }
                 return str;
+
+
             } else if (getNbNoir(derRep) == getNbNoir(rep1)){ //Si le changement de couleur n'a rien fait
                 numCouleurList ++;
                 for (int i =0; i<derProp.size(); i++) {
@@ -124,10 +128,14 @@ public class Joueur {
                         list.add(derProp.get(i));
                     }
                 }
+                derProp = list;
+                listAncienneRep.add(derRep);
                 for (int j = 0; j < list.size(); j++) {
-                    str += list.get(j);
+                    str += list.get(j).getValeur();
                 }
                 return str;
+
+
             } else{ //Si le changement de couleur à supprimé une boule noire
                 numCouleurList --;
                 for (int i =0; i<derProp.size(); i++) {
@@ -141,8 +149,10 @@ public class Joueur {
                 }
                 numBouleModif ++;
                 numCouleurList =0;
+                derProp = list;
+                listAncienneRep.add(derRep);
                 for (int j = 0; j < list.size(); j++) {
-                    str += list.get(j);
+                    str += list.get(j).getValeur();
                 }
                 return str;
             }
@@ -171,6 +181,10 @@ public class Joueur {
             }
         }
         allColor = ok;
+    }
+
+    public boolean isAllColor() {
+        return allColor;
     }
 
     public void setDerRep(String str){

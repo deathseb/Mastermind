@@ -169,4 +169,8 @@ public class GameMaster {
         }
         return rep;
     }
+
+    public List<Pastille> getCombi() {
+        return combi;
+    }
 }

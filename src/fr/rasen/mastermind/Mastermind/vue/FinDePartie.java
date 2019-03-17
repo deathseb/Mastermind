@@ -73,7 +73,10 @@ public class FinDePartie extends JDialog {
      */
     class modeListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
+            fenetre.getContentPane().removeAll();
             fenetre.initAccueil();
+            fenetre.repaint();
+            fenetre.revalidate();
             fp.setVisible(false);
         }
     }

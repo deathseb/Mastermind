@@ -45,7 +45,7 @@ public class Challenger extends JPanel {
     private JPanel panInfo = new JPanel();
     private GridLayout informations = new GridLayout(4, 1);
     private JLabel titre = new JLabel("Mastermind");
-    private JLabel nbTours = new JLabel("Tour 0");
+    private JLabel nbTours = new JLabel("Tour " + plateau.getTourActuel());
     private int compteurTours = 0;
     private JLabel mode = new JLabel("Mode : Challenger");
 
@@ -96,6 +96,7 @@ public class Challenger extends JPanel {
         titre.setFont(font);
         font = new Font("showcard gothic", Font.BOLD, 20);
         mode.setFont(font);
+        nbTours.setText("Tours :" + plateau.getTourActuel());
         nbTours.setFont(font);
         titre.setHorizontalAlignment(JLabel.CENTER);
         mode.setHorizontalAlignment(JLabel.CENTER);
@@ -443,6 +444,10 @@ public class Challenger extends JPanel {
             ligne++;
         }
         panCentre.revalidate();
+        panInfo.removeAll();
+        initInfo();
+        panInfo.repaint();
+        panInfo.revalidate();
         this.add(jScrollPane, BorderLayout.CENTER);
         compteurTours++;
     }
@@ -452,23 +457,27 @@ public class Challenger extends JPanel {
      */
     class validerProp implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            String rep = plateau.challenger(convertPastilleString());
-            listProp.add(prop);
-            sauvegardeProp();
-            proposition.removeAll();
-            proposition.repaint();
-            proposition.revalidate();
-            prop = new ArrayList<Pastille>();
-            listIndic.add(convertStringPastille(rep));
-            affichageIndic(listIndic.get(listIndic.size() - 1));
-            if (listIndic.get(listIndic.size() - 1).equals(listBouleNoires)) { //gestion victoire
-                FinDePartie fp = new FinDePartie("Victoire", true, fenetre.getProjet3(), fenetre);
-                logger.trace("Fin de partie mode Challenger.");
-            } else if (plateau.getTourActuel() == plateau.getNbToursMax()) { //gestion défaite
-                FinDePartie fp = new FinDePartie("Défaite", false, fenetre.getProjet3(), fenetre);
-                logger.trace("Fin de partie mode Challenger.");
+            if(prop.size() == plateau.getP().getNbChiffre()) {
+                String rep = plateau.challenger(convertPastilleString());
+                listProp.add(prop);
+                sauvegardeProp();
+                proposition.removeAll();
+                proposition.repaint();
+                proposition.revalidate();
+                prop = new ArrayList<Pastille>();
+                listIndic.add(convertStringPastille(rep));
+                affichageIndic(listIndic.get(listIndic.size() - 1));
+                if (listIndic.get(listIndic.size() - 1).equals(listBouleNoires)) { //gestion victoire
+                    FinDePartie fp = new FinDePartie("Victoire", true, fenetre.getProjet3(), fenetre);
+                    logger.trace("Fin de partie mode Challenger.");
+                } else if (plateau.getTourActuel() == plateau.getNbToursMax()) { //gestion défaite
+                    FinDePartie fp = new FinDePartie("Défaite", false, fenetre.getProjet3(), fenetre);
+                    logger.trace("Fin de partie mode Challenger.");
+                }
+                plateau.setTourActuel(plateau.getTourActuel() + 1);
+            } else{
+                JOptionPane.showMessageDialog(null, "Veuillez entrer une combinaison de " + plateau.getP().getNbChiffre()+ " couleurs", "Erreur", JOptionPane.ERROR_MESSAGE);
             }
-            plateau.setTourActuel(plateau.getTourActuel() + 1);
         }
     }
 

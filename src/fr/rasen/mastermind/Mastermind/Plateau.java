@@ -113,6 +113,9 @@ public class Plateau {
      */
     public String defenseur(String rep){
         jDef.setDerRep(rep);
+        if(rep != null && !jDef.isAllColor()){
+            jDef.setAllColor(rep);
+        }
         return jDef.envoieProp();
     }
 

@@ -22,20 +22,20 @@ public class Fenetre extends JFrame {
     public Fenetre(Projet3 p, boolean dev){
         projet3 = p;
         plateau.getP().setModeDev(dev);
+        initAccueil();
+    }
+
+    public void initAccueil(){
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(600, 800);
         this.setLocationRelativeTo(null);
         this.setTitle("Mastermind");
-        initAccueil();
-        this.getContentPane().add(accueil);
-    }
-
-    public void initAccueil(){
         accueil.getChall().addActionListener(new ChallengerListener());
         accueil.getDef().addActionListener(new DefenseurListener());
         accueil.getDuel().addActionListener(new DuelListener());
         accueil.getPropriete().addActionListener(new ProprietesListener());
         accueil.getApropos().addActionListener(new AProposListener());
+        this.getContentPane().add(accueil);
     }
 
 

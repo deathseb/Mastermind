@@ -190,3 +190,72 @@
 14:25:39.074 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Sauvegarde du fichier properties réussi.
 14:25:43.558 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
 14:25:43.569 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Affichage mode challenger réussi
+15:20:36.199 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Challenger - Affichage mode Challenger réussi.
+15:21:27.777 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Challenger - Affichage mode Challenger réussi.
+15:22:49.671 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Challenger - Affichage mode Challenger réussi.
+15:23:31.605 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Challenger - Affichage mode Challenger réussi.
+15:25:43.912 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Challenger - Affichage mode Challenger réussi.
+11:51:37.489 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Affichage mode Défenseur réussi.
+12:18:03.759 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Affichage mode Défenseur réussi.
+12:22:52.110 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Affichage mode Défenseur réussi.
+12:24:51.353 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Affichage mode Défenseur réussi.
+12:36:13.781 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Affichage mode Défenseur réussi.
+12:37:29.407 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Affichage mode Défenseur réussi.
+12:37:50.970 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Fin de partie mode Défenseur
+12:37:58.423 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Affichage mode Défenseur réussi.
+12:48:59.887 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Affichage mode Défenseur réussi.
+12:50:10.466 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Affichage mode Défenseur réussi.
+12:51:01.709 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Affichage mode Défenseur réussi.
+12:56:13.868 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Affichage mode Défenseur réussi.
+13:02:03.388 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Affichage mode Défenseur réussi.
+13:04:39.352 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Affichage mode Défenseur réussi.
+13:04:49.650 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Affichage mode Défenseur réussi.
+13:05:37.898 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Affichage mode Défenseur réussi.
+13:09:00.178 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Affichage mode Défenseur réussi.
+13:39:35.137 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Affichage mode Défenseur réussi.
+13:40:54.475 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Affichage mode Défenseur réussi.
+13:46:59.332 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Affichage mode Défenseur réussi.
+13:49:07.180 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Affichage mode Défenseur réussi.
+13:50:15.140 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Affichage mode Défenseur réussi.
+13:54:11.985 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Affichage mode Défenseur réussi.
+13:56:56.193 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Affichage mode Défenseur réussi.
+13:58:08.195 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Affichage mode Défenseur réussi.
+14:11:14.700 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Affichage mode Défenseur réussi.
+14:12:06.273 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Fin de partie mode Défenseur
+14:13:24.835 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Affichage mode Défenseur réussi.
+14:13:24.851 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Affichage mode Défenseur réussi.
+14:13:29.012 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Affichage mode Défenseur réussi.
+14:15:13.330 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Affichage mode Défenseur réussi.
+14:16:30.067 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Defenseur - Affichage mode Défenseur réussi.
+14:19:38.133 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Challenger - Affichage mode Challenger réussi.
+14:21:27.742 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+14:21:30.625 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Sauvegarde du fichier properties réussi.
+14:21:31.699 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+14:21:31.709 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Affichage mode challenger réussi
+14:21:35.048 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Fin de partie en mode challenger : Victoire
+14:25:17.514 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+14:25:20.579 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Sauvegarde du fichier properties réussi.
+14:25:21.927 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+14:25:21.937 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Affichage mode challenger réussi
+14:25:26.274 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Fin de partie en mode challenger : Victoire
+14:29:13.159 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+14:29:17.795 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Sauvegarde du fichier properties réussi.
+14:29:19.543 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+14:29:19.553 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Affichage mode challenger réussi
+14:29:24.915 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Fin de partie en mode challenger : Victoire
+14:29:26.622 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+14:29:27.788 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+14:29:27.948 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+14:29:28.035 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+14:29:28.308 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+14:29:38.361 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+14:29:39.318 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+14:31:35.455 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Challenger - Affichage mode Challenger réussi.
+14:31:39.692 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Challenger - Fin de partie mode Challenger.
+14:33:20.678 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+14:33:23.396 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Sauvegarde du fichier properties réussi.
+14:33:24.288 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Propriete - Properties chargées.
+14:33:24.298 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Affichage mode challenger réussi
+14:33:28.044 [Mastermind v1.0] TRACE fr.rasen.mastermind.JeuPm.Vue.FenetreChal - Fin de partie en mode challenger : Victoire
+14:36:14.307 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Challenger - Affichage mode Challenger réussi.
+14:36:18.805 [Mastermind v1.0] TRACE fr.rasen.mastermind.Mastermind.vue.Challenger - Fin de partie mode Challenger.
